@@ -5,8 +5,8 @@
      > 1080px   accueil en deux panneaux, page projet en grille
      ≤ 1280px   accueil à parts égales, pour la place des titres
      ≤ 1080px   colonne unique, le visuel remonte sous le titre
-     ≤ 860px    version mobile : plus de survol, chaque projet devient
-                une carte avec sa propre image
+     ≤ 860px    version mobile : menu replié ; à l'accueil, le projet
+                présenté remplit une case, titres par-dessus le visuel
    ───────────────────────────────────────────────────────────────────── */
 
 :root {
@@ -22,6 +22,8 @@
 
   --page-pad-x: 44px;
   --item-h: 56px;
+  --logo-h: 72px;
+  --header-pad: 28px;  /* marge au-dessus du logo */
 
   /* Taille des titres du carrousel, au repos et au centre (lue aussi par
      app.js pour réduire les titres trop longs). */
@@ -36,6 +38,10 @@
 /* Les règles `display` ci-dessous l'emportent sur le style par défaut de
    [hidden] : on le rétablit pour que le routage puisse masquer les vues. */
 [hidden] { display: none !important; }
+
+/* Le défilement vers un élément (focus au clavier) s'arrête sous l'en-tête
+   fixé en haut de l'écran. */
+html { scroll-padding-top: 112px; }
 
 body {
   margin: 0;
@@ -71,14 +77,14 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ── Marque ──────────────────────────────────────────────────────────── */
 
 .logo { display: block; user-select: none; }
-.logo img { height: 72px; width: auto; display: block; }
+.logo img { height: var(--logo-h); width: auto; display: block; }
 .logo:hover { opacity: .7; }
 
 /* ── Navigation ──────────────────────────────────────────────────────── */
 
 .nav {
   display: flex;
-  gap: 56px;
+  gap: clamp(28px, 3.5vw, 56px);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -86,6 +92,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .nav__link { white-space: nowrap; }
 .nav__link[aria-current] { font-weight: 600; }
+
+/* Bouton du menu : version mobile seulement. */
+.menu-toggle { display: none; }
 
 /* ── Accueil ─────────────────────────────────────────────────────────── */
 
@@ -159,7 +168,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding-inline: 12px;
   overflow-x: hidden;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  /* Vertical seulement : le balayage horizontal reste libre pour le geste
+     « page précédente » du trackpad. */
+  overscroll-behavior-y: contain;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
   padding-block: calc(50cqh - var(--item-h) / 2);
@@ -215,9 +226,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-style: italic;
 }
 
-/* La vignette ne sert qu'à la version mobile. */
-.project-link__thumb { display: none; }
-
 .project-link__go {
   width: 38px;
   height: 38px;
@@ -255,18 +263,37 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* ── Pages intérieures ───────────────────────────────────────────────── */
 
+/* L'en-tête est fixé en haut de l'écran : le menu ne bouge jamais. La
+   page lui réserve la place du logo et de la marge au-dessus. */
 .page {
   min-height: 100vh;
   background: var(--cream);
-  padding: 28px var(--page-pad-x) 72px;
+  padding: calc(var(--header-pad) + var(--logo-h)) var(--page-pad-x) 72px;
 }
 
 .page__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 24px;
+  padding: var(--header-pad) var(--page-pad-x) 12px;
+  background: var(--cream);
+  transition: box-shadow .2s ease;
 }
+
+.page.is-white .page__header { background: var(--white); }
+
+/* Dès que la page défile, le logo se réduit de 30 %, ancré en haut à
+   gauche, et un filet sépare l'en-tête du contenu. */
+.page__header .logo img { transition: height .3s var(--ease-out); }
+
+.is-scrolled .page__header { box-shadow: 0 1px 0 rgba(29, 29, 27, 0.1); }
+.is-scrolled .page__header .logo img { height: calc(var(--logo-h) * 0.7); }
 
 .page__header .nav { padding-top: 14px; }
 
@@ -392,6 +419,125 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-size: 30px;
   display: inline-block;
   margin-top: 12px;
+}
+
+/* ── Services et tarifs ──────────────────────────────────────────────── */
+
+.services { max-width: 720px; }
+
+.offer { margin-top: 56px; }
+
+.offer__title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+.offer__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 32px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(29, 29, 27, 0.14);
+}
+
+.offer__item:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
+
+.offer__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.simple .offer__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted-strong);
+  margin: 4px 0 0;
+}
+
+.simple .offer__price {
+  font-size: 15px;
+  margin: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.simple .packs__intro {
+  font-size: 15px;
+  margin: 12px 0 0;
+}
+
+.packs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pack {
+  padding: 20px;
+  border: 1px solid rgba(29, 29, 27, 0.14);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.pack__hours {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.simple .pack__price {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.simple .pack__detail {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted-strong);
+  margin: 6px 0 0;
+}
+
+.packs__rules {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.packs__rules li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.packs__rules li + li { margin-top: 6px; }
+
+.packs__rules li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.simple .services__note {
+  font-size: 13px;
+  color: var(--muted-strong);
+  margin-top: 40px;
+}
+
+.services__cta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  display: inline-block;
+  margin-top: 16px;
 }
 
 /* ── Portfolio : la galerie ──────────────────────────────────────────────
@@ -536,6 +682,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   to   { opacity: 1; transform: none; }
 }
 
+@keyframes ldFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* `backwards` et non `both` : une fois l'animation finie l'élément reprend
    ses styles normaux, sinon l'opacité figée casserait le fondu du visuel. */
 .anim {
@@ -584,101 +735,168 @@ ul { list-style: none; margin: 0; padding: 0; }
    ───────────────────────────────────────────────────────────────────── */
 
 @media (max-width: 860px) {
-  :root { --page-pad-x: 22px; }
-
-  .logo img { height: 58px; }
-
-  /* Accueil : plus de split, tout est sur le fond crème. */
-  .view--home { flex-direction: column; }
-
-  .home__visual {
-    flex: none;
-    display: block;
-    padding: 22px var(--page-pad-x) 0;
-    position: static;
+  :root {
+    --page-pad-x: 22px;
+    --logo-h: 44px;
+    --header-pad: 16px;
   }
 
-  .logo--home { position: static; }
-  .home__hero { display: none; }
+  html { scroll-padding-top: 80px; }
 
-  .home__panel {
-    flex: 1;
-    background: var(--cream);
-    padding: 18px var(--page-pad-x) 72px;
-  }
+  /* ── Menu ──────────────────────────────────────────────────────────────
+     Replié derrière un bouton. Ouvert, il couvre l'écran ; le logo et le
+     bouton (devenu une croix) restent par-dessus.
+     ───────────────────────────────────────────────────────────────────── */
 
-  .home__panel .nav { justify-content: flex-start; }
-
-  /* Pas de carrousel au doigt : une simple liste qui défile avec la page. */
-  .carousel {
-    flex: none;
-    max-width: none;
-    container-type: normal;
-  }
-
-  .projects {
+  .menu-toggle {
     display: flex;
     flex-direction: column;
-    gap: 46px;
-    height: auto;
-    overflow: visible;
-    scroll-snap-type: none;
-    margin-inline: 0;
-    padding: 34px 0 0;
-    -webkit-mask-image: none;
-    mask-image: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    /* Le trait s'aligne sur la marge de la page, la cible reste large. */
+    margin-right: -11px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
   }
 
-  .projects li {
-    display: block;
-    height: auto;
-    scroll-snap-align: none;
+  .menu-toggle__bar {
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform .3s var(--ease-out);
   }
 
-  .projects li.is-clone { display: none; }
+  .is-menu-open .menu-toggle__bar:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .is-menu-open .menu-toggle__bar:last-child  { transform: translateY(-3.75px) rotate(-45deg); }
 
-  /* Chaque projet devient une carte : image, puis titre. */
-  .project-link {
+  .page__header .nav,
+  .home__panel .nav { display: none; }
+
+  .is-menu-open { overflow: hidden; }
+
+  .is-menu-open .page__header .nav,
+  .is-menu-open .home__panel .nav {
+    display: flex;
+    position: fixed;
+    inset: 0;
     flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+    padding: 112px var(--page-pad-x) 40px;
+    background: var(--cream);
+    font-family: var(--serif);
+    font-size: 40px;
+    font-style: italic;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-transform: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    animation: ldFade .3s ease backwards;
   }
 
-  .project-link__thumb {
+  /* Sous le logo et le bouton, qui sont dans le même empilement. */
+  .is-menu-open .page__header .nav { z-index: -1; }
+  .is-menu-open .home__panel .nav  { z-index: 2; }
+
+  .is-menu-open .nav__link { padding: 6px 0; }
+  .is-menu-open .nav__link[aria-current] { font-weight: 400; color: var(--gold); }
+
+  /* Le logo est déjà réduit : il garde sa taille au défilement. */
+  .is-scrolled .page__header .logo img { height: var(--logo-h); }
+
+  /* ── Accueil ───────────────────────────────────────────────────────────
+     Le projet présenté remplit une case, comme dans la galerie : son
+     visuel en fond, et par-dessus, dans le bas de la case, le carrousel
+     des titres qu'on fait glisser du doigt. Le visuel suit la sélection.
+     ───────────────────────────────────────────────────────────────────── */
+
+  .view--home {
+    --band: 240px;  /* bande des titres, en bas de la case (lue par app.js) */
     display: block;
-    width: 100%;
-    height: auto;
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    background: var(--white);
   }
 
-  /* Le survol n'existe pas : ni italique d'état actif, ni flèche. */
-  .projects li.is-active .project-link__name {
-    font-size: 21px;
-    font-weight: 400;
-    font-style: normal;
+  .logo--home {
+    position: fixed;
+    top: var(--header-pad);
+    left: var(--page-pad-x);
+    z-index: 11;
   }
 
-  .project-link__name {
-    font-size: 21px;
-    white-space: normal;
+  .home__visual,
+  .home__panel {
+    position: absolute;
+    inset: calc(2 * var(--header-pad) + var(--logo-h)) var(--page-pad-x) var(--page-pad-x);
   }
-  .project-link__meta { font-size: 12px; margin-top: 5px; }
-  .projects li.is-active .project-link__go { display: none; }
 
-  /* Cibles tactiles confortables. */
-  .nav {
-    gap: 26px;
-    font-size: 12px;
+  .home__visual {
+    display: block;
+    padding: 0;
+    background: var(--cream);
+    overflow: hidden;
   }
-  .nav__link { padding: 10px 0; }
+
+  /* Le visuel occupe le haut de la case et déborde un peu sous la bande,
+     où un voile crème le fond, comme sous la légende d'une case de la
+     galerie. */
+  .home__hero {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    width: calc(100% - 56px);
+    height: calc(100% - var(--band) + 12px);
+  }
+
+  .home__visual::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--band);
+    background: linear-gradient(to top, var(--cream) 70%, rgba(255, 243, 217, 0));
+  }
+
+  /* Le carrousel couvre toute la case : on le fait glisser n'importe où. */
+  .home__panel {
+    z-index: 1;
+    padding: 0 20px;
+    background: none;
+  }
+
+  .home__panel .menu-toggle {
+    position: fixed;
+    top: var(--header-pad);
+    right: var(--page-pad-x);
+    z-index: 3;
+  }
+
+  .carousel { max-width: none; }
+
+  /* La sélection se fait au centre de la bande ; au-dessus, les titres
+     s'effacent pour laisser voir le visuel. */
+  .projects {
+    --fade: linear-gradient(to bottom,
+      transparent calc(100% - var(--band)),
+      #000 calc(100% - var(--band) / 2 - var(--item-h)),
+      #000 calc(100% - var(--band) / 2 + var(--item-h)),
+      transparent 100%);
+    scroll-padding-top: calc(100% - var(--band));
+  }
 
   /* Pages intérieures */
-  .page { padding: 22px var(--page-pad-x) 64px; }
-
-  .page__header {
-    flex-direction: column;
-    gap: 14px;
-  }
-  .page__header .nav { padding-top: 0; }
+  .page { padding-bottom: 64px; }
 
   .project { gap: 18px; margin-top: 28px; }
 
@@ -703,15 +921,26 @@ ul { list-style: none; margin: 0; padding: 0; }
   .shots { grid-template-columns: 1fr; }
   .shots__main { align-self: stretch; }
   .mail { font-size: 25px; }
+
+  .offer__item {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .packs { grid-template-columns: 1fr; }
 }
 
 /* ── Mouvement réduit ────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  .anim {
+  .anim,
+  .is-menu-open .page__header .nav,
+  .is-menu-open .home__panel .nav {
     animation: none;
   }
   .home__hero,
+  .page__header .logo img,
+  .menu-toggle__bar,
   .project-link__name,
   .project-link__go,
   .back,

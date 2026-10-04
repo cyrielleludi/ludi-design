@@ -1,6 +1,10 @@
 # Cache de l'outil de contrôle de design
 .impeccable/
 
+# Réglages de Claude propres à cet ordinateur (publication automatique)
+.claude/settings.local.json
+.claude/hooks/
+
 # Fichiers système
 Thumbs.db
 desktop.ini

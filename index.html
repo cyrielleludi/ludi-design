@@ -23,8 +23,13 @@
   </div>
 
   <div class="home__panel">
-    <nav class="nav anim" style="--step:0" aria-label="Principale">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-home" aria-label="Ouvrir le menu">
+      <span class="menu-toggle__bar"></span>
+      <span class="menu-toggle__bar"></span>
+    </button>
+    <nav class="nav anim" id="nav-home" style="--step:0" aria-label="Principale">
       <a class="nav__link" href="#/portfolio">Portfolio</a>
+      <a class="nav__link" href="#/services">Services</a>
       <a class="nav__link" href="#/a-propos">À propos</a>
       <a class="nav__link" href="#/contact">Contact</a>
     </nav>
@@ -41,8 +46,13 @@
     <a class="logo" href="#/" aria-label="Ludi Design — accueil">
       <img src="assets/logo.svg" alt="" width="47" height="72">
     </a>
-    <nav class="nav" aria-label="Principale">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-pages" aria-label="Ouvrir le menu">
+      <span class="menu-toggle__bar"></span>
+      <span class="menu-toggle__bar"></span>
+    </button>
+    <nav class="nav" id="nav-pages" aria-label="Principale">
       <a class="nav__link" href="#/portfolio">Portfolio</a>
+      <a class="nav__link" href="#/services">Services</a>
       <a class="nav__link" href="#/a-propos">À propos</a>
       <a class="nav__link" href="#/contact">Contact</a>
     </nav>
@@ -87,6 +97,150 @@
   <section class="view simple" id="view-about" hidden>
     <h1 class="anim" style="--step:0" tabindex="-1">À propos</h1>
     <p class="anim" style="--step:1">Cyrielle Lüdi — graphiste spécialisée en identité visuelle, édition, affiche et packaging. Basée en Suisse, je conçois des identités simples, ludiques et soignées pour des marques, des festivals et des projets culturels.</p>
+  </section>
+
+  <!-- Services et tarifs -->
+  <section class="view simple services" id="view-services" hidden>
+    <h1 class="anim" style="--step:0" tabindex="-1">Services &amp; tarifs</h1>
+    <p class="anim" style="--step:1">Chaque projet est différent : ces prix donnent un ordre de grandeur. Après un premier échange, je vous envoie un devis détaillé et gratuit.</p>
+
+    <section class="offer anim" style="--step:2" aria-labelledby="offer-identite">
+      <h2 class="offer__title" id="offer-identite">Identité visuelle</h2>
+      <ul class="offer__list">
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Logo</h3>
+            <p class="offer__desc">Deux pistes créatives, deux séries de corrections, fichiers finaux pour le print et le web.</p>
+          </div>
+          <p class="offer__price">dès CHF 900</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Identité visuelle complète</h3>
+            <p class="offer__desc">Logo, couleurs, typographies, charte graphique et premières déclinaisons (papeterie, réseaux sociaux).</p>
+          </div>
+          <p class="offer__price">dès CHF 2'400</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="offer anim" style="--step:3" aria-labelledby="offer-affiche">
+      <h2 class="offer__title" id="offer-affiche">Affiche &amp; imprimés</h2>
+      <ul class="offer__list">
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Affiche</h3>
+            <p class="offer__desc">Création d'une affiche (A3 à F4), prête pour l'impression.</p>
+          </div>
+          <p class="offer__price">dès CHF 550</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Déclinaison d'un visuel</h3>
+            <p class="offer__desc">Adaptation à un autre format : flyer, bannière web, publication.</p>
+          </div>
+          <p class="offer__price">dès CHF 150</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Flyer recto-verso</h3>
+            <p class="offer__desc">Mise en page d'un flyer ou d'un carton d'invitation.</p>
+          </div>
+          <p class="offer__price">dès CHF 400</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Carte de visite</h3>
+            <p class="offer__desc">À partir d'un logo existant.</p>
+          </div>
+          <p class="offer__price">dès CHF 200</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="offer anim" style="--step:4" aria-labelledby="offer-edition">
+      <h2 class="offer__title" id="offer-edition">Édition</h2>
+      <ul class="offer__list">
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Brochure ou dépliant</h3>
+            <p class="offer__desc">Conception et mise en page, jusqu'à 8 pages.</p>
+          </div>
+          <p class="offer__price">dès CHF 900</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Livre, catalogue, rapport annuel</h3>
+            <p class="offer__desc">Maquette et mise en page de documents longs.</p>
+          </div>
+          <p class="offer__price">dès CHF 50 / page</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="offer anim" style="--step:5" aria-labelledby="offer-packaging">
+      <h2 class="offer__title" id="offer-packaging">Packaging</h2>
+      <ul class="offer__list">
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Étiquette</h3>
+            <p class="offer__desc">Vin, miel, bière, produits du terroir : création d'une étiquette prête pour l'impression.</p>
+          </div>
+          <p class="offer__price">dès CHF 650</p>
+        </li>
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Emballage complet</h3>
+            <p class="offer__desc">Boîte, sachet ou gamme de produits, du concept au fichier d'impression.</p>
+          </div>
+          <p class="offer__price">dès CHF 1'800</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="offer anim" style="--step:6" aria-labelledby="offer-heure">
+      <h2 class="offer__title" id="offer-heure">Au temps passé</h2>
+      <ul class="offer__list">
+        <li class="offer__item">
+          <div>
+            <h3 class="offer__name">Tarif horaire</h3>
+            <p class="offer__desc">Retouches, adaptations, petits travaux et corrections supplémentaires.</p>
+          </div>
+          <p class="offer__price">CHF 90 / h</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="offer anim" style="--step:7" aria-labelledby="offer-packs">
+      <h2 class="offer__title" id="offer-packs">Packs d'heures</h2>
+      <p class="packs__intro">Vous achetez un pack en une fois, puis vous m'envoyez vos demandes tout au long de l'année : flyers, publications, retouches, adaptations… Le temps passé est déduit de vos heures.</p>
+      <ul class="packs">
+        <li class="pack">
+          <h3 class="pack__hours">10 heures</h3>
+          <p class="pack__price">CHF 850</p>
+          <p class="pack__detail">soit CHF 85 / h<br>économie de CHF 50</p>
+        </li>
+        <li class="pack">
+          <h3 class="pack__hours">20 heures</h3>
+          <p class="pack__price">CHF 1'600</p>
+          <p class="pack__detail">soit CHF 80 / h<br>économie de CHF 200</p>
+        </li>
+        <li class="pack">
+          <h3 class="pack__hours">40 heures</h3>
+          <p class="pack__price">CHF 3'000</p>
+          <p class="pack__detail">soit CHF 75 / h<br>économie de CHF 600</p>
+        </li>
+      </ul>
+      <ul class="packs__rules">
+        <li>Payé en une fois, à la commande.</li>
+        <li>Avant chaque demande, je vous indique le temps estimé.</li>
+        <li>Temps compté au quart d'heure, avec un relevé de vos heures restantes après chaque projet.</li>
+        <li>S'il vous reste des heures, elles sont valables 3 ans après votre première demande.</li>
+      </ul>
+    </section>
+
+    <p class="services__note anim" style="--step:8">Prix en francs suisses, frais d'impression non compris. Deux séries de corrections incluses dans chaque forfait.</p>
+    <a class="services__cta anim" style="--step:9" href="#/contact">Demander un devis</a>
   </section>
 
   <!-- Contact -->

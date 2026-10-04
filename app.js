@@ -124,6 +124,7 @@
     pages: document.getElementById('pages'),
     project: document.getElementById('view-project'),
     about: document.getElementById('view-about'),
+    services: document.getElementById('view-services'),
     contact: document.getElementById('view-contact'),
     portfolio: document.getElementById('view-portfolio'),
     gallery: document.getElementById('gallery'),
@@ -153,7 +154,7 @@
 
   /* Profondeur de chaque vue : sert à savoir si l'on avance ou si l'on
      revient, donc de quel côté la page doit glisser. */
-  var DEPTH = { home: 0, portfolio: 1, about: 1, contact: 1, project: 2 };
+  var DEPTH = { home: 0, portfolio: 1, about: 1, services: 1, contact: 1, project: 2 };
   var previousView = null;
 
   /* D'où l'on est arrivé sur une page projet (accueil ou galerie) : c'est
@@ -209,18 +210,6 @@
     link.className = 'project-link';
     link.href = '#/projet/' + project.slug;
     if (!isReal) link.tabIndex = -1;
-
-    /* Vignette : version mobile seulement, où le grand visuel d'accueil
-       disparaît faute de survol. Les copies n'y sont jamais affichées.
-       `loading` avant `src`, sinon le chargement part tout de suite. */
-    if (isReal) {
-      var thumb = document.createElement('img');
-      thumb.className = 'project-link__thumb';
-      thumb.loading = 'lazy';
-      thumb.alt = '';
-      thumb.src = project.cover;
-      link.appendChild(thumb);
-    }
 
     var text = document.createElement('div');
     text.className = 'project-link__text';
@@ -455,6 +444,7 @@
 
     if (hash === 'portfolio') return { view: 'portfolio' };
     if (hash === 'a-propos') return { view: 'about' };
+    if (hash === 'services') return { view: 'services' };
     if (hash === 'contact') return { view: 'contact' };
 
     var match = /^projet\/(.+)$/.exec(hash);
@@ -485,6 +475,7 @@
     el.portfolio.hidden = view !== 'portfolio';
     el.project.hidden = view !== 'project';
     el.about.hidden = view !== 'about';
+    el.services.hidden = view !== 'services';
     el.contact.hidden = view !== 'contact';
 
     if (isHome) enterHome();
@@ -498,11 +489,13 @@
     replayAnimations(view);
     previousView = view;
 
+    setMenu(false);
     if (booted) {
       window.scrollTo(0, backToGallery ? galleryScrollY : 0);
       if (backToGallery) focusTile(activeSlug);
       else focusHeading(view);
     }
+    onWindowScroll();
   }
 
   /* De quel côté la vue doit-elle entrer ? */
@@ -516,6 +509,7 @@
     if (route.view === 'project') return route.project.name + ' — ' + SITE_NAME;
     if (route.view === 'portfolio') return 'Portfolio — ' + SITE_NAME;
     if (route.view === 'about') return 'À propos — ' + SITE_NAME;
+    if (route.view === 'services') return 'Services & tarifs — ' + SITE_NAME;
     if (route.view === 'contact') return 'Contact — ' + SITE_NAME;
     return SITE_NAME + ' — Cyrielle Lüdi, graphiste';
   }
@@ -524,6 +518,7 @@
     /* Une page projet fait partie du portfolio. L'accueil n'a pas d'entrée
        dans le menu : on y revient par le logo. */
     var current = view === 'about' ? '#/a-propos'
+                : view === 'services' ? '#/services'
                 : view === 'contact' ? '#/contact'
                 : view === 'portfolio' || view === 'project' ? '#/portfolio'
                 : null;
@@ -543,6 +538,7 @@
       portfolio: el.portfolio,
       project: el.project,
       about: el.about,
+      services: el.services,
       contact: el.contact
     }[view];
   }
@@ -568,14 +564,54 @@
     if (heading) heading.focus({ preventScroll: true });
   }
 
-  /* ── Carrousel ─────────────────────────────────────────────────────────
-     Le projet sélectionné reste au centre de la liste. Molette, flèches ou
-     clic sur un autre titre le font glisser jusqu'au centre ; un clic sur
-     le titre centré ouvre le projet. Le survol ne sélectionne pas : le
-     titre fuirait sous la souris et la liste s'emballerait.
+  /* En-tête fixé en haut de l'écran : dès que la page défile, le logo se
+     réduit et un filet sépare l'en-tête du contenu. */
+  function onWindowScroll() {
+    document.body.classList.toggle('is-scrolled', window.scrollY > 0);
+  }
+
+  /* ── Menu ──────────────────────────────────────────────────────────────
+     Au téléphone, le menu est replié derrière un bouton ; ouvert, il couvre
+     l'écran. Il se referme au choix d'une page, avec Échap, ou quand
+     l'écran s'élargit.
      ───────────────────────────────────────────────────────────────────── */
 
-  var carouselLayout = window.matchMedia('(min-width: 861px)');
+  var compactLayout = window.matchMedia('(max-width: 860px)');
+  var menuToggles = document.querySelectorAll('.menu-toggle');
+
+  function isMenuOpen() {
+    return document.body.classList.contains('is-menu-open');
+  }
+
+  function setMenu(open) {
+    document.body.classList.toggle('is-menu-open', open);
+    Array.prototype.forEach.call(menuToggles, function (toggle) {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+  }
+
+  function onMenuKeydown(e) {
+    if (e.key !== 'Escape' || !isMenuOpen()) return;
+    setMenu(false);
+
+    /* Le focus revient au bouton visible (celui de la vue affichée). */
+    Array.prototype.forEach.call(menuToggles, function (toggle) {
+      if (toggle.getClientRects().length) toggle.focus();
+    });
+  }
+
+  /* ── Carrousel ─────────────────────────────────────────────────────────
+     Le projet sélectionné reste au centre de la liste. Molette, flèches,
+     doigt ou clic sur un autre titre le font glisser jusqu'au centre ; un
+     clic sur le titre centré ouvre le projet. Le survol ne sélectionne
+     pas : le titre fuirait sous la souris et la liste s'emballerait.
+
+     Au téléphone, la liste couvre toute la case du visuel, mais la
+     sélection se fait au centre de la bande des titres, en bas de la case
+     (--band, voir styles.css) ; au-dessus, les titres sont effacés.
+     ───────────────────────────────────────────────────────────────────── */
+
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   var WHEEL_STEP = 40;       // px de molette pour avancer d'un projet
@@ -591,8 +627,16 @@
   var wheelLockedUntil = 0;
   var preloaded = {};
 
-  function isCarousel() {
-    return carouselLayout.matches;
+  /* Hauteur de la bande des titres, ou 0 quand toute la liste est visible. */
+  function bandHeight() {
+    return parseFloat(getComputedStyle(el.list).getPropertyValue('--band')) || 0;
+  }
+
+  /* Hauteur, dans la liste, du point où se fait la sélection. */
+  function anchorY() {
+    var height = el.list.clientHeight;
+    var band = bandHeight();
+    return band ? height - band / 2 : height / 2;
   }
 
   function target() {
@@ -603,15 +647,15 @@
     return Math.max(0, Math.min(nodes.length - 1, k));
   }
 
-  /* Position de défilement qui amène le nœud k au centre. */
+  /* Position de défilement qui amène le nœud k au point de sélection. */
   function topFor(k) {
     var li = nodes[k].li;
-    return li.offsetTop + li.offsetHeight / 2 - el.list.clientHeight / 2;
+    return li.offsetTop + li.offsetHeight / 2 - anchorY();
   }
 
   function nodeAtCenter() {
     var first = nodes[0].li;
-    var middle = el.list.scrollTop + el.list.clientHeight / 2;
+    var middle = el.list.scrollTop + anchorY();
     return clampNode(Math.round((middle - first.offsetTop - first.offsetHeight / 2) / first.offsetHeight));
   }
 
@@ -651,7 +695,7 @@
   function settle() {
     if (touching) { armSettle(); return; }
     pending = null;
-    if (!isCarousel() || el.home.hidden || centered < 0) return;
+    if (el.home.hidden || centered < 0) return;
 
     var node = nodes[centered];
     if (node.copy !== MIDDLE) scrollToNode(MIDDLE * N + node.index, true);
@@ -662,21 +706,20 @@
   function enterHome() {
     fitTitles();
 
-    var carousel = isCarousel();
     var index = Math.max(0, PROJECTS.indexOf(findProject(activeSlug)));
     var k = MIDDLE * N + index;
 
     nodes.forEach(function (node, j) {
-      var distance = carousel ? Math.abs(j - k) : node.index;
+      var distance = Math.abs(j - k);
       node.li.style.setProperty('--step', Math.min(distance, 8));
-      node.li.classList.toggle('is-far', carousel && distance > 7);
+      node.li.classList.toggle('is-far', distance > 7);
     });
 
-    if (carousel) scrollToNode(k, true);
+    scrollToNode(k, true);
   }
 
   function recenter() {
-    if (!isCarousel() || el.home.hidden || centered < 0) return;
+    if (el.home.hidden || centered < 0) return;
     scrollToNode(MIDDLE * N + nodes[centered].index, true);
   }
 
@@ -697,7 +740,7 @@
   }
 
   function fitTitles() {
-    if (!isCarousel() || el.home.hidden) return;
+    if (el.home.hidden) return;
 
     var link = nodes[MIDDLE * N].link;
     var width = link.clientWidth;
@@ -728,7 +771,6 @@
   /* Précharge les visuels voisins de la sélection : le fondu reste
      immédiat sans tout charger d'avance, même avec beaucoup de projets. */
   function preloadAround(index) {
-    if (!isCarousel()) return;
     for (var d = -2; d <= 2; d++) {
       var cover = PROJECTS[(index + d + N) % N].cover;
       if (preloaded[cover]) continue;
@@ -738,14 +780,29 @@
   }
 
   function onLinkClick(e, k) {
-    if (!isCarousel() || e.detail === 0) return;  // mobile, ou Entrée : on ouvre
-    if (k === target()) return;                   // titre centré : on ouvre
+    if (e.detail === 0) return;  // Entrée : on ouvre
+
+    /* Au téléphone, toucher le visuel (où les titres sont effacés) ouvre
+       le projet présenté. */
+    if (isUnderVisual(nodes[k].li)) {
+      e.preventDefault();
+      if (centered >= 0) window.location.hash = '#/projet/' + nodes[centered].project.slug;
+      return;
+    }
+
+    if (k === target()) return;  // titre centré : on ouvre
     e.preventDefault();
     scrollToNode(k);
   }
 
+  function isUnderVisual(li) {
+    var band = bandHeight();
+    if (!band) return false;
+    var item = li.getBoundingClientRect();
+    return item.top + item.height / 2 < el.list.getBoundingClientRect().bottom - band;
+  }
+
   function onLinkFocus(index) {
-    if (!isCarousel()) return;
     var t = target();
     if (t >= 0 && nodes[t].index === index) return;
     scrollToNode(MIDDLE * N + index);
@@ -755,11 +812,14 @@
      soit traité, et un titre excentré s'ouvrirait au lieu de venir au
      centre. Le focus au clavier reste normal. */
   function onListMousedown(e) {
-    if (isCarousel() && e.target.closest('.project-link')) e.preventDefault();
+    if (e.target.closest('.project-link')) e.preventDefault();
   }
 
   function onWheel(e) {
-    if (!isCarousel() || e.ctrlKey || !e.deltaY) return;  // ctrl + molette : zoom
+    if (e.ctrlKey || !e.deltaY) return;  // ctrl + molette : zoom
+    /* Balayage horizontal (deux doigts sur le trackpad) : on le laisse au
+       navigateur, qui s'en sert pour revenir à la page précédente. */
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
     e.preventDefault();
 
     var now = performance.now();
@@ -777,7 +837,7 @@
   }
 
   function onKeydown(e) {
-    if (el.home.hidden || !isCarousel()) return;
+    if (el.home.hidden || isMenuOpen()) return;
     if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
 
     var direction = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
@@ -799,7 +859,7 @@
 
   function syncToScroll() {
     scrollFrame = 0;
-    if (!isCarousel() || el.home.hidden) return;
+    if (el.home.hidden) return;
     markCentered(nodeAtCenter());
   }
 
@@ -819,8 +879,20 @@
     }, { passive: true });
   });
   document.addEventListener('keydown', onKeydown);
+  document.addEventListener('keydown', onMenuKeydown);
   window.addEventListener('hashchange', render);
-  carouselLayout.addEventListener('change', function () {
+  window.addEventListener('scroll', onWindowScroll, { passive: true });
+
+  Array.prototype.forEach.call(menuToggles, function (toggle) {
+    toggle.addEventListener('click', function () { setMenu(!isMenuOpen()); });
+  });
+  /* Un lien du menu referme le menu, même vers la page déjà affichée. */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.nav__link')) setMenu(false);
+  });
+
+  compactLayout.addEventListener('change', function () {
+    setMenu(false);
     if (!el.home.hidden) enterHome();
   });
   if (window.ResizeObserver) {
