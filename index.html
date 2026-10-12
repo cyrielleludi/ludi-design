@@ -193,148 +193,103 @@
     </p>
   </section>
 
-  <!-- Services et tarifs -->
-  <section class="view simple services" id="view-services" hidden>
-    <h1 class="anim" style="--step:0" tabindex="-1">Services &amp; tarifs</h1>
-    <p class="anim" style="--step:1">Chaque projet est différent : ces prix donnent un ordre de grandeur. Après un premier échange, je vous envoie un devis détaillé et gratuit.</p>
+  <!-- Services et tarifs : galerie des offres, tarifs au survol -->
+  <section class="view services" id="view-services" hidden>
+    <header class="services__head anim" style="--step:0">
+      <h1 tabindex="-1">Services &amp; tarifs</h1>
+      <p>Chaque projet est différent&nbsp;: ces prix donnent un ordre de grandeur. Après un premier échange, je vous envoie un devis détaillé et gratuit.</p>
+      <p class="services__tip">Survolez une case pour découvrir les tarifs.</p>
+    </header>
 
-    <section class="offer anim" style="--step:2" aria-labelledby="offer-identite">
-      <h2 class="offer__title" id="offer-identite">Identité visuelle</h2>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Logo</h3>
-            <p class="offer__desc">Deux pistes créatives, deux séries de corrections, fichiers finaux pour le print et le web.</p>
-          </div>
-          <p class="offer__price">dès CHF 900</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Identité visuelle complète</h3>
-            <p class="offer__desc">Logo, couleurs, typographies, charte graphique et premières déclinaisons (papeterie, réseaux sociaux).</p>
-          </div>
-          <p class="offer__price">dès CHF 2'400</p>
-        </li>
-      </ul>
-    </section>
+    <ul class="services__grid" role="list">
+      <li class="service anim" style="--step:1">
+        <div class="service__frame">
+          <img class="service__img" src="assets/hero-stayfocus.webp" alt="" width="1500" height="1300" loading="lazy" decoding="async">
+        </div>
+        <h2 class="service__name">Identité visuelle</h2>
+        <p class="service__hint">Logo, couleurs, typographies, charte</p>
+        <div class="service__prices">
+          <ul class="service__list">
+            <li><span>Logo</span><span>dès CHF 900</span></li>
+            <li><span>Identité visuelle complète</span><span>dès CHF 2'400</span></li>
+          </ul>
+          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+        </div>
+      </li>
+      <li class="service anim" style="--step:2">
+        <div class="service__frame">
+          <img class="service__img" src="assets/pf-volley.webp" alt="" width="752" height="1096" loading="lazy" decoding="async">
+        </div>
+        <h2 class="service__name">Affiche &amp; imprimés</h2>
+        <p class="service__hint">Affiches, flyers, cartes de visite</p>
+        <div class="service__prices">
+          <ul class="service__list">
+            <li><span>Affiche</span><span>dès CHF 550</span></li>
+            <li><span>Flyer recto-verso</span><span>dès CHF 400</span></li>
+            <li><span>Carte de visite</span><span>dès CHF 200</span></li>
+            <li><span>Déclinaison d'un visuel</span><span>dès CHF 150</span></li>
+          </ul>
+          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+        </div>
+      </li>
+      <li class="service anim" style="--step:3">
+        <div class="service__frame">
+          <img class="service__img" src="assets/pf-finhaut.webp" alt="" width="1500" height="1185" loading="lazy" decoding="async">
+        </div>
+        <h2 class="service__name">Édition</h2>
+        <p class="service__hint">Brochures, livres, catalogues</p>
+        <div class="service__prices">
+          <ul class="service__list">
+            <li><span>Brochure ou dépliant (jusqu'à 8 pages)</span><span>dès CHF 900</span></li>
+            <li><span>Livre, catalogue, rapport annuel</span><span>dès CHF 50 / page</span></li>
+          </ul>
+          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+        </div>
+      </li>
+      <li class="service anim" style="--step:4">
+        <div class="service__frame">
+          <img class="service__img" src="assets/pf-potmiel.webp" alt="" width="728" height="1280" loading="lazy" decoding="async">
+        </div>
+        <h2 class="service__name">Packaging</h2>
+        <p class="service__hint">Étiquettes, emballages</p>
+        <div class="service__prices">
+          <ul class="service__list">
+            <li><span>Étiquette (vin, miel, terroir…)</span><span>dès CHF 650</span></li>
+            <li><span>Emballage complet</span><span>dès CHF 1'800</span></li>
+          </ul>
+          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+        </div>
+      </li>
+      <li class="service service--wide anim" style="--step:5">
+        <div class="service__frame service__frame--text" aria-hidden="true">
+          <span>10&nbsp;h</span><span>20&nbsp;h</span><span>40&nbsp;h</span>
+        </div>
+        <h2 class="service__name">Packs d'heures</h2>
+        <p class="service__hint">Payés une fois, à utiliser pour toutes vos demandes de l'année</p>
+        <div class="service__prices">
+          <ul class="service__list">
+            <li><span>10 heures, soit CHF 85 / h</span><span>CHF 850</span></li>
+            <li><span>20 heures, soit CHF 80 / h</span><span>CHF 1'600</span></li>
+            <li><span>40 heures, soit CHF 75 / h</span><span>CHF 3'000</span></li>
+            <li><span>Sans pack, au temps passé</span><span>CHF 90 / h</span></li>
+          </ul>
+          <a class="service__cta" href="#/contact">Réserver un pack<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+        </div>
+      </li>
+    </ul>
 
-    <section class="offer anim" style="--step:3" aria-labelledby="offer-affiche">
-      <h2 class="offer__title" id="offer-affiche">Affiche &amp; imprimés</h2>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Affiche</h3>
-            <p class="offer__desc">Création d'une affiche (A3 à F4), prête pour l'impression.</p>
-          </div>
-          <p class="offer__price">dès CHF 550</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Déclinaison d'un visuel</h3>
-            <p class="offer__desc">Adaptation à un autre format : flyer, bannière web, publication.</p>
-          </div>
-          <p class="offer__price">dès CHF 150</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Flyer recto-verso</h3>
-            <p class="offer__desc">Mise en page d'un flyer ou d'un carton d'invitation.</p>
-          </div>
-          <p class="offer__price">dès CHF 400</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Carte de visite</h3>
-            <p class="offer__desc">À partir d'un logo existant.</p>
-          </div>
-          <p class="offer__price">dès CHF 200</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="offer anim" style="--step:4" aria-labelledby="offer-edition">
-      <h2 class="offer__title" id="offer-edition">Édition</h2>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Brochure ou dépliant</h3>
-            <p class="offer__desc">Conception et mise en page, jusqu'à 8 pages.</p>
-          </div>
-          <p class="offer__price">dès CHF 900</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Livre, catalogue, rapport annuel</h3>
-            <p class="offer__desc">Maquette et mise en page de documents longs.</p>
-          </div>
-          <p class="offer__price">dès CHF 50 / page</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="offer anim" style="--step:5" aria-labelledby="offer-packaging">
-      <h2 class="offer__title" id="offer-packaging">Packaging</h2>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Étiquette</h3>
-            <p class="offer__desc">Vin, miel, bière, produits du terroir : création d'une étiquette prête pour l'impression.</p>
-          </div>
-          <p class="offer__price">dès CHF 650</p>
-        </li>
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Emballage complet</h3>
-            <p class="offer__desc">Boîte, sachet ou gamme de produits, du concept au fichier d'impression.</p>
-          </div>
-          <p class="offer__price">dès CHF 1'800</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="offer anim" style="--step:6" aria-labelledby="offer-heure">
-      <h2 class="offer__title" id="offer-heure">Au temps passé</h2>
-      <ul class="offer__list">
-        <li class="offer__item">
-          <div>
-            <h3 class="offer__name">Tarif horaire</h3>
-            <p class="offer__desc">Retouches, adaptations, petits travaux et corrections supplémentaires.</p>
-          </div>
-          <p class="offer__price">CHF 90 / h</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="offer anim" style="--step:7" aria-labelledby="offer-packs">
-      <h2 class="offer__title" id="offer-packs">Packs d'heures</h2>
-      <p class="packs__intro">Vous achetez un pack en une fois, puis vous m'envoyez vos demandes tout au long de l'année : flyers, publications, retouches, adaptations… Le temps passé est déduit de vos heures.</p>
-      <ul class="packs">
-        <li class="pack">
-          <h3 class="pack__hours">10 heures</h3>
-          <p class="pack__price">CHF 850</p>
-          <p class="pack__detail">soit CHF 85 / h<br>économie de CHF 50</p>
-        </li>
-        <li class="pack">
-          <h3 class="pack__hours">20 heures</h3>
-          <p class="pack__price">CHF 1'600</p>
-          <p class="pack__detail">soit CHF 80 / h<br>économie de CHF 200</p>
-        </li>
-        <li class="pack">
-          <h3 class="pack__hours">40 heures</h3>
-          <p class="pack__price">CHF 3'000</p>
-          <p class="pack__detail">soit CHF 75 / h<br>économie de CHF 600</p>
-        </li>
-      </ul>
-      <ul class="packs__rules">
-        <li>Payé en une fois, à la commande.</li>
-        <li>Avant chaque demande, je vous indique le temps estimé.</li>
-        <li>Temps compté au quart d'heure, avec un relevé de vos heures restantes après chaque projet.</li>
+    <section class="services__notes anim" style="--step:6" aria-labelledby="services-notes">
+      <h2 class="services__title" id="services-notes">Bon à savoir</h2>
+      <ul>
+        <li>Prix en francs suisses, frais d'impression non compris.</li>
+        <li>Deux séries de corrections incluses dans chaque forfait.</li>
+        <li>Les packs d'heures sont payés en une fois, à la commande. Avant chaque demande, je vous indique le temps estimé&nbsp;; il est ensuite compté au quart d'heure, avec un relevé de vos heures restantes après chaque projet.</li>
         <li>S'il vous reste des heures, elles sont valables 3 ans après votre première demande.</li>
       </ul>
     </section>
 
-    <p class="services__note anim" style="--step:8">Prix en francs suisses, frais d'impression non compris. Deux séries de corrections incluses dans chaque forfait.</p>
-    <a class="services__cta anim" style="--step:9" href="#/contact">Demander un devis</a>
+    <p class="services__invite anim" style="--step:7">Un projet en tête&nbsp;?</p>
+    <a class="services__cta anim" style="--step:8" href="#/contact">Demander un devis</a>
   </section>
 
   <!-- Contact -->

@@ -421,14 +421,215 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-top: 12px;
 }
 
-/* ── Services et tarifs ──────────────────────────────────────────────── */
+/* ── Services et tarifs ──────────────────────────────────────────────────
+   Galerie des offres, dans l'esprit du portfolio : chaque famille de
+   services est une case crème illustrée par un projet. Le nom reste
+   visible ; à la souris, les tarifs apparaissent au survol, au doigt ils
+   sont affichés sous la case.
+   ───────────────────────────────────────────────────────────────────── */
 
-.services { max-width: 720px; }
+.services { margin-top: 56px; }
 
-.offer,
-.about__section { margin-top: 56px; }
+.services__head { max-width: 620px; }
 
-.offer__title,
+.services__head h1 {
+  font-size: 44px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.services__head p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 20px 0 0;
+  text-wrap: pretty;
+}
+
+.services__tip { display: none; }
+
+.services__grid {
+  --cols: 3;
+  --gap: 12px;
+
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 36px var(--gap);
+  margin-top: 40px;
+}
+
+/* Chaque case est carrée ; la case large prend la hauteur de ses
+   voisines : sa largeur, moins l'espacement, divisée par deux. */
+.service {
+  --frame-h: 100cqw;
+  position: relative;
+  container-type: inline-size;
+}
+
+.service--wide {
+  --frame-h: calc((100cqw - var(--gap)) / 2);
+  grid-column: span 2;
+}
+
+.service__frame {
+  height: var(--frame-h);
+  padding: 9%;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.service__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .7s var(--ease-out);
+}
+
+/* Case large : les tarifs gardent une largeur de lecture confortable. */
+.service--wide .service__list,
+.service--wide .service__cta { max-width: 420px; }
+
+/* La case des packs : des chiffres en guise d'image. */
+.service__frame--text {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(36px, 9cqw, 110px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.service__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0 0;
+}
+
+.service__hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 3px 0 0;
+}
+
+/* Au doigt : les tarifs sous la case. */
+.service__prices {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.service__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-top: 1px solid rgba(29, 29, 27, 0.12);
+}
+
+.service__list li span:last-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.service__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.service__go { display: none; }
+
+/* À la souris : la case seule ; les tarifs montent au survol sur un voile
+   crème, comme la légende des projets de la galerie. */
+@media (hover: hover) {
+  .services__tip {
+    display: block;
+    font-size: 14px;
+    color: var(--muted-strong);
+  }
+
+  .service__prices {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--frame-h);
+    margin: 0;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, var(--cream) 62%, rgba(255, 243, 217, 0));
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s ease, transform .35s var(--ease-out);
+  }
+
+  .service__cta {
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .service__go {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    transition: background-color .2s ease;
+  }
+
+  .service__go .chevron {
+    width: 7px;
+    height: 7px;
+    margin-left: -2px;
+  }
+
+  .service__cta:hover { color: inherit; }
+  .service__cta:hover .service__go { background: var(--gold); }
+
+  .service:hover .service__img { transform: scale(1.04); }
+
+  .service:hover .service__prices,
+  .service:focus-within .service__prices {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.services__notes {
+  max-width: 620px;
+  margin-top: 64px;
+}
+
+.services__notes ul {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.services__invite {
+  font-size: 16px;
+  margin: 48px 0 0;
+}
+
+/* Titres de rubrique, listes à tirets et appel final : partagés avec la
+   page À propos. */
+.services__title,
 .about__title {
   font-family: var(--serif);
   font-style: italic;
@@ -437,109 +638,21 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 0 0 8px;
 }
 
-.offer__item,
-.about__row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 32px;
-  padding: 18px 0;
-  border-top: 1px solid rgba(29, 29, 27, 0.14);
-}
-
-.offer__item:last-child,
-.about__row:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
-
-.offer__name,
-.about__what {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.simple .offer__desc,
-.simple .about__where {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--muted-strong);
-  margin: 4px 0 0;
-}
-
-.simple .offer__price,
-.simple .about__when {
-  font-size: 15px;
-  margin: 0;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.simple .packs__intro {
-  font-size: 15px;
-  margin: 12px 0 0;
-}
-
-.packs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.pack {
-  padding: 20px;
-  border: 1px solid rgba(29, 29, 27, 0.14);
-  background: rgba(255, 255, 255, 0.45);
-}
-
-.pack__hours {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.simple .pack__price {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  line-height: 1.1;
-  margin: 10px 0 0;
-  font-variant-numeric: tabular-nums;
-}
-
-.simple .pack__detail {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--muted-strong);
-  margin: 6px 0 0;
-}
-
-.packs__rules {
-  margin-top: 24px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.packs__rules li,
+.services__notes li,
 .about__list li {
   position: relative;
   padding-left: 18px;
 }
 
-.packs__rules li + li,
+.services__notes li + li,
 .about__list li + li { margin-top: 6px; }
 
-.packs__rules li::before,
+.services__notes li::before,
 .about__list li::before {
   content: "–";
   position: absolute;
   left: 0;
   color: var(--gold);
-}
-
-.simple .services__note {
-  font-size: 13px;
-  color: var(--muted-strong);
-  margin-top: 40px;
 }
 
 .services__cta,
@@ -554,6 +667,39 @@ ul { list-style: none; margin: 0; padding: 0; }
 /* ── À propos ────────────────────────────────────────────────────────── */
 
 .about { max-width: 760px; }
+
+.about__section { margin-top: 56px; }
+
+.about__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 32px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(29, 29, 27, 0.14);
+}
+
+.about__row:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
+
+.about__what {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.simple .about__where {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted-strong);
+  margin: 4px 0 0;
+}
+
+.simple .about__when {
+  font-size: 15px;
+  margin: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
 
 .about__intro {
   display: grid;
@@ -752,6 +898,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 @media (min-width: 1680px) { .gallery__grid { --cols: 5; } }
 @media (max-width: 1180px) { .gallery__grid { --cols: 3; } }
+@media (max-width: 1080px) { .services__grid { --cols: 2; } }
 
 /* ── Entrées animées ─────────────────────────────────────────────────────
    La direction vient de [data-dir] posé sur <body> par app.js : on avance
@@ -1002,7 +1149,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   }
 
   .detail__name { font-size: 32px; }
-  .simple h1 { font-size: 32px; }
+  .simple h1,
+  .services__head h1 { font-size: 32px; }
+  .services { margin-top: 28px; }
 
   .about__intro {
     grid-template-columns: 1fr;
@@ -1022,13 +1171,19 @@ ul { list-style: none; margin: 0; padding: 0; }
   .shots__main { align-self: stretch; }
   .mail { font-size: 25px; }
 
-  .offer__item,
   .about__row {
     flex-direction: column;
     gap: 6px;
   }
+}
 
-  .packs { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .services__grid { --cols: 1; }
+  .service { --frame-h: 80cqw; }
+  .service--wide {
+    --frame-h: 56cqw;
+    grid-column: auto;
+  }
 }
 
 /* ── Mouvement réduit ────────────────────────────────────────────────── */
@@ -1047,8 +1202,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   .project-link__go,
   .back,
   .tile__img,
-  .tile__caption {
+  .tile__caption,
+  .service__img,
+  .service__prices {
     transition: none;
   }
-  .tile__link:hover .tile__img { transform: none; }
+  .tile__link:hover .tile__img,
+  .service:hover .service__img { transform: none; }
 }

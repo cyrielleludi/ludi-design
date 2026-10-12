@@ -471,7 +471,7 @@
 
     el.home.hidden = !isHome;
     el.pages.hidden = isHome;
-    el.pages.classList.toggle('is-white', view === 'portfolio');
+    el.pages.classList.toggle('is-white', view === 'portfolio' || view === 'services');
     el.portfolio.hidden = view !== 'portfolio';
     el.project.hidden = view !== 'project';
     el.about.hidden = view !== 'about';
