@@ -425,9 +425,11 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .services { max-width: 720px; }
 
-.offer { margin-top: 56px; }
+.offer,
+.about__section { margin-top: 56px; }
 
-.offer__title {
+.offer__title,
+.about__title {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
@@ -435,7 +437,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin: 0 0 8px;
 }
 
-.offer__item {
+.offer__item,
+.about__row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -444,22 +447,26 @@ ul { list-style: none; margin: 0; padding: 0; }
   border-top: 1px solid rgba(29, 29, 27, 0.14);
 }
 
-.offer__item:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
+.offer__item:last-child,
+.about__row:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
 
-.offer__name {
+.offer__name,
+.about__what {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
 }
 
-.simple .offer__desc {
+.simple .offer__desc,
+.simple .about__where {
   font-size: 14px;
   line-height: 1.5;
   color: var(--muted-strong);
   margin: 4px 0 0;
 }
 
-.simple .offer__price {
+.simple .offer__price,
+.simple .about__when {
   font-size: 15px;
   margin: 0;
   white-space: nowrap;
@@ -512,14 +519,17 @@ ul { list-style: none; margin: 0; padding: 0; }
   line-height: 1.5;
 }
 
-.packs__rules li {
+.packs__rules li,
+.about__list li {
   position: relative;
   padding-left: 18px;
 }
 
-.packs__rules li + li { margin-top: 6px; }
+.packs__rules li + li,
+.about__list li + li { margin-top: 6px; }
 
-.packs__rules li::before {
+.packs__rules li::before,
+.about__list li::before {
   content: "–";
   position: absolute;
   left: 0;
@@ -532,12 +542,93 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-top: 40px;
 }
 
-.services__cta {
+.services__cta,
+.about__cta {
   font-family: var(--serif);
   font-style: italic;
   font-size: 30px;
   display: inline-block;
   margin-top: 16px;
+}
+
+/* ── À propos ────────────────────────────────────────────────────────── */
+
+.about { max-width: 760px; }
+
+.about__intro {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+/* Le portrait, façon autocollant : bord blanc et légère inclinaison, qui
+   se redresse au survol. */
+.about__portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 8px solid var(--white);
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(29, 29, 27, 0.12);
+  transform: rotate(-3deg);
+  transition: transform .4s var(--ease-out);
+}
+
+.about__portrait:hover { transform: rotate(0deg) scale(1.02); }
+
+.simple .about__hello {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.simple .about__intro p + p { margin-top: 16px; }
+
+.about__quote {
+  margin: 56px 0 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+
+.simple .about__quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.simple .about__section > p { margin-top: 12px; }
+
+.about__list {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about sup {
+  font-size: 0.7em;
+  line-height: 0;
+}
+
+.simple .about__invite { margin-top: 64px; }
+
+.simple .about__links {
+  font-size: 14px;
+  color: var(--muted-strong);
+  margin-top: 12px;
+}
+
+.about__links span { margin: 0 6px; }
+
+.about__links a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 /* ── Portfolio : la galerie ──────────────────────────────────────────────
@@ -911,6 +1002,15 @@ ul { list-style: none; margin: 0; padding: 0; }
 
   .detail__name { font-size: 32px; }
   .simple h1 { font-size: 32px; }
+
+  .about__intro {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 28px;
+  }
+  .about__portrait { width: 170px; }
+  .simple .about__hello { font-size: 32px; }
+  .simple .about__quote p { font-size: 22px; }
   .simple { margin-top: 56px; }
 
   .shots { gap: 20px; }
@@ -922,7 +1022,8 @@ ul { list-style: none; margin: 0; padding: 0; }
   .shots__main { align-self: stretch; }
   .mail { font-size: 25px; }
 
-  .offer__item {
+  .offer__item,
+  .about__row {
     flex-direction: column;
     gap: 6px;
   }
@@ -939,6 +1040,7 @@ ul { list-style: none; margin: 0; padding: 0; }
     animation: none;
   }
   .home__hero,
+  .about__portrait,
   .page__header .logo img,
   .menu-toggle__bar,
   .project-link__name,
