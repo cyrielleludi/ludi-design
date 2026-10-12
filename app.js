@@ -601,6 +601,58 @@
     });
   }
 
+  /* ── Services : détail des prestations ─────────────────────────────────
+     Un clic sur une case ouvre, sous sa rangée, le détail de ses
+     prestations. Un seul détail à la fois ; un second clic, la croix ou
+     Échap le referment.
+     ───────────────────────────────────────────────────────────────────── */
+
+  var serviceToggles = document.querySelectorAll('.service__toggle');
+
+  function detailsOf(toggle) {
+    return document.getElementById(toggle.getAttribute('aria-controls'));
+  }
+
+  function setService(toggle, open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.closest('.service').classList.toggle('is-open', open);
+    detailsOf(toggle).hidden = !open;
+  }
+
+  function onServiceToggle(toggle) {
+    if (toggle.getAttribute('aria-expanded') === 'true') {
+      setService(toggle, false);
+      return;
+    }
+    Array.prototype.forEach.call(serviceToggles, function (other) {
+      if (other !== toggle) setService(other, false);
+    });
+    setService(toggle, true);
+    revealDetails(detailsOf(toggle));
+  }
+
+  /* Fait défiler juste assez pour voir tout le détail, sans le glisser
+     sous l'en-tête fixe (scrollIntoView ne glisse pas partout en douceur). */
+  function revealDetails(details) {
+    var rect = details.getBoundingClientRect();
+    var headerSpace = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    var below = rect.bottom + 24 - window.innerHeight;
+    var delta = rect.top < headerSpace ? rect.top - headerSpace
+              : below > 0 ? Math.min(below, rect.top - headerSpace)
+              : 0;
+    if (!delta) return;
+    window.scrollTo({
+      top: window.scrollY + delta,
+      behavior: reducedMotion.matches ? 'auto' : 'smooth'
+    });
+  }
+
+  /* Fermé depuis le détail, le focus revient sur sa case. */
+  function closeService(toggle) {
+    setService(toggle, false);
+    toggle.focus({ preventScroll: true });
+  }
+
   /* ── Carrousel ─────────────────────────────────────────────────────────
      Le projet sélectionné reste au centre de la liste. Molette, flèches,
      doigt ou clic sur un autre titre le font glisser jusqu'au centre ; un
@@ -886,6 +938,19 @@
   Array.prototype.forEach.call(menuToggles, function (toggle) {
     toggle.addEventListener('click', function () { setMenu(!isMenuOpen()); });
   });
+  Array.prototype.forEach.call(serviceToggles, function (toggle) {
+    var details = detailsOf(toggle);
+    toggle.addEventListener('click', function () { onServiceToggle(toggle); });
+    details.querySelector('.service-details__close').addEventListener('click', function () {
+      closeService(toggle);
+    });
+    [toggle, details].forEach(function (node) {
+      node.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') closeService(toggle);
+      });
+    });
+  });
+
   /* Un lien du menu referme le menu, même vers la page déjà affichée. */
   document.addEventListener('click', function (e) {
     if (e.target.closest('.nav__link')) setMenu(false);

@@ -198,81 +198,216 @@
     <header class="services__head anim" style="--step:0">
       <h1 tabindex="-1">Services &amp; tarifs</h1>
       <p>Chaque projet est différent&nbsp;: ces prix donnent un ordre de grandeur. Après un premier échange, je vous envoie un devis détaillé et gratuit.</p>
-      <p class="services__tip">Survolez une case pour découvrir les tarifs.</p>
+      <p class="services__tip services__tip--hover">Survolez une case pour voir les tarifs, cliquez pour lire le détail.</p>
+      <p class="services__tip services__tip--touch">Touchez une case pour lire le détail de chaque prestation.</p>
     </header>
 
     <ul class="services__grid" role="list">
       <li class="service anim" style="--step:1">
         <div class="service__frame">
           <span class="service__num" aria-hidden="true">01</span>
-          <h2 class="service__name">Identité visuelle</h2>
+          <h2 class="service__name"><button class="service__toggle" id="service-identite" type="button" aria-expanded="false" aria-controls="detail-identite">Identité visuelle</button></h2>
           <p class="service__hint">Logo, couleurs, typographies et charte graphique</p>
+          <span class="service__plus" aria-hidden="true"></span>
         </div>
-        <div class="service__prices">
+        <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Logo</span><span>dès CHF 900</span></li>
             <li><span>Identité visuelle complète</span><span>dès CHF 2'400</span></li>
           </ul>
-          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+          <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
+      </li>
+      <li class="service-details" id="detail-identite" role="region" aria-labelledby="service-identite" hidden>
+        <p class="service-details__intro">C'est tout ce qui fait qu'on vous reconnaît au premier coup d'œil&nbsp;: votre logo, vos couleurs, vos typographies, et la charte graphique, le petit guide qui explique comment les utiliser partout.</p>
+        <div>
+          <ul class="service-details__rows">
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Logo</h3>
+              <p class="service-details__desc">Deux pistes créatives, deux séries de corrections, fichiers finaux pour le print et le web.</p>
+            </div>
+            <p class="service-details__price">dès CHF 900</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Identité visuelle complète</h3>
+              <p class="service-details__desc">Logo, couleurs, typographies, charte graphique et premières déclinaisons (papeterie, réseaux sociaux).</p>
+            </div>
+            <p class="service-details__price">dès CHF 2'400</p>
+          </li>
+          </ul>
+          <a class="service-details__cta" href="#/contact">Demander un devis</a>
+        </div>
+        <button class="service-details__close" type="button" aria-label="Fermer le détail"></button>
       </li>
       <li class="service anim" style="--step:2">
         <div class="service__frame">
           <span class="service__num" aria-hidden="true">02</span>
-          <h2 class="service__name">Affiche &amp; imprimés</h2>
+          <h2 class="service__name"><button class="service__toggle" id="service-imprimes" type="button" aria-expanded="false" aria-controls="detail-imprimes">Affiche &amp; imprimés</button></h2>
           <p class="service__hint">Affiches, flyers, cartes de visite et déclinaisons</p>
+          <span class="service__plus" aria-hidden="true"></span>
         </div>
-        <div class="service__prices">
+        <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Affiche</span><span>dès CHF 550</span></li>
             <li><span>Flyer recto-verso</span><span>dès CHF 400</span></li>
             <li><span>Carte de visite</span><span>dès CHF 200</span></li>
             <li><span>Déclinaison d'un visuel</span><span>dès CHF 150</span></li>
           </ul>
-          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+          <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
+      </li>
+      <li class="service-details" id="detail-imprimes" role="region" aria-labelledby="service-imprimes" hidden>
+        <p class="service-details__intro">Les supports qu'on tient en main ou qu'on croise dans la rue. Je m'occupe de la création et je vous livre des fichiers prêts pour l'imprimeur.</p>
+        <div>
+          <ul class="service-details__rows">
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Affiche</h3>
+              <p class="service-details__desc">Création d'une affiche (A3 à F4), prête pour l'impression.</p>
+            </div>
+            <p class="service-details__price">dès CHF 550</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Flyer recto-verso</h3>
+              <p class="service-details__desc">Mise en page d'un flyer ou d'un carton d'invitation.</p>
+            </div>
+            <p class="service-details__price">dès CHF 400</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Carte de visite</h3>
+              <p class="service-details__desc">À partir d'un logo existant.</p>
+            </div>
+            <p class="service-details__price">dès CHF 200</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Déclinaison d'un visuel</h3>
+              <p class="service-details__desc">Adaptation à un autre format&nbsp;: flyer, bannière web, publication.</p>
+            </div>
+            <p class="service-details__price">dès CHF 150</p>
+          </li>
+          </ul>
+          <a class="service-details__cta" href="#/contact">Demander un devis</a>
+        </div>
+        <button class="service-details__close" type="button" aria-label="Fermer le détail"></button>
       </li>
       <li class="service anim" style="--step:3">
         <div class="service__frame">
           <span class="service__num" aria-hidden="true">03</span>
-          <h2 class="service__name">Édition</h2>
+          <h2 class="service__name"><button class="service__toggle" id="service-edition" type="button" aria-expanded="false" aria-controls="detail-edition">Édition</button></h2>
           <p class="service__hint">Brochures, dépliants, livres et catalogues</p>
+          <span class="service__plus" aria-hidden="true"></span>
         </div>
-        <div class="service__prices">
+        <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Brochure ou dépliant, jusqu'à 8 pages</span><span>dès CHF 900</span></li>
             <li><span>Livre, catalogue, rapport annuel</span><span>dès CHF 50 / page</span></li>
           </ul>
-          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+          <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
+      </li>
+      <li class="service-details" id="detail-edition" role="region" aria-labelledby="service-edition" hidden>
+        <p class="service-details__intro">La mise en page des documents de plusieurs pages, pour qu'ils soient agréables à lire du début à la fin.</p>
+        <div>
+          <ul class="service-details__rows">
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Brochure ou dépliant</h3>
+              <p class="service-details__desc">Conception et mise en page, jusqu'à 8 pages.</p>
+            </div>
+            <p class="service-details__price">dès CHF 900</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Livre, catalogue, rapport annuel</h3>
+              <p class="service-details__desc">Maquette et mise en page de documents longs.</p>
+            </div>
+            <p class="service-details__price">dès CHF 50 / page</p>
+          </li>
+          </ul>
+          <a class="service-details__cta" href="#/contact">Demander un devis</a>
+        </div>
+        <button class="service-details__close" type="button" aria-label="Fermer le détail"></button>
       </li>
       <li class="service anim" style="--step:4">
         <div class="service__frame">
           <span class="service__num" aria-hidden="true">04</span>
-          <h2 class="service__name">Packaging</h2>
+          <h2 class="service__name"><button class="service__toggle" id="service-packaging" type="button" aria-expanded="false" aria-controls="detail-packaging">Packaging</button></h2>
           <p class="service__hint">Étiquettes de vin, de miel ou du terroir, emballages</p>
+          <span class="service__plus" aria-hidden="true"></span>
         </div>
-        <div class="service__prices">
+        <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Étiquette</span><span>dès CHF 650</span></li>
             <li><span>Emballage complet</span><span>dès CHF 1'800</span></li>
           </ul>
-          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+          <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
+      </li>
+      <li class="service-details" id="detail-packaging" role="region" aria-labelledby="service-packaging" hidden>
+        <p class="service-details__intro">L'habillage de vos produits&nbsp;: ce qui donne envie de les prendre en main, en rayon comme sur un marché.</p>
+        <div>
+          <ul class="service-details__rows">
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Étiquette</h3>
+              <p class="service-details__desc">Vin, miel, bière, produits du terroir&nbsp;: création d'une étiquette prête pour l'impression.</p>
+            </div>
+            <p class="service-details__price">dès CHF 650</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Emballage complet</h3>
+              <p class="service-details__desc">Boîte, sachet ou gamme de produits, du concept au fichier d'impression.</p>
+            </div>
+            <p class="service-details__price">dès CHF 1'800</p>
+          </li>
+          </ul>
+          <a class="service-details__cta" href="#/contact">Demander un devis</a>
+        </div>
+        <button class="service-details__close" type="button" aria-label="Fermer le détail"></button>
       </li>
       <li class="service anim" style="--step:5">
         <div class="service__frame">
           <span class="service__num" aria-hidden="true">05</span>
-          <h2 class="service__name">Au temps passé</h2>
+          <h2 class="service__name"><button class="service__toggle" id="service-temps" type="button" aria-expanded="false" aria-controls="detail-temps">Au temps passé</button></h2>
           <p class="service__hint">Retouches, adaptations et petits travaux</p>
+          <span class="service__plus" aria-hidden="true"></span>
         </div>
-        <div class="service__prices">
+        <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Tarif horaire</span><span>CHF 90 / h</span></li>
             <li><span>Avec un pack d'heures</span><span>dès CHF 75 / h</span></li>
           </ul>
-          <a class="service__cta" href="#/contact">Demander un devis<span class="service__go" aria-hidden="true"><span class="chevron"></span></span></a>
+          <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
+      </li>
+      <li class="service-details" id="detail-temps" role="region" aria-labelledby="service-temps" hidden>
+        <p class="service-details__intro">Pour les petites demandes ponctuelles&nbsp;: une correction, une adaptation, un fichier à retoucher. Vous ne payez que le temps passé, compté au quart d'heure.</p>
+        <div>
+          <ul class="service-details__rows">
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Tarif horaire</h3>
+              <p class="service-details__desc">Retouches, adaptations, petits travaux et corrections supplémentaires.</p>
+            </div>
+            <p class="service-details__price">CHF 90 / h</p>
+          </li>
+          <li class="service-details__row">
+            <div>
+              <h3 class="service-details__name">Avec un pack d'heures</h3>
+              <p class="service-details__desc">Payé une fois, à utiliser toute l'année&nbsp;: les packs sont présentés plus bas.</p>
+            </div>
+            <p class="service-details__price">dès CHF 75 / h</p>
+          </li>
+          </ul>
+          <a class="service-details__cta" href="#/contact">Demander un devis</a>
+        </div>
+        <button class="service-details__close" type="button" aria-label="Fermer le détail"></button>
       </li>
       <li class="service service--cta anim" style="--step:6">
         <a class="service__frame" href="#/contact">

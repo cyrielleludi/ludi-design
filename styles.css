@@ -423,9 +423,9 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 /* ── Services et tarifs ──────────────────────────────────────────────────
    Galerie des offres, dans l'esprit du portfolio mais en typographie :
-   chaque famille de services est une case crème. À la souris, les tarifs
-   remplacent la description au survol ; au doigt, ils sont affichés sous
-   la case. Les packs d'heures suivent, prix visibles.
+   chaque famille de services est une case crème. À la souris, un résumé
+   des tarifs remplace la description au survol ; au doigt, il est affiché
+   sous la case. Un clic ouvre, sous la rangée, le détail des prestations.
    ───────────────────────────────────────────────────────────────────── */
 
 .services { margin-top: 56px; }
@@ -445,14 +445,22 @@ ul { list-style: none; margin: 0; padding: 0; }
   text-wrap: pretty;
 }
 
-.services__tip { display: none; }
+.services__head .services__tip {
+  font-size: 14px;
+  color: var(--muted-strong);
+}
 
+.services__tip--hover { display: none; }
+
+/* En mode « dense », les cases suivantes comblent la rangée laissée par un
+   détail ouvert, qui passe dessous sur toute la largeur. */
 .services__grid {
   --cols: 3;
   --gap: 12px;
 
   display: grid;
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-auto-flow: row dense;
   gap: 24px var(--gap);
   margin-top: 40px;
 }
@@ -474,7 +482,10 @@ ul { list-style: none; margin: 0; padding: 0; }
   height: var(--frame-h);
   padding: 24px;
   background: var(--cream);
+  transition: box-shadow .2s ease;
 }
+
+.service.is-open .service__frame { box-shadow: inset 0 0 0 2px var(--gold); }
 
 .service__num {
   position: absolute;
@@ -497,15 +508,76 @@ ul { list-style: none; margin: 0; padding: 0; }
   line-height: 1.05;
 }
 
+/* Le titre est un bouton dont la zone cliquable couvre toute la case. */
+.service__toggle {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.service__toggle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.service__toggle:focus-visible { outline: none; }
+
+.service:has(.service__toggle:focus-visible) .service__frame {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .service__hint {
   display: block;
+  max-width: calc(100% - 44px);
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
   color: var(--muted-strong);
 }
 
-/* Au doigt : les tarifs sous la case. */
+/* Le « + » des cases, qui devient une croix quand le détail est ouvert. */
+.service__plus {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  flex: none;
+  transition: transform .3s var(--ease-out), background-color .2s ease;
+}
+
+.service__plus::before,
+.service__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 1.6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.service__plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+.service__frame > .service__plus {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+}
+
+.service.is-open .service__plus { transform: rotate(45deg); }
+.service:hover .service__plus { background: var(--gold); }
+
+/* Au doigt : le résumé des tarifs sous la case. */
 .service__prices {
   margin-top: 12px;
   font-size: 14px;
@@ -525,16 +597,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-variant-numeric: tabular-nums;
 }
 
-.service__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 8px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
+.service__more { display: none; }
 
 .service__go {
   width: 30px;
@@ -554,8 +617,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-left: -2px;
 }
 
-.service__prices .service__go { display: none; }
-
 /* Dernière case : toute la case mène au contact. */
 .service--cta .service__frame {
   justify-content: flex-start;
@@ -571,18 +632,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 @media (hover: hover) {
-  .services__tip {
-    display: block;
-    font-size: 14px;
-    color: var(--muted-strong);
-  }
+  .services__tip--hover { display: block; }
+  .services__tip--touch { display: none; }
 
-  /* À la souris : les tarifs remplacent la description au survol. */
+  /* À la souris : le résumé des tarifs remplace la description au survol. */
   .service__prices {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
     margin: 0;
     padding: 0 24px 24px;
     background: var(--cream);
@@ -591,19 +650,15 @@ ul { list-style: none; margin: 0; padding: 0; }
     transition: opacity .3s ease, transform .35s var(--ease-out);
   }
 
-  .service__cta {
+  .service__more {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin-top: 12px;
     font-size: 16px;
     font-style: italic;
     font-weight: 700;
-    text-decoration: none;
   }
-
-  .service__prices .service__go { display: flex; }
-  .service__cta:hover { color: inherit; }
-  .service__cta:hover .service__go { background: var(--gold); }
 
   .service:hover .service__prices,
   .service:focus-within .service__prices {
@@ -611,6 +666,97 @@ ul { list-style: none; margin: 0; padding: 0; }
     transform: none;
   }
 }
+
+/* Détail d'une famille de services, sous sa rangée, sur toute la largeur. */
+.service-details {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 24px 56px;
+  padding: 36px 40px 40px;
+  background: var(--cream);
+  animation: ldFade .3s ease backwards;
+}
+
+.service-details__intro {
+  margin: 0;
+  padding-right: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+.service-details__rows { margin-right: 32px; }
+
+.service-details__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 32px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(29, 29, 27, 0.14);
+}
+
+.service-details__row:last-child { border-bottom: 1px solid rgba(29, 29, 27, 0.14); }
+
+.service-details__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.service-details__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted-strong);
+  margin: 4px 0 0;
+}
+
+.service-details__price {
+  font-size: 15px;
+  margin: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.service-details__cta {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+}
+
+.service-details__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.service-details__close::before,
+.service-details__close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 1.5px;
+  background: var(--ink);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.service-details__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+.service-details__close:hover::before,
+.service-details__close:hover::after { background: var(--gold); }
 
 .services__note {
   max-width: 620px;
@@ -1206,6 +1352,16 @@ ul { list-style: none; margin: 0; padding: 0; }
   .services__head h1 { font-size: 32px; }
   .services { margin-top: 28px; }
 
+  .service-details {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 28px 22px 32px;
+  }
+  .service-details__intro {
+    padding-right: 36px;
+    font-size: 20px;
+  }
+  .service-details__rows { margin-right: 0; }
+
   .about__intro {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1230,6 +1386,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   }
 
   .packs__cards { grid-template-columns: 1fr; }
+
+  .service-details__row {
+    flex-direction: column;
+    gap: 6px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1255,8 +1416,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   .tile__img,
   .tile__caption,
   .service__prices,
-  .service__go {
+  .service__go,
+  .service__plus,
+  .service__frame {
     transition: none;
   }
+  .service-details { animation: none; }
   .tile__link:hover .tile__img { transform: none; }
 }
