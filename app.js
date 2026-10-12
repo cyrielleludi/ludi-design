@@ -482,6 +482,7 @@
     if (view === 'portfolio') layoutGallery();
     if (view === 'project') renderProject(route.project);
 
+    fixOrphans(viewElement(view));
     document.title = titleFor(route);
     markCurrentNav(view);
 
@@ -601,6 +602,69 @@
     });
   }
 
+  /* ── Typographie : pas de mots isolés en fin de paragraphe ─────────────
+     Les trois derniers mots d'un paragraphe restent ensemble, liés par des
+     espaces insécables : aucune ligne ne se termine sur un ou deux mots
+     seuls. Le groupe doit tenir sur une ligne du paragraphe, à sa largeur
+     du moment ; sinon on n'en lie que deux. Recalculé quand la page change
+     de largeur, quand une vue ou un détail s'affiche.
+     ───────────────────────────────────────────────────────────────────── */
+
+  var TEXT_BLOCKS = 'p, .packs__rules li, .about__list li';
+  var WORDS_TOGETHER = 3;
+  var originalText = new WeakMap();  // nœud texte → texte d'origine
+  var orphansTimer = 0;
+
+  function fixOrphans(root) {
+    Array.prototype.forEach.call(root.querySelectorAll(TEXT_BLOCKS), keepLastWordsTogether);
+  }
+
+  function keepLastWordsTogether(block) {
+    var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT, null);
+    var last = null;
+    while (walker.nextNode()) {
+      if (/\S/.test(walker.currentNode.nodeValue)) last = walker.currentNode;
+    }
+    if (!last) return;
+
+    /* On repart toujours du texte d'origine. */
+    if (!originalText.has(last)) originalText.set(last, last.nodeValue);
+    var text = originalText.get(last);
+    last.nodeValue = text;
+
+    var style = getComputedStyle(block);
+    var width = block.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+    if (width <= 0) return;  // bloc masqué : recalculé à son affichage
+
+    var font = style.fontStyle + ' ' + style.fontWeight + ' ' + style.fontSize + ' ' + style.fontFamily;
+    for (var n = WORDS_TOGETHER; n > 1; n--) {
+      var joined = joinLastWords(text, n, font, width);
+      if (joined !== null) {
+        last.nodeValue = joined;
+        return;
+      }
+    }
+  }
+
+  /* Lie les n derniers mots par des insécables, si le groupe tient sur une
+     ligne (avec un peu de marge). Seules les espaces ordinaires séparent
+     les mots : les insécables déjà présentes (devant « : » ou « ? »)
+     restent dans leur mot. */
+  function joinLastWords(text, n, font, width) {
+    var trailing = text.match(/[ \t\n\r]*$/)[0];
+    var words = text.slice(0, text.length - trailing.length).split(/[ \t\n\r]+/);
+    if (words.length <= n) return null;
+
+    var group = words.slice(-n).join('\u00a0');
+    if (textWidth(font, group) > width - 8) return null;
+    return words.slice(0, -n).join(' ') + ' ' + group + trailing;
+  }
+
+  function onResizeOrphans() {
+    window.clearTimeout(orphansTimer);
+    orphansTimer = window.setTimeout(function () { fixOrphans(document); }, 150);
+  }
+
   /* ── Services : détail des prestations ─────────────────────────────────
      Un clic sur une case ouvre, sous sa rangée, le détail de ses
      prestations. Un seul détail à la fois ; un second clic, la croix ou
@@ -617,6 +681,7 @@
     toggle.setAttribute('aria-expanded', String(open));
     toggle.closest('.service').classList.toggle('is-open', open);
     detailsOf(toggle).hidden = !open;
+    if (open) fixOrphans(detailsOf(toggle));
   }
 
   function onServiceToggle(toggle) {
@@ -934,6 +999,7 @@
   document.addEventListener('keydown', onMenuKeydown);
   window.addEventListener('hashchange', render);
   window.addEventListener('scroll', onWindowScroll, { passive: true });
+  window.addEventListener('resize', onResizeOrphans);
 
   Array.prototype.forEach.call(menuToggles, function (toggle) {
     toggle.addEventListener('click', function () { setMenu(!isMenuOpen()); });
@@ -970,6 +1036,7 @@
     document.fonts.ready.then(function () {
       fitTitles();
       layoutGallery();
+      fixOrphans(document);
     });
   }
 

@@ -59,6 +59,8 @@ img { max-width: 100%; }
 
 ul { list-style: none; margin: 0; padding: 0; }
 
+p, li { text-wrap: pretty; }
+
 .visually-hidden {
   position: absolute;
   width: 1px; height: 1px;
@@ -430,7 +432,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .services { margin-top: 56px; }
 
-.services__head { max-width: 620px; }
+.services__head { max-width: 720px; }
 
 .services__head h1 {
   font-size: 44px;
@@ -766,7 +768,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .service-details__close:hover::after { background: var(--gold); }
 
 .services__note {
-  max-width: 620px;
+  max-width: 720px;
   margin: 24px 0 0;
   font-size: 13px;
   line-height: 1.5;
@@ -878,7 +880,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .about__intro {
   display: grid;
-  grid-template-columns: 220px minmax(0, 620px);
+  grid-template-columns: 220px minmax(0, 720px);
   gap: 48px;
   align-items: start;
 }
@@ -915,7 +917,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .about__quote {
-  max-width: 760px;
+  max-width: 720px;
   margin: 56px 0 0;
   padding-left: 24px;
   border-left: 2px solid var(--gold);
