@@ -976,26 +976,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: var(--muted-strong);
 }
 
-/* Distinctions : la place en grand, comme le prix des packs ; le nom du
-   logo dessous. */
-.about__rank {
-  margin: 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 40px;
-  line-height: 1;
-}
-
-.about__card--prize .about__name {
-  max-width: none;
-  margin-top: 14px;
-  font-family: var(--sans);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
 .about sup {
   font-size: 0.6em;
   line-height: 0;
