@@ -560,7 +560,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   grid-template-columns: 220px 1fr;
   gap: 48px;
   align-items: start;
-  margin-top: 40px;
 }
 
 /* Le portrait, façon autocollant : bord blanc et légère inclinaison, qui
@@ -581,6 +580,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .simple .about__hello {
   font-family: var(--serif);
   font-style: italic;
+  font-weight: 400;
   font-size: 40px;
   line-height: 1.1;
   margin: 0;
@@ -625,7 +625,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .about__links span { margin: 0 6px; }
 
-.about__links a {
+.about__links a,
+.about__list a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -1006,7 +1007,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   .about__intro {
     grid-template-columns: 1fr;
     gap: 32px;
-    margin-top: 28px;
   }
   .about__portrait { width: 170px; }
   .simple .about__hello { font-size: 32px; }
