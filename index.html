@@ -94,10 +94,10 @@
   </section>
 
   <!-- À propos -->
-  <section class="view simple about" id="view-about" hidden>
+  <section class="view about" id="view-about" hidden>
     <div class="about__intro">
       <img class="about__portrait anim" style="--step:0" src="assets/cyrielle.jpg" width="584" height="640" alt="Portrait de Cyrielle Lüdi">
-      <div class="anim" style="--step:1">
+      <div class="about__text anim" style="--step:1">
         <h1 class="about__hello" tabindex="-1">Bonjour, moi c'est Cyrielle.</h1>
         <p>Graphiste en Valais, je crée des identités visuelles, des affiches, des livres et des emballages. Lüdi, comme ludique&nbsp;: avec un nom pareil, mes projets gardent toujours une petite part de jeu, sans perdre le sérieux qu'il faut.</p>
         <p>Ma méthode&nbsp;: écouter d'abord, dessiner ensuite. Je cherche à comprendre votre projet, votre public et ce qui vous rend différent. Puis j'explore, je teste, je recommence (souvent) et j'affine jusqu'au détail qui change tout. Consciencieuse, je relis trois fois. Persévérante, je relis une quatrième fois.</p>
@@ -111,68 +111,79 @@
 
     <section class="about__section anim" style="--step:3" aria-labelledby="about-parcours">
       <h2 class="about__title" id="about-parcours">Parcours</h2>
-      <ul class="about__rows">
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">CRTO</h3>
-            <p class="about__where">Stage de graphiste au Centre Régional Travail &amp; Orientation, Monthey</p>
-          </div>
-          <p class="about__when">2026</p>
+      <ul class="about__cards">
+        <li class="about__card">
+          <span class="about__year">2026</span>
+          <h3 class="about__name">CRTO</h3>
+          <p class="about__desc">Stage de graphiste au Centre Régional Travail &amp; Orientation, Monthey</p>
         </li>
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">Créambule</h3>
-            <p class="about__where">Stage de graphiste, Givisiez</p>
-          </div>
-          <p class="about__when">2025</p>
+        <li class="about__card">
+          <span class="about__year">2025</span>
+          <h3 class="about__name">Créambule</h3>
+          <p class="about__desc">Stage de graphiste, Givisiez</p>
         </li>
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">spirale.li</h3>
-            <p class="about__where">Stage de graphiste, Monthey</p>
-          </div>
-          <p class="about__when">2023</p>
+        <li class="about__card">
+          <span class="about__year">2023</span>
+          <h3 class="about__name">spirale.li</h3>
+          <p class="about__desc">Stage de graphiste, Monthey</p>
         </li>
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">Did We Do</h3>
-            <p class="about__where">Stage de graphiste, Lausanne</p>
-          </div>
-          <p class="about__when">2023</p>
+        <li class="about__card">
+          <span class="about__year">2023</span>
+          <h3 class="about__name">Did We Do</h3>
+          <p class="about__desc">Stage de graphiste, Lausanne</p>
         </li>
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">EDHEA</h3>
-            <p class="about__where">CFC de graphiste et maturité professionnelle, École de design et haute école d'art, Sierre</p>
-          </div>
-          <p class="about__when">2020 – 2024</p>
+        <li class="about__card">
+          <span class="about__year">2020 – 2024</span>
+          <h3 class="about__name">EDHEA</h3>
+          <p class="about__desc">CFC de graphiste et maturité professionnelle, École de design et haute école d'art, Sierre</p>
         </li>
       </ul>
     </section>
 
     <section class="about__section anim" style="--step:4" aria-labelledby="about-prix">
       <h2 class="about__title" id="about-prix">Distinctions</h2>
-      <ul class="about__rows">
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">Logo du Bureau des Échanges Linguistiques</h3>
-            <p class="about__where">Prix&nbsp;: 2<sup>e</sup> place</p>
-          </div>
-          <p class="about__when">2021</p>
+      <ul class="about__cards">
+        <li class="about__card about__card--prize">
+          <span class="about__year">2021</span>
+          <p class="about__rank">2<sup>e</sup> place</p>
+          <h3 class="about__name">Logo du Bureau des Échanges Linguistiques</h3>
         </li>
-        <li class="about__row">
-          <div>
-            <h3 class="about__what">Logo de la 27<sup>e</sup> Fête cantonale des musiques valaisannes</h3>
-            <p class="about__where">Prix&nbsp;: 2<sup>e</sup> place</p>
-          </div>
-          <p class="about__when">2022</p>
+        <li class="about__card about__card--prize">
+          <span class="about__year">2022</span>
+          <p class="about__rank">2<sup>e</sup> place</p>
+          <h3 class="about__name">Logo de la 27<sup>e</sup> Fête cantonale des musiques valaisannes</h3>
         </li>
       </ul>
     </section>
 
     <section class="about__section anim" style="--step:5" aria-labelledby="about-outils">
       <h2 class="about__title" id="about-outils">Boîte à outils</h2>
-      <p>InDesign et Illustrator au quotidien, Photoshop et Lightroom pour les images, Figma et Claude Code pour les sites, Glyphs pour dessiner des typographies, et After Effects quand un logo a envie de bouger. Et loin de l'écran, un plotter de découpe&nbsp;: je découpe, j'échenille (oui, c'est un vrai mot) et je pose le vinyle, sur une vitrine comme en thermocollant sur un t-shirt.</p>
+      <ul class="about__cards">
+        <li class="about__card">
+          <h3 class="about__name">InDesign &amp; Illustrator</h3>
+          <p class="about__desc">Au quotidien, pour tout ce qui s'imprime ou s'affiche.</p>
+        </li>
+        <li class="about__card">
+          <h3 class="about__name">Photoshop &amp; Lightroom</h3>
+          <p class="about__desc">Pour les images, les retouches et les mockups.</p>
+        </li>
+        <li class="about__card">
+          <h3 class="about__name">Figma &amp; Claude Code</h3>
+          <p class="about__desc">Pour concevoir des sites, comme celui-ci.</p>
+        </li>
+        <li class="about__card">
+          <h3 class="about__name">Glyphs</h3>
+          <p class="about__desc">Pour dessiner des typographies.</p>
+        </li>
+        <li class="about__card">
+          <h3 class="about__name">After Effects</h3>
+          <p class="about__desc">Quand un logo a envie de bouger.</p>
+        </li>
+        <li class="about__card">
+          <h3 class="about__name">Plotter de découpe</h3>
+          <p class="about__desc">Je découpe, j'échenille (oui, c'est un vrai mot) et je pose le vinyle, sur une vitrine comme en thermocollant sur un t-shirt.</p>
+        </li>
+      </ul>
     </section>
 
     <section class="about__section anim" style="--step:6" aria-labelledby="about-hors-ecran">
