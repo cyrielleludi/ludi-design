@@ -465,10 +465,10 @@ ul { list-style: none; margin: 0; padding: 0; }
   margin-top: 40px;
 }
 
-/* Cases carrées : la hauteur suit la largeur de la colonne, et laisse au
-   survol la place des tarifs sous les titres sur deux lignes. */
+/* Cases plus larges que hautes : la hauteur suit la largeur de la colonne,
+   en gardant au survol la place du résumé des tarifs sous le titre. */
 .service {
-  --frame-h: 100cqw;
+  --frame-h: 60cqw;
   position: relative;
   container-type: inline-size;
 }
@@ -499,12 +499,12 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .service__name {
   display: block;
-  max-width: 85%;
+  max-width: calc(100% - 40px);
   margin: 0;
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(30px, 11cqw, 48px);
+  font-size: clamp(28px, 9cqw, 44px);
   line-height: 1.05;
 }
 
@@ -623,8 +623,15 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: inherit;
 }
 
-.service--cta .service__hint { margin-top: auto; }
-.service--cta .service__go { align-self: flex-end; }
+.service--cta .service__name { max-width: none; }
+
+.service__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+}
 
 .service--cta .service__frame:hover .service__go {
   background: var(--gold);
@@ -766,11 +773,13 @@ ul { list-style: none; margin: 0; padding: 0; }
   color: var(--muted-strong);
 }
 
-/* Packs d'heures : les prix restent visibles, les conditions juste dessous. */
-.packs {
-  max-width: 720px;
-  margin-top: 72px;
-}
+/* Packs d'heures : les prix restent visibles, les conditions juste dessous.
+   Les cartes reprennent les colonnes de la grille des offres, et restent
+   côte à côte quand celle-ci passe à deux colonnes. */
+.packs { margin-top: 72px; }
+
+.packs__intro,
+.packs__rules { max-width: 720px; }
 
 .packs__intro {
   font-size: 15px;
@@ -780,7 +789,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .packs__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 24px;
 }
@@ -1094,10 +1103,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 @media (min-width: 1680px) { .gallery__grid { --cols: 5; } }
 @media (max-width: 1180px) { .gallery__grid { --cols: 3; } }
-@media (max-width: 1080px) {
-  .services__grid { --cols: 2; }
-  .service { --frame-h: 85cqw; }
-}
+@media (max-width: 1080px) { .services__grid { --cols: 2; } }
 
 /* ── Entrées animées ─────────────────────────────────────────────────────
    La direction vient de [data-dir] posé sur <body> par app.js : on avance
@@ -1385,8 +1391,6 @@ ul { list-style: none; margin: 0; padding: 0; }
     gap: 6px;
   }
 
-  .packs__cards { grid-template-columns: 1fr; }
-
   .service-details__row {
     flex-direction: column;
     gap: 6px;
@@ -1396,6 +1400,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 600px) {
   .services__grid { --cols: 1; }
   .service { --frame-h: 56cqw; }
+  .packs__cards { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ── Mouvement réduit ────────────────────────────────────────────────── */
