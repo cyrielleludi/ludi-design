@@ -9,3 +9,6 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Fichiers sources de Cyrielle (portfolio PDF, images d'origine) : jamais publiés
+ref/
