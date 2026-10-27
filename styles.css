@@ -103,10 +103,12 @@ p, li { text-wrap: pretty; }
 
 .view--home { display: flex; min-height: 100vh; }
 
+/* Fond : celui des planches du projet présenté (posé par app.js). */
 .home__visual {
   flex: 1.15;
   min-width: 0;
-  background: var(--cream);
+  background: var(--project-bg, var(--cream));
+  transition: background-color .4s ease;
   position: relative;
   display: flex;
   align-items: center;
@@ -223,11 +225,16 @@ p, li { text-wrap: pretty; }
   white-space: nowrap;
 }
 
+/* Le projet sélectionné, et celui sous le curseur, prennent la couleur de
+   leurs textes dans le portfolio (--item-ink, posée par app.js). */
 .projects li.is-active .project-link__name {
   font-size: calc(var(--title-active) * var(--fit, 1));
   font-weight: 700;
   font-style: italic;
+  color: var(--item-ink, inherit);
 }
+
+.project-link:hover { color: var(--item-ink, var(--gold)); }
 
 .project-link__go {
   width: 38px;
@@ -243,7 +250,7 @@ p, li { text-wrap: pretty; }
 
 .projects li.is-active .project-link__go { display: flex; }
 .project-link:hover .project-link__go {
-  background: var(--gold);
+  background: var(--item-ink, var(--gold));
   transform: translateX(4px);
 }
 
@@ -333,7 +340,7 @@ p, li { text-wrap: pretty; }
 }
 
 .back:hover {
-  background: var(--gold);
+  background: var(--accent, var(--gold));
   transform: translateX(-4px);
 }
 
@@ -1048,7 +1055,7 @@ p, li { text-wrap: pretty; }
 }
 
 .tile__frame {
-  background: var(--cream);
+  background: var(--tile-bg, var(--cream));
   padding: 9%;
   overflow: hidden;
 }
@@ -1096,7 +1103,7 @@ p, li { text-wrap: pretty; }
     right: 0;
     bottom: 0;
     padding: 40px 14px 14px;
-    background: linear-gradient(to top, var(--cream) 50%, rgba(255, 243, 217, 0));
+    background: linear-gradient(to top, var(--tile-bg, var(--cream)) 50%, transparent);
     opacity: 0;
     transform: translateY(6px);
     transition: opacity .3s ease, transform .35s var(--ease-out);
@@ -1126,6 +1133,9 @@ p, li { text-wrap: pretty; }
   }
 
   .tile__link:hover { color: inherit; }
+
+  .tile__link:hover .tile__name,
+  .tile__link:focus-visible .tile__name { color: var(--tile-ink, inherit); }
   .tile__link:hover .tile__img { transform: scale(1.04); }
 
   .tile__link:hover .tile__caption,
@@ -1317,13 +1327,12 @@ p, li { text-wrap: pretty; }
   .home__visual {
     display: block;
     padding: 0;
-    background: var(--cream);
     overflow: hidden;
   }
 
   /* Le visuel occupe le haut de la case et déborde un peu sous la bande,
-     où un voile crème le fond, comme sous la légende d'une case de la
-     galerie. */
+     où un voile de la couleur du fond l'efface, comme sous la légende
+     d'une case de la galerie. */
   .home__hero {
     position: absolute;
     top: 28px;
@@ -1332,6 +1341,8 @@ p, li { text-wrap: pretty; }
     height: calc(100% - var(--band) + 12px);
   }
 
+  /* Voile de la couleur du fond, en fondu par un masque : il change de
+     couleur en même temps que la case. */
   .home__visual::after {
     content: '';
     position: absolute;
@@ -1339,7 +1350,10 @@ p, li { text-wrap: pretty; }
     right: 0;
     bottom: 0;
     height: var(--band);
-    background: linear-gradient(to top, var(--cream) 70%, rgba(255, 243, 217, 0));
+    background: var(--project-bg, var(--cream));
+    -webkit-mask-image: linear-gradient(to top, #000 70%, transparent);
+    mask-image: linear-gradient(to top, #000 70%, transparent);
+    transition: background-color .4s ease;
   }
 
   /* Le carrousel couvre toute la case : on le fait glisser n'importe où. */
@@ -1446,6 +1460,8 @@ p, li { text-wrap: pretty; }
     animation: none;
   }
   .home__hero,
+  .home__visual,
+  .home__visual::after,
   .about__portrait,
   .page__header .logo img,
   .menu-toggle__bar,
