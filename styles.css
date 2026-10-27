@@ -2,9 +2,10 @@
    Portfolio de Cyrielle Lüdi.
 
    Trois mises en page :
-     > 1080px   accueil en deux panneaux, page projet en grille
+     > 1080px   accueil en deux panneaux ; page projet : nom et
+                description côte à côte, planches dessous
      ≤ 1280px   accueil à parts égales, pour la place des titres
-     ≤ 1080px   colonne unique, le visuel remonte sous le titre
+     ≤ 1080px   colonne unique, la description passe sous le titre
      ≤ 860px    version mobile : menu replié ; à l'accueil, le projet
                 présenté remplit une case, titres par-dessus le visuel
    ───────────────────────────────────────────────────────────────────── */
@@ -47,7 +48,7 @@ body {
   margin: 0;
   font-family: var(--sans);
   color: var(--ink);
-  background: var(--cream);
+  background: var(--page-bg, var(--cream));
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden; /* les vues entrent en glissant depuis les côtés */
 }
@@ -269,7 +270,7 @@ p, li { text-wrap: pretty; }
    page lui réserve la place du logo et de la marge au-dessus. */
 .page {
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--page-bg, var(--cream));
   padding: calc(var(--header-pad) + var(--logo-h)) var(--page-pad-x) 72px;
 }
 
@@ -284,11 +285,9 @@ p, li { text-wrap: pretty; }
   align-items: flex-start;
   gap: 24px;
   padding: var(--header-pad) var(--page-pad-x) 12px;
-  background: var(--cream);
+  background: var(--page-bg, var(--cream));
   transition: box-shadow .2s ease;
 }
-
-.page.is-white .page__header { background: var(--white); }
 
 /* Dès que la page défile, le logo se réduit de 30 %, ancré en haut à
    gauche, et un filet sépare l'en-tête du contenu. */
@@ -299,12 +298,24 @@ p, li { text-wrap: pretty; }
 
 .page__header .nav { padding-top: 14px; }
 
-/* ── Projet ──────────────────────────────────────────────────────────── */
+/* ── Projet ──────────────────────────────────────────────────────────────
+   En tête, le nom et la description, côte à côte. Dessous, les planches du
+   portfolio sur toute la largeur : la page prend leur couleur de fond, si
+   bien que leurs bords disparaissent. Chaque planche tient dans la hauteur
+   de l'écran.
+   ───────────────────────────────────────────────────────────────────── */
 
 .project {
+  margin-top: 56px;
+  /* Textes secondaires : l'encre éclaircie reste lisible sur tous les
+     fonds, du blanc au gris de Fin Haut. */
+  --muted: rgba(29, 29, 27, 0.68);
+  --muted-strong: rgba(29, 29, 27, 0.8);
+}
+
+.project__intro {
   display: flex;
   gap: 40px;
-  margin-top: 56px;
   align-items: flex-start;
 }
 
@@ -330,23 +341,17 @@ p, li { text-wrap: pretty; }
   flex: 1;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(320px, 440px) 1fr;
-  grid-template-areas:
-    "head visual"
-    "text visual";
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   column-gap: 72px;
   align-items: start;
 }
-
-.detail__head   { grid-area: head; }
-.detail__text   { grid-area: text; }
-.detail__visual { grid-area: visual; }
 
 .detail__name {
   font-size: 44px;
   font-weight: 600;
   line-height: 1.05;
   margin: 0;
+  text-wrap: balance;
 }
 
 .detail__meta {
@@ -355,44 +360,40 @@ p, li { text-wrap: pretty; }
   margin: 8px 0 0;
 }
 
+/* Première ligne alignée sur le haut des capitales du nom. */
+.detail__text { padding-top: 6px; }
+
 .detail__desc {
   font-size: 15px;
   line-height: 1.55;
-  margin: 96px 0 0;
-  max-width: 420px;
-  text-wrap: pretty;
+  margin: 0;
+  max-width: 560px;
 }
 
-.detail__typo {
-  margin-top: 56px;
+.detail__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 56px;
+  margin: 32px 0 0;
   font-size: 14px;
   line-height: 1.6;
 }
 
-.detail__typo-value { color: var(--muted-strong); }
+.detail__specs dd {
+  margin: 0;
+  color: var(--muted-strong);
+}
 
-/* Visuels */
-.shots {
+.boards {
+  margin: 64px calc(-1 * var(--page-pad-x)) 0;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 28px;
+  justify-items: center;
 }
 
-.shots img { width: 100%; height: auto; }
-.shots__main { align-self: center; }
-
-.shots__wide {
-  grid-column: 1 / -1;
-  width: 88%;
-  justify-self: center;
-}
-
-.cover {
+.board {
   display: block;
-  width: 100%;
-  height: 72vh;
-  object-fit: contain;
-  object-position: center top;
+  width: min(100%, calc((100vh - 96px) * 16 / 9));
+  height: auto;
 }
 
 /* ── À propos / Contact ──────────────────────────────────────────────── */
@@ -1024,8 +1025,6 @@ p, li { text-wrap: pretty; }
    rangées de 1px, et la grille la range dans la colonne la plus courte.
    ───────────────────────────────────────────────────────────────────── */
 
-.page.is-white { background: var(--white); }
-
 .gallery { margin-top: 56px; }
 
 .gallery__grid {
@@ -1179,7 +1178,7 @@ p, li { text-wrap: pretty; }
 [data-dir="back"] .anim  { animation-name: ldFromLeft; }
 [data-dir="first"] .anim { animation-name: ldRise; }
 
-/* La liste compte onze entrées : décalage plus serré. */
+/* La liste compte douze entrées : décalage plus serré. */
 .projects .anim { animation-delay: calc(var(--step, 0) * 40ms); }
 
 /* ── ≤ 1280px : accueil à parts égales ───────────────────────────────────
@@ -1196,19 +1195,12 @@ p, li { text-wrap: pretty; }
 
 @media (max-width: 1080px) {
   .project__body {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
   }
 
-  .detail__head   { order: 1; }
-  .detail__visual { order: 2; }
-  .detail__text   { order: 3; }
-
-  .detail__desc { margin-top: 0; }
-  .detail__typo { margin-top: 32px; }
-
-  .cover { height: auto; max-height: 68vh; }
+  .detail__text { padding-top: 0; }
+  .boards { margin-top: 48px; }
 }
 
 /* ── ≤ 860px : version mobile ────────────────────────────────────────────
@@ -1380,7 +1372,19 @@ p, li { text-wrap: pretty; }
   /* Pages intérieures */
   .page { padding-bottom: 64px; }
 
-  .project { gap: 18px; margin-top: 28px; }
+  .project { margin-top: 28px; }
+  .boards { margin-top: 36px; }
+
+  /* Le nom reste à côté de la flèche ; la description prend toute la
+     largeur de l'écran, sous les deux. */
+  .project__intro {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 28px 18px;
+  }
+
+  .project__body { display: contents; }
+  .detail__text { grid-column: 1 / -1; }
 
   .gallery { margin-top: 28px; }
   .gallery__grid { --cols: 2; --gap: 10px; }
@@ -1415,14 +1419,9 @@ p, li { text-wrap: pretty; }
   .about__hello { font-size: 32px; }
   .about__quote p { font-size: 22px; }
   .simple { margin-top: 56px; }
-
-  .shots { gap: 20px; }
-  .shots__wide { width: 100%; }
 }
 
 @media (max-width: 520px) {
-  .shots { grid-template-columns: 1fr; }
-  .shots__main { align-self: stretch; }
   .mail { font-size: 25px; }
 
   .service-details__row {

@@ -66,31 +66,35 @@
 
   <!-- Projet -->
   <section class="view project" id="view-project" hidden>
-    <a class="back" id="back" href="#/" aria-label="Retour à l'accueil">
-      <span class="chevron chevron--left"></span>
-    </a>
+    <div class="project__intro">
+      <a class="back" id="back" href="#/" aria-label="Retour à l'accueil">
+        <span class="chevron chevron--left"></span>
+      </a>
 
-    <div class="project__body">
-      <header class="detail__head anim" style="--step:0">
-        <h1 class="detail__name" id="p-name" tabindex="-1"></h1>
-        <p class="detail__meta" id="p-meta"></p>
-      </header>
+      <div class="project__body">
+        <header class="detail__head anim" style="--step:0">
+          <h1 class="detail__name" id="p-name" tabindex="-1"></h1>
+          <p class="detail__meta" id="p-meta"></p>
+        </header>
 
-      <div class="detail__visual anim" style="--step:1" id="p-visual">
-        <!-- Série de visuels, remplie par app.js -->
-        <div class="shots" id="p-shots" hidden></div>
-        <!-- Visuel unique, rempli par app.js -->
-        <div id="p-cover" hidden></div>
-      </div>
-
-      <div class="detail__text anim" style="--step:2">
-        <p class="detail__desc" id="p-desc"></p>
-        <div class="detail__typo">
-          <div>Typographie</div>
-          <div class="detail__typo-value" id="p-typo"></div>
+        <div class="detail__text anim" style="--step:1">
+          <p class="detail__desc" id="p-desc"></p>
+          <dl class="detail__specs">
+            <div>
+              <dt>Typographie</dt>
+              <dd id="p-typo"></dd>
+            </div>
+            <div id="p-format-row">
+              <dt>Format</dt>
+              <dd id="p-format"></dd>
+            </div>
+          </dl>
         </div>
       </div>
     </div>
+
+    <!-- Planches du portfolio, remplies par app.js -->
+    <div class="boards anim" style="--step:2" id="p-boards"></div>
   </section>
 
   <!-- À propos -->

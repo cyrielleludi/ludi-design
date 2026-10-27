@@ -11,16 +11,51 @@
 
   /* `cover` : visuel principal (accueil et galerie). `size` : ses dimensions
      en pixels, [largeur, hauteur] — facultatif, mais évite que la galerie
-     ne bouge pendant le chargement. */
+     ne bouge pendant le chargement.
+     `bg` : couleur de fond des planches du portfolio, reprise par la page du
+     projet pour que les planches s'y fondent. `format` : facultatif.
+     `boards` : les planches, dans l'ordre, chacune décrite pour les lecteurs
+     d'écran. Leurs fichiers : assets/projets/<slug>-1.webp, -2.webp…
+     (2400 px de large), et la version -1200.webp pour les petits écrans. */
   var PROJECTS = [
+    {
+      slug: 'la-nuit-des-bibliotheques',
+      name: 'La Nuit des Bibliothèques',
+      meta: 'Identité visuelle - 2024',
+      cover: 'assets/pf-nuitbibliotheques.webp',
+      size: [966, 1440],
+      bg: '#FFFFFF',
+      typo: 'Helvetica Neue LT Std',
+      desc: "Identité visuelle pour La Nuit des Bibliothèques, une soirée durant laquelle cinq bibliothèques de Sion ouvrent leurs portes jusqu'à minuit. Chaque lieu a sa forme et sa couleur, déclinées sur l'affiche, le dépliant, le plan, le site internet et les goodies. Projet réalisé pour l'examen final du CFC de graphiste, à l'EDHEA.",
+      boards: [
+        'Ensemble des supports de La Nuit des Bibliothèques',
+        'Éléments du concept visuel : formes, couleurs, typographie et logo',
+        'Affiche',
+        'Dépliant plié, dépliant ouvert et affiche',
+        'Intérieur du dépliant : programme et plan',
+        'Plan de Sion et des cinq bibliothèques',
+        "Page d'accueil du site internet",
+        'Page programme du site internet',
+        "Pages de la Bibliothèque des Musées cantonaux et de l'atelier de calligraphie",
+        'Pages des médiathèques Travail social et Santé',
+        'Logo et goodies : gourde, stylo et porte-clés'
+      ]
+    },
     {
       slug: 'fin-haut',
       name: 'Fin Haut',
       meta: 'Édition - 2022',
       cover: 'assets/pf-finhaut.webp',
       size: [1500, 1185],
+      bg: '#B1B1B1',
       typo: 'ITC Giovanni Std, GT America',
-      desc: "Archivage de quatre témoignages sur la disparition du tourisme dans la commune de Finhaut, autrefois populaire auprès des étrangers."
+      format: '180 × 257 mm',
+      desc: "Archivage de quatre témoignages sur la disparition du tourisme dans la commune de Finhaut, autrefois populaire auprès des étrangers.",
+      boards: [
+        'Les livrets de Fin Haut ouverts en éventail',
+        'Couverture et doubles pages intérieures',
+        "Double page du témoignage d'Odile Boni"
+      ]
     },
     {
       slug: 'pot-de-miel',
@@ -28,8 +63,13 @@
       meta: 'Packaging - 2025',
       cover: 'assets/pf-potmiel.webp',
       size: [728, 1280],
+      bg: '#FFEFC4',
       typo: 'Syntax',
-      desc: "Conception d'étiquette et de packaging pour des pots de miel offerts aux collaborateurs de la Ligue pulmonaire fribourgeoise. Projet réalisé en collaboration avec Créambule."
+      format: '72 × 135 × 52 mm',
+      desc: "Conception d'étiquette et de packaging pour des pots de miel offerts aux collaborateurs de la Ligue pulmonaire fribourgeoise. Projet réalisé en collaboration avec Créambule.",
+      boards: [
+        'Pots de miel de Gruyère et leur emballage aux pissenlits'
+      ]
     },
     {
       slug: 'k-pop-festival',
@@ -37,8 +77,15 @@
       meta: 'Identité visuelle - 2021',
       cover: 'assets/pf-kpop.webp',
       size: [1500, 1169],
+      bg: '#E7F0FF',
       typo: 'Avenir Next LT Pro',
-      desc: "Identité visuelle pour un festival de musique de pop coréenne. Le changement de rythme, une de ses particularités, a servi de base au style graphique de l'événement."
+      format: 'A2 et A5',
+      desc: "Identité visuelle pour un festival de musique de pop coréenne. Le changement de rythme, une de ses particularités, a servi de base au style graphique de l'événement.",
+      boards: [
+        'Logo, dépliant et affiche du festival',
+        'Programme plié et déplié',
+        'Doubles pages du livret consacrées aux artistes'
+      ]
     },
     {
       slug: 'championnat-de-volley-ball',
@@ -46,8 +93,13 @@
       meta: 'Affiche - 2021',
       cover: 'assets/pf-volley.webp',
       size: [752, 1096],
+      bg: '#FFF6F9',
       typo: 'Akzidenz Grotesk Std',
-      desc: "Série d'affiches réalisée pour un championnat de volley-ball opposant diverses équipes dans trois lieux différents."
+      format: 'A2',
+      desc: "Série d'affiches réalisée pour un championnat de volley-ball opposant diverses équipes dans trois lieux différents.",
+      boards: [
+        'Les trois affiches du championnat : Attack, Defend et Block'
+      ]
     },
     {
       slug: 'film-festival-bienne-biel',
@@ -55,8 +107,14 @@
       meta: 'Identité visuelle - 2022',
       cover: 'assets/pf-filmfestival.webp',
       size: [1500, 1164],
+      bg: '#E6FFE6',
       typo: 'Plantin Std, Helvetica LT Std',
-      desc: "Identité visuelle pour un festival dédié à la découverte des productions cinématographiques étrangères. L'édition 2022 est consacrée au cinéma asiatique, proposant des films, courts-métrages et documentaires l'ayant pour sujet ou y ayant été produits."
+      format: 'A2 et A5',
+      desc: "Identité visuelle pour un festival dédié à la découverte des productions cinématographiques étrangères. L'édition 2022 est consacrée au cinéma asiatique, proposant des films, courts-métrages et documentaires l'ayant pour sujet ou y ayant été produits.",
+      boards: [
+        'Logo, flyer et affiches du festival',
+        'Pages du programme : documentaires, courts-métrages, agenda et films'
+      ]
     },
     {
       slug: 'la-nuit-des-musees',
@@ -64,8 +122,13 @@
       meta: 'Affiche - 2022',
       cover: 'assets/pf-nuitmusees.webp',
       size: [1064, 1443],
+      bg: '#FFFFCD',
       typo: 'Avenir Next LT Pro',
-      desc: "Affiche dépliante avec le programme pour l'événement de La Nuit Des Musées 2022."
+      format: 'A3',
+      desc: "Affiche dépliante avec le programme pour l'événement de La Nuit Des Musées 2022.",
+      boards: [
+        'Affiche dépliante, recto et verso'
+      ]
     },
     {
       slug: 'saeg',
@@ -73,8 +136,16 @@
       meta: 'Identité visuelle - 2024',
       cover: 'assets/pf-saeg.webp',
       size: [1500, 734],
+      bg: '#CDCEC9',
       typo: 'Sæg, Assistant',
-      desc: "Identité visuelle pour un magasin de mode éco-responsable au style alternatif, axé sur des vêtements pour les jeunes et mettant l'accent sur l'écologie."
+      desc: "Identité visuelle pour un magasin de mode éco-responsable au style alternatif, axé sur des vêtements pour les jeunes et mettant l'accent sur l'écologie.",
+      boards: [
+        'Logo, site internet et affiche',
+        "Affiches de la collection Flower Blooming et de l'ouverture du magasin",
+        'Pages du site internet',
+        'Flyer recto verso',
+        'Étiquettes de vêtements'
+      ]
     },
     {
       slug: 'carre',
@@ -82,8 +153,14 @@
       meta: 'Édition - 2022',
       cover: 'assets/pf-carre.webp',
       size: [1320, 1134],
+      bg: '#CDF7FF',
       typo: 'Letter Gothic Mono',
-      desc: "Livre réunissant trois concepts réalisés sur la base de trois mots : limite, chaos et transparence."
+      format: 'A5',
+      desc: "Livre réunissant trois concepts réalisés sur la base de trois mots : limite, chaos et transparence.",
+      boards: [
+        'Couverture du livre',
+        'Trois doubles pages du livre'
+      ]
     },
     {
       slug: 'ecole-de-musique-digitale-de-neuchatel',
@@ -91,8 +168,13 @@
       meta: 'Identité visuelle - 2022',
       cover: 'assets/pf-ecolemusique.webp',
       size: [1500, 783],
+      bg: '#E7E5FF',
       typo: 'Avenir Next LT Pro, Gotham',
-      desc: "Conception d'une identité visuelle pour une école de musique électronique, mettant en avant la possibilité d'évoluer dans les formations qu'elle propose."
+      desc: "Conception d'une identité visuelle pour une école de musique électronique, mettant en avant la possibilité d'évoluer dans les formations qu'elle propose.",
+      boards: [
+        'Logo et site internet sur ordinateur, tablette et téléphone',
+        "Tote bags aux couleurs de l'école"
+      ]
     },
     {
       slug: 'texere',
@@ -100,8 +182,14 @@
       meta: 'Édition - 2022',
       cover: 'assets/pf-texere.webp',
       size: [1376, 1230],
+      bg: '#E4F2D0',
       typo: 'BauLF',
-      desc: "Recueil de photographies d'éléments naturels transformés en trames abstraites."
+      format: 'A4',
+      desc: "Recueil de photographies d'éléments naturels transformés en trames abstraites.",
+      boards: [
+        'Couverture du livre',
+        'Doubles pages : photographies et trames abstraites'
+      ]
     },
     {
       slug: 'stay-focus',
@@ -109,12 +197,15 @@
       meta: 'Identité visuelle - 2024',
       cover: 'assets/hero-stayfocus.webp',
       size: [1500, 1300],
+      bg: '#FFF4DA',
       typo: 'Altivo',
       desc: "Identité visuelle pour une entreprise de location d'espaces de coworking dédiés aux étudiants, en collaboration avec des établissements scolaires.",
-      shots: [
-        { src: 'assets/sf-imac.webp', alt: 'Site stay focus', className: 'shots__main' },
-        { src: 'assets/sf-screens.webp', alt: 'Écrans du site' },
-        { src: 'assets/sf-flyers.webp', alt: 'Flyers stay focus', className: 'shots__wide' }
+      boards: [
+        'Logo, site internet, application et affiche',
+        'Pages du site internet',
+        "Icône et écrans de l'application",
+        "Flyers « Impossible d'étudier chez toi ? »",
+        'Goodies : gourdes, gobelet, carnet, accroche-portes, porte-clés et clé USB'
       ]
     }
   ];
@@ -135,8 +226,9 @@
     pMeta: document.getElementById('p-meta'),
     pDesc: document.getElementById('p-desc'),
     pTypo: document.getElementById('p-typo'),
-    pShots: document.getElementById('p-shots'),
-    pCover: document.getElementById('p-cover')
+    pFormat: document.getElementById('p-format'),
+    pFormatRow: document.getElementById('p-format-row'),
+    pBoards: document.getElementById('p-boards')
   };
 
   var activeSlug = null;
@@ -298,39 +390,35 @@
     el.pMeta.textContent = project.meta;
     el.pDesc.textContent = project.desc;
     el.pTypo.textContent = project.typo;
+    el.pFormat.textContent = project.format || '';
+    el.pFormatRow.hidden = !project.format;
 
-    var hasShots = Boolean(project.shots && project.shots.length);
-    el.pShots.hidden = !hasShots;
-    el.pCover.hidden = hasShots;
-
-    if (hasShots) renderShots(project.shots);
-    else renderCover(project);
+    renderBoards(project);
   }
 
-  function renderCover(project) {
-    var img = document.createElement('img');
-    img.className = 'cover';
-    img.src = project.cover;
-    img.alt = project.name;
-
-    el.pCover.textContent = '';
-    el.pCover.appendChild(img);
-  }
-
-  /* Série de visuels, pour les projets qui en ont plusieurs. */
-  function renderShots(shots) {
+  /* Les planches du portfolio, l'une sous l'autre. Le navigateur choisit
+     la version 1200 px ou 2400 px selon l'écran ; seule la première est
+     chargée tout de suite. */
+  function renderBoards(project) {
     var frag = document.createDocumentFragment();
 
-    shots.forEach(function (shot) {
+    project.boards.forEach(function (alt, i) {
+      var file = 'assets/projets/' + project.slug + '-' + (i + 1);
       var img = document.createElement('img');
-      img.src = shot.src;
-      img.alt = shot.alt;
-      if (shot.className) img.className = shot.className;
+      img.className = 'board';
+      img.alt = alt;
+      img.width = 2400;
+      img.height = 1350;
+      img.decoding = 'async';
+      if (i > 0) img.loading = 'lazy';
+      img.sizes = '100vw';
+      img.srcset = file + '-1200.webp 1200w, ' + file + '.webp 2400w';
+      img.src = file + '.webp';
       frag.appendChild(img);
     });
 
-    el.pShots.textContent = '';
-    el.pShots.appendChild(frag);
+    el.pBoards.textContent = '';
+    el.pBoards.appendChild(frag);
   }
 
   /* ── Galerie ───────────────────────────────────────────────────────── */
@@ -456,6 +544,17 @@
     return { view: 'home' };
   }
 
+  /* Fond des pages intérieures : blanc pour ces vues, celui des planches
+     pour un projet, crème sinon. Posé sur <html>, il colore aussi l'en-tête
+     et la zone qui apparaît quand on tire la page au-delà de ses bords. */
+  var WHITE_VIEWS = { portfolio: true, services: true, about: true };
+
+  function setPageBackground(color) {
+    var root = document.documentElement.style;
+    if (color) root.setProperty('--page-bg', color);
+    else root.removeProperty('--page-bg');
+  }
+
   function render() {
     var route = parseRoute();
     var view = route.view;
@@ -471,7 +570,7 @@
 
     el.home.hidden = !isHome;
     el.pages.hidden = isHome;
-    el.pages.classList.toggle('is-white', view === 'portfolio' || view === 'services' || view === 'about');
+    setPageBackground(view === 'project' ? route.project.bg : WHITE_VIEWS[view] ? '#FFFFFF' : '');
     el.portfolio.hidden = view !== 'portfolio';
     el.project.hidden = view !== 'project';
     el.about.hidden = view !== 'about';
