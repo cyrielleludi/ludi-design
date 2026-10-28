@@ -31,8 +31,6 @@
       typo: 'Helvetica Neue LT Std',
       desc: "Identité visuelle pour La Nuit des Bibliothèques, une soirée durant laquelle cinq bibliothèques de Sion ouvrent leurs portes jusqu'à minuit. Chaque lieu a sa forme et sa couleur, déclinées sur l'affiche, le dépliant, le plan, le site internet et les goodies. Projet réalisé pour l'examen final du CFC de graphiste, à l'EDHEA.",
       boards: [
-        'Ensemble des supports de La Nuit des Bibliothèques',
-        'Éléments du concept visuel : formes, couleurs, typographie et logo',
         'Affiche',
         'Dépliant plié, dépliant ouvert et affiche',
         'Intérieur du dépliant : programme et plan',
