@@ -1125,6 +1125,7 @@ p, li { text-wrap: pretty; }
     align-items: center;
     justify-content: center;
     flex: none;
+    transition: transform .25s var(--ease-out), background-color .2s ease;
   }
 
   .tile__go .chevron {
@@ -1135,8 +1136,17 @@ p, li { text-wrap: pretty; }
 
   .tile__link:hover { color: inherit; }
 
-  .tile__link:hover .tile__name,
+  /* Le titre reste noir au survol de la case : la couleur du projet
+     n'apparaît que sur la flèche (--tile-ink, posée par app.js). */
+  .tile__link:has(.tile__go:hover) .tile__name,
   .tile__link:focus-visible .tile__name { color: var(--tile-ink, inherit); }
+
+  .tile__go:hover,
+  .tile__link:focus-visible .tile__go {
+    background: var(--tile-ink, var(--ink));
+    transform: translateX(3px);
+  }
+
   .tile__link:hover .tile__img { transform: scale(1.04); }
 
   .tile__link:hover .tile__caption,
@@ -1471,6 +1481,7 @@ p, li { text-wrap: pretty; }
   .back,
   .tile__img,
   .tile__caption,
+  .tile__go,
   .service__prices,
   .service__go,
   .service__plus,
