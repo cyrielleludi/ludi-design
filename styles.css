@@ -225,16 +225,17 @@ p, li { text-wrap: pretty; }
   white-space: nowrap;
 }
 
-/* Le projet sélectionné, et celui sous le curseur, prennent la couleur de
-   leurs textes dans le portfolio (--item-ink, posée par app.js). */
 .projects li.is-active .project-link__name {
   font-size: calc(var(--title-active) * var(--fit, 1));
   font-weight: 700;
   font-style: italic;
-  color: var(--item-ink, inherit);
 }
 
-.project-link:hover { color: var(--item-ink, var(--gold)); }
+/* Titres en noir ; sous le curseur (ou au clavier), ils prennent la
+   couleur de leurs textes dans le portfolio (--item-ink, posée par app.js). */
+.project-link:hover,
+.project-link:focus-visible,
+.project-link:active { color: var(--item-ink, var(--gold)); }
 
 .project-link__go {
   width: 38px;
