@@ -8,28 +8,30 @@
 <link rel="icon" href="assets/favicon-96.png" type="image/png" sizes="96x96">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://ludi-design.ch/">
 
 <!-- Aperçu affiché quand le lien est partagé (WhatsApp, LinkedIn, iMessage…).
-     Ces adresses doivent être complètes : à mettre à jour quand le site
-     passera sur ludi-design.ch. -->
+     Ces adresses doivent être complètes : ce sont celles du site en ligne. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CH">
 <meta property="og:site_name" content="Ludi Design">
 <meta property="og:title" content="Cyrielle Lüdi, graphiste en Valais">
 <meta property="og:description" content="Identité visuelle, affiches, édition et packaging.">
-<meta property="og:url" content="https://cyrielleludi.github.io/ludi-design/">
-<meta property="og:image" content="https://cyrielleludi.github.io/ludi-design/assets/partage.jpg">
+<meta property="og:url" content="https://ludi-design.ch/">
+<meta property="og:image" content="https://ludi-design.ch/assets/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cyrielle Lüdi, graphiste en Valais, à côté d'un visuel du projet Stay Focus">
+<meta property="og:image:alt" content="Cyrielle Lüdi, graphiste en Valais, à côté d’un visuel du projet Stay Focus">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<noscript>
+  <p class="noscript">Ce site a besoin de JavaScript pour s’afficher. Pour me contacter&nbsp;: <a href="mailto:admin@ludi-design.ch">admin@ludi-design.ch</a></p>
+</noscript>
 
 <!-- ── Accueil ─────────────────────────────────────────────────────────── -->
 <section class="view view--home" id="view-home" hidden>
@@ -88,7 +90,7 @@
   <!-- Projet -->
   <section class="view project" id="view-project" hidden>
     <div class="project__intro">
-      <a class="back" id="back" href="#/" aria-label="Retour à l'accueil">
+      <a class="back" id="back" href="#/" aria-label="Retour à l’accueil">
         <span class="chevron chevron--left"></span>
       </a>
 
@@ -116,22 +118,31 @@
 
     <!-- Planches du portfolio, remplies par app.js -->
     <div class="boards anim" style="--step:2" id="p-boards"></div>
+
+    <nav class="project__end" aria-label="Autres projets">
+      <a class="project__all" href="#/portfolio">Tous les projets</a>
+      <a class="project__next" id="p-next" href="#/portfolio">
+        <span class="project__next-label">Projet suivant</span>
+        <span class="project__next-name" id="p-next-name"></span>
+        <span class="project__next-go" aria-hidden="true"><span class="chevron"></span></span>
+      </a>
+    </nav>
   </section>
 
   <!-- À propos -->
   <section class="view about" id="view-about" hidden>
     <div class="about__intro">
-      <img class="about__portrait anim" style="--step:0" src="assets/cyrielle.jpg" width="584" height="640" alt="Portrait de Cyrielle Lüdi">
+      <img class="about__portrait anim" style="--step:0" src="assets/cyrielle.jpg" width="584" height="640" loading="lazy" alt="Portrait de Cyrielle Lüdi">
       <div class="about__text anim" style="--step:1">
-        <h1 class="about__hello" tabindex="-1">Bonjour, moi c'est Cyrielle.</h1>
-        <p>Graphiste en Valais, je crée des identités visuelles, des affiches, des livres et des emballages. Lüdi, comme ludique&nbsp;: avec un nom pareil, mes projets gardent toujours une petite part de jeu, sans perdre le sérieux qu'il faut.</p>
-        <p>Ma méthode&nbsp;: écouter d'abord, dessiner ensuite. Je cherche à comprendre votre projet, votre public et ce qui vous rend différent. Puis j'explore, je teste, je recommence (souvent) et j'affine jusqu'au détail qui change tout. Consciencieuse, je relis trois fois. Persévérante, je relis une quatrième fois.</p>
-        <p>Je travaille avec des entreprises, des associations, des festivals et des projets culturels, en Valais et dans toute la Suisse romande. Du logo à l'étiquette de miel, en passant par l'affiche qu'on doit pouvoir lire depuis l'autre côté de la rue.</p>
+        <h1 class="about__hello" tabindex="-1">Bonjour, moi c’est Cyrielle.</h1>
+        <p>Graphiste en Valais, je crée des identités visuelles, des affiches, des livres et des emballages. Lüdi, comme ludique&nbsp;: avec un nom pareil, mes projets gardent toujours une petite part de jeu, sans perdre le sérieux qu’il faut.</p>
+        <p>Ma méthode&nbsp;: écouter d’abord, dessiner ensuite. Je cherche à comprendre votre projet, votre public et ce qui vous rend différent. Puis j’explore, je teste, je recommence (souvent) et j’affine jusqu’au détail qui change tout. Consciencieuse, je relis trois fois. Persévérante, je relis une quatrième fois.</p>
+        <p>Je travaille avec des entreprises, des associations, des festivals et des projets culturels, en Valais et dans toute la Suisse romande. Du logo à l’étiquette de miel, en passant par l’affiche qu’on doit pouvoir lire depuis l’autre côté de la rue.</p>
       </div>
     </div>
 
     <blockquote class="about__quote anim" style="--step:2">
-      <p>«&nbsp;Explorer des idées, expérimenter et affiner les détails pour créer des visuels qui ont du sens, c'est ça qui me fait vibrer.&nbsp;»</p>
+      <p>«&nbsp;Explorer des idées, expérimenter et affiner les détails pour créer des visuels qui ont du sens, c’est ça qui me fait vibrer.&nbsp;»</p>
     </blockquote>
 
     <section class="about__section anim" style="--step:3" aria-labelledby="about-parcours">
@@ -160,7 +171,7 @@
         <li class="about__card">
           <span class="about__year">2020 – 2024</span>
           <h3 class="about__name">EDHEA</h3>
-          <p class="about__desc">CFC de graphiste et maturité professionnelle, École de design et haute école d'art, Sierre</p>
+          <p class="about__desc">CFC de graphiste et maturité professionnelle, École de design et haute école d’art, Sierre</p>
         </li>
       </ul>
     </section>
@@ -169,33 +180,33 @@
       <h2 class="about__title" id="about-prix">Distinctions</h2>
       <ul class="about__cards">
         <li class="about__card">
-          <span class="about__year">2021</span>
-          <h3 class="about__name">2<sup>e</sup> place</h3>
-          <p class="about__desc">Logo du Bureau des Échanges Linguistiques</p>
-        </li>
-        <li class="about__card">
           <span class="about__year">2022</span>
           <h3 class="about__name">2<sup>e</sup> place</h3>
           <p class="about__desc">Logo de la 27<sup>e</sup> Fête cantonale des musiques valaisannes</p>
+        </li>
+        <li class="about__card">
+          <span class="about__year">2021</span>
+          <h3 class="about__name">2<sup>e</sup> place</h3>
+          <p class="about__desc">Logo du Bureau des Échanges Linguistiques</p>
         </li>
       </ul>
     </section>
 
     <section class="about__section anim" style="--step:5" aria-labelledby="about-outils">
       <h2 class="about__title" id="about-outils">Boîte à outils</h2>
-      <p>InDesign et Illustrator au quotidien, Photoshop et Lightroom pour les images, Figma et Claude Code pour les sites, Glyphs pour dessiner des typographies, et After Effects quand un logo a envie de bouger. Et loin de l'écran, un plotter de découpe&nbsp;: je découpe, j'échenille (oui, c'est un vrai mot) et je pose le vinyle, sur une vitrine comme en thermocollant sur un t-shirt.</p>
+      <p>InDesign et Illustrator au quotidien, Photoshop et Lightroom pour les images, Figma et Claude Code pour les sites, Glyphs pour dessiner des typographies, et After Effects quand un logo a envie de bouger. Et loin de l’écran, un plotter de découpe&nbsp;: je découpe, j’échenille (oui, c’est un vrai mot) et je pose le vinyle, sur une vitrine comme en thermocollant sur un t-shirt.</p>
     </section>
 
     <section class="about__section anim" style="--step:6" aria-labelledby="about-hors-ecran">
       <h2 class="about__title" id="about-hors-ecran">Hors écran</h2>
       <ul class="about__list">
         <li>Je crée des bijoux et des accessoires sous le nom <a href="https://honeyxcrow.ch" target="_blank" rel="noopener">Honey × Crow</a>&nbsp;: mes mains ont du mal à rester tranquilles. (Le site est encore en chantier, comme mes prochaines créations.)</li>
-        <li>Je fais du cosplay. Coudre un costume, c'est un peu de l'identité visuelle en trois dimensions.</li>
+        <li>Je fais du cosplay. Coudre un costume, c’est un peu de l’identité visuelle en trois dimensions.</li>
         <li>Je joue à des jeux vidéo en équipe&nbsp;: coopérer, communiquer et ne laisser personne derrière, ça sert aussi en atelier.</li>
       </ul>
     </section>
 
-    <p class="about__invite anim" style="--step:7">Une idée qui mérite d'être vue&nbsp;?</p>
+    <p class="about__invite anim" style="--step:7">Une idée qui mérite d’être vue&nbsp;?</p>
     <a class="about__cta anim" style="--step:8" href="#/contact">Parlons-en</a>
     <p class="about__links anim" style="--step:9">
       <a href="#/services">Voir les services et tarifs</a>
@@ -224,13 +235,13 @@
         <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Logo</span><span>dès CHF 900</span></li>
-            <li><span>Identité visuelle complète</span><span>dès CHF 2'400</span></li>
+            <li><span>Identité visuelle complète</span><span>dès CHF 2’400</span></li>
           </ul>
           <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
       </li>
       <li class="service-details" id="detail-identite" role="region" aria-labelledby="service-identite" hidden>
-        <p class="service-details__intro">C'est tout ce qui fait qu'on vous reconnaît au premier coup d'œil&nbsp;: votre logo, vos couleurs, vos typographies, et la charte graphique, le petit guide qui explique comment les utiliser partout.</p>
+        <p class="service-details__intro">C’est tout ce qui fait qu’on vous reconnaît au premier coup d’œil&nbsp;: votre logo, vos couleurs, vos typographies, et la charte graphique, le petit guide qui explique comment les utiliser partout.</p>
         <div>
           <ul class="service-details__rows">
           <li class="service-details__row">
@@ -245,7 +256,7 @@
               <h3 class="service-details__name">Identité visuelle complète</h3>
               <p class="service-details__desc">Logo, couleurs, typographies, charte graphique et premières déclinaisons (papeterie, réseaux sociaux).</p>
             </div>
-            <p class="service-details__price">dès CHF 2'400</p>
+            <p class="service-details__price">dès CHF 2’400</p>
           </li>
           </ul>
           <a class="service-details__cta" href="#/contact">Demander un devis</a>
@@ -268,33 +279,33 @@
         </div>
       </li>
       <li class="service-details" id="detail-imprimes" role="region" aria-labelledby="service-imprimes" hidden>
-        <p class="service-details__intro">Les supports qu'on tient en main ou qu'on croise dans la rue. Je m'occupe de la création et je vous livre des fichiers prêts pour l'imprimeur.</p>
+        <p class="service-details__intro">Les supports qu’on tient en main ou qu’on croise dans la rue. Je m’occupe de la création et je vous livre des fichiers prêts pour l’imprimeur.</p>
         <div>
           <ul class="service-details__rows">
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Affiche</h3>
-              <p class="service-details__desc">Création d'une affiche (A3 à F4), prête pour l'impression.</p>
+              <p class="service-details__desc">Création d’une affiche (A3 à F4), prête pour l’impression.</p>
             </div>
             <p class="service-details__price">dès CHF 550</p>
           </li>
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Flyer recto-verso</h3>
-              <p class="service-details__desc">Mise en page d'un flyer ou d'un carton d'invitation.</p>
+              <p class="service-details__desc">Mise en page d’un flyer ou d’un carton d’invitation.</p>
             </div>
             <p class="service-details__price">dès CHF 400</p>
           </li>
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Carte de visite</h3>
-              <p class="service-details__desc">À partir d'un logo existant.</p>
+              <p class="service-details__desc">À partir d’un logo existant.</p>
             </div>
             <p class="service-details__price">dès CHF 200</p>
           </li>
           <li class="service-details__row">
             <div>
-              <h3 class="service-details__name">Déclinaison d'un visuel</h3>
+              <h3 class="service-details__name">Déclinaison d’un visuel</h3>
               <p class="service-details__desc">Adaptation à un autre format&nbsp;: flyer, bannière web, publication.</p>
             </div>
             <p class="service-details__price">dès CHF 150</p>
@@ -320,13 +331,13 @@
         </div>
       </li>
       <li class="service-details" id="detail-edition" role="region" aria-labelledby="service-edition" hidden>
-        <p class="service-details__intro">La mise en page des documents de plusieurs pages, pour qu'ils soient agréables à lire du début à la fin.</p>
+        <p class="service-details__intro">La mise en page des documents de plusieurs pages, pour qu’ils soient agréables à lire du début à la fin.</p>
         <div>
           <ul class="service-details__rows">
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Brochure ou dépliant</h3>
-              <p class="service-details__desc">Conception et mise en page, jusqu'à 8 pages.</p>
+              <p class="service-details__desc">Conception et mise en page, jusqu’à 8 pages.</p>
             </div>
             <p class="service-details__price">dès CHF 900</p>
           </li>
@@ -352,28 +363,28 @@
         <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Étiquette</span><span>dès CHF 650</span></li>
-            <li><span>Emballage complet</span><span>dès CHF 1'800</span></li>
+            <li><span>Emballage complet</span><span>dès CHF 1’800</span></li>
           </ul>
           <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
       </li>
       <li class="service-details" id="detail-packaging" role="region" aria-labelledby="service-packaging" hidden>
-        <p class="service-details__intro">L'habillage de vos produits&nbsp;: ce qui donne envie de les prendre en main, en rayon comme sur un marché.</p>
+        <p class="service-details__intro">L’habillage de vos produits&nbsp;: ce qui donne envie de les prendre en main, en rayon comme sur un marché.</p>
         <div>
           <ul class="service-details__rows">
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Étiquette</h3>
-              <p class="service-details__desc">Vin, miel, bière, produits du terroir&nbsp;: création d'une étiquette prête pour l'impression.</p>
+              <p class="service-details__desc">Vin, miel, bière, produits du terroir&nbsp;: création d’une étiquette prête pour l’impression.</p>
             </div>
             <p class="service-details__price">dès CHF 650</p>
           </li>
           <li class="service-details__row">
             <div>
               <h3 class="service-details__name">Emballage complet</h3>
-              <p class="service-details__desc">Boîte, sachet ou gamme de produits, du concept au fichier d'impression.</p>
+              <p class="service-details__desc">Boîte, sachet ou gamme de produits, du concept au fichier d’impression.</p>
             </div>
-            <p class="service-details__price">dès CHF 1'800</p>
+            <p class="service-details__price">dès CHF 1’800</p>
           </li>
           </ul>
           <a class="service-details__cta" href="#/contact">Demander un devis</a>
@@ -390,13 +401,13 @@
         <div class="service__prices" aria-hidden="true">
           <ul class="service__list">
             <li><span>Tarif horaire</span><span>CHF 90 / h</span></li>
-            <li><span>Avec un pack d'heures</span><span>dès CHF 75 / h</span></li>
+            <li><span>Avec un pack d’heures</span><span>dès CHF 75 / h</span></li>
           </ul>
           <span class="service__more">Voir le détail<span class="service__plus"></span></span>
         </div>
       </li>
       <li class="service-details" id="detail-temps" role="region" aria-labelledby="service-temps" hidden>
-        <p class="service-details__intro">Pour les petites demandes ponctuelles&nbsp;: une correction, une adaptation, un fichier à retoucher. Vous ne payez que le temps passé, compté au quart d'heure.</p>
+        <p class="service-details__intro">Pour les petites demandes ponctuelles&nbsp;: une correction, une adaptation, un fichier à retoucher. Vous ne payez que le temps passé, compté au quart d’heure.</p>
         <div>
           <ul class="service-details__rows">
           <li class="service-details__row">
@@ -408,8 +419,8 @@
           </li>
           <li class="service-details__row">
             <div>
-              <h3 class="service-details__name">Avec un pack d'heures</h3>
-              <p class="service-details__desc">Payé une fois, à utiliser toute l'année&nbsp;: les packs sont présentés plus bas.</p>
+              <h3 class="service-details__name">Avec un pack d’heures</h3>
+              <p class="service-details__desc">Payé une fois, à utiliser toute l’année&nbsp;: les packs sont présentés plus bas.</p>
             </div>
             <p class="service-details__price">dès CHF 75 / h</p>
           </li>
@@ -429,11 +440,11 @@
       </li>
     </ul>
 
-    <p class="services__note anim" style="--step:7">Prix en francs suisses, frais d'impression non compris. Deux séries de corrections incluses dans chaque forfait.</p>
+    <p class="services__note anim" style="--step:7">Prix en francs suisses, frais d’impression non compris. Deux séries de corrections incluses dans chaque forfait.</p>
 
     <section class="packs anim" style="--step:8" aria-labelledby="services-packs">
-      <h2 class="services__title" id="services-packs">Packs d'heures</h2>
-      <p class="packs__intro">Vous achetez un pack en une fois, puis vous m'envoyez vos demandes tout au long de l'année&nbsp;: flyers, publications, retouches, adaptations… Le temps passé est déduit de vos heures.</p>
+      <h2 class="services__title" id="services-packs">Packs d’heures</h2>
+      <p class="packs__intro">Vous achetez un pack en une fois, puis vous m’envoyez vos demandes tout au long de l’année&nbsp;: flyers, publications, retouches, adaptations… Le temps passé est déduit de vos heures.</p>
       <ul class="packs__cards">
         <li class="pack">
           <h3 class="pack__hours">10 heures</h3>
@@ -442,20 +453,20 @@
         </li>
         <li class="pack">
           <h3 class="pack__hours">20 heures</h3>
-          <p class="pack__price">CHF 1'600</p>
+          <p class="pack__price">CHF 1’600</p>
           <p class="pack__detail">soit CHF 80 / h<br>économie de CHF 200</p>
         </li>
         <li class="pack">
           <h3 class="pack__hours">40 heures</h3>
-          <p class="pack__price">CHF 3'000</p>
+          <p class="pack__price">CHF 3’000</p>
           <p class="pack__detail">soit CHF 75 / h<br>économie de CHF 600</p>
         </li>
       </ul>
       <ul class="packs__rules">
         <li>Payé en une fois, à la commande.</li>
         <li>Avant chaque demande, je vous indique le temps estimé.</li>
-        <li>Temps compté au quart d'heure, avec un relevé de vos heures restantes après chaque projet.</li>
-        <li>S'il vous reste des heures, elles sont valables 3 ans après votre première demande.</li>
+        <li>Temps compté au quart d’heure, avec un relevé de vos heures restantes après chaque projet.</li>
+        <li>S’il vous reste des heures, elles sont valables 3 ans après votre première demande.</li>
       </ul>
     </section>
 
@@ -468,8 +479,51 @@
     <h1 class="anim" style="--step:0" tabindex="-1">Contact</h1>
     <p class="anim" style="--step:1">Un projet, une collaboration&nbsp;?</p>
     <a class="mail anim" style="--step:2" href="mailto:admin@ludi-design.ch">admin@ludi-design.ch</a>
+    <p class="simple__note anim" style="--step:3">Basée en Valais, je travaille dans toute la Suisse romande. Après un premier échange, je vous envoie un devis détaillé et gratuit.</p>
+    <p class="simple__links anim" style="--step:4"><a href="https://www.linkedin.com/in/cyrielle-ludi/" target="_blank" rel="noopener">LinkedIn</a></p>
   </section>
+
+  <!-- Mentions légales -->
+  <section class="view legal" id="view-legal" hidden>
+    <h1 class="anim" style="--step:0" tabindex="-1">Mentions légales</h1>
+    <div class="legal__body anim" style="--step:1">
+      <h2>Éditrice du site</h2>
+      <p>Cyrielle Lüdi, graphiste<br>Valais, Suisse<br><a href="mailto:admin@ludi-design.ch">admin@ludi-design.ch</a></p>
+
+      <h2>Hébergement</h2>
+      <p>Infomaniak Network SA<br>Rue Eugène-Marziano 25, 1227 Les Acacias, Suisse</p>
+
+      <h2>Droits d’auteur</h2>
+      <p>Les textes et les créations présentés sur ce site sont l’œuvre de Cyrielle Lüdi, sauf mention contraire. Ils ne peuvent pas être reproduits sans son accord. Les marques et logos de tiers visibles dans certains projets appartiennent à leurs propriétaires.</p>
+
+      <h2>Protection des données</h2>
+      <p>Ce site ne dépose aucun cookie et n’utilise aucun outil de statistiques. Les polices sont hébergées sur le site&nbsp;: votre visite n’envoie aucune donnée à un tiers. Comme tout hébergeur, Infomaniak enregistre des données techniques de connexion, dont l’adresse IP, pour assurer la sécurité et le bon fonctionnement du service.</p>
+      <p>Si vous m’écrivez, j’utilise vos coordonnées uniquement pour vous répondre. Vous pouvez me demander à tout moment d’accéder à vos données, de les corriger ou de les supprimer, à l’adresse ci-dessus.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer__copy">© <span id="year">2026</span> Cyrielle Lüdi</p>
+    <ul class="footer__links">
+      <li><a href="mailto:admin@ludi-design.ch">admin@ludi-design.ch</a></li>
+      <li><a href="https://www.linkedin.com/in/cyrielle-ludi/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="#/mentions-legales">Mentions légales</a></li>
+    </ul>
+  </footer>
 </div>
+
+<!-- Planche agrandie : ouverte en cliquant sur une planche d’un projet -->
+<dialog class="viewer" id="viewer">
+  <div class="viewer__stage" id="viewer-stage">
+    <img class="viewer__img" id="viewer-img" alt="" width="2400" height="1350">
+  </div>
+  <button class="viewer__close" id="viewer-close" type="button" aria-label="Fermer"></button>
+  <div class="viewer__bar" id="viewer-bar">
+    <button class="viewer__step" id="viewer-prev" type="button" aria-label="Planche précédente"><span class="chevron chevron--left"></span></button>
+    <p class="viewer__count" id="viewer-count" aria-live="polite"></p>
+    <button class="viewer__step" id="viewer-next" type="button" aria-label="Planche suivante"><span class="chevron"></span></button>
+  </div>
+</dialog>
 
 <script src="app.js"></script>
 </body>

@@ -23,21 +23,21 @@
     {
       slug: 'la-nuit-des-bibliotheques',
       name: 'La Nuit des Bibliothèques',
-      meta: 'Identité visuelle - 2024',
+      meta: 'Identité visuelle – 2024',
       cover: 'assets/pf-nuitbibliotheques.webp',
       size: [966, 1440],
       bg: '#EFE4FE',
       ink: '#7232C8',
       typo: 'Helvetica Neue LT Std',
-      desc: "Identité visuelle pour La Nuit des Bibliothèques, une soirée durant laquelle cinq bibliothèques de Sion ouvrent leurs portes jusqu'à minuit. Chaque lieu a sa forme et sa couleur, déclinées sur l'affiche, le dépliant, le plan, le site internet et les goodies. Projet réalisé pour l'examen final du CFC de graphiste, à l'EDHEA.",
+      desc: "Identité visuelle pour La Nuit des Bibliothèques, une soirée durant laquelle cinq bibliothèques de Sion ouvrent leurs portes jusqu’à minuit. Chaque lieu a sa forme et sa couleur, déclinées sur l’affiche, le dépliant, le plan, le site internet et les goodies. Projet réalisé pour l’examen final du CFC de graphiste, à l’EDHEA.",
       boards: [
         'Affiche',
         'Dépliant plié, dépliant ouvert et affiche',
         'Intérieur du dépliant : programme et plan',
         'Plan de Sion et des cinq bibliothèques',
-        "Page d'accueil du site internet",
+        "Page d’accueil du site internet",
         'Page programme du site internet',
-        "Pages de la Bibliothèque des Musées cantonaux et de l'atelier de calligraphie",
+        "Pages de la Bibliothèque des Musées cantonaux et de l’atelier de calligraphie",
         'Pages des médiathèques Travail social et Santé',
         'Logo et goodies : gourde, stylo et porte-clés'
       ]
@@ -45,7 +45,7 @@
     {
       slug: 'fin-haut',
       name: 'Fin Haut',
-      meta: 'Édition - 2022',
+      meta: 'Édition – 2022',
       cover: 'assets/pf-finhaut.webp',
       size: [1500, 1185],
       bg: '#C2C2C2',
@@ -56,20 +56,20 @@
       boards: [
         'Les livrets de Fin Haut ouverts en éventail',
         'Couverture et doubles pages intérieures',
-        "Double page du témoignage d'Odile Boni"
+        "Double page du témoignage d’Odile Boni"
       ]
     },
     {
       slug: 'pot-de-miel',
       name: 'Pot de miel',
-      meta: 'Packaging - 2025',
+      meta: 'Packaging – 2025',
       cover: 'assets/pf-potmiel.webp',
       size: [728, 1280],
       bg: '#FFEFC4',
       ink: '#A3833B',
       typo: 'Syntax',
       format: '72 × 135 × 52 mm',
-      desc: "Conception d'étiquette et de packaging pour des pots de miel offerts aux collaborateurs de la Ligue pulmonaire fribourgeoise. Projet réalisé en collaboration avec Créambule.",
+      desc: "Conception d’étiquette et de packaging pour des pots de miel offerts aux collaborateurs de la Ligue pulmonaire fribourgeoise. Projet réalisé en collaboration avec Créambule.",
       boards: [
         'Pots de miel de Gruyère et leur emballage aux pissenlits'
       ]
@@ -77,14 +77,14 @@
     {
       slug: 'k-pop-festival',
       name: 'K-Pop Festival',
-      meta: 'Identité visuelle - 2021',
+      meta: 'Identité visuelle – 2021',
       cover: 'assets/pf-kpop.webp',
       size: [1500, 1169],
       bg: '#E7F0FF',
       ink: '#589BDB',
       typo: 'Avenir Next LT Pro',
       format: 'A2 et A5',
-      desc: "Identité visuelle pour un festival de musique de pop coréenne. Le changement de rythme, une de ses particularités, a servi de base au style graphique de l'événement.",
+      desc: "Identité visuelle pour un festival de musique de pop coréenne. Le changement de rythme, une de ses particularités, a servi de base au style graphique de l’événement.",
       boards: [
         'Logo, dépliant et affiche du festival',
         'Programme plié et déplié',
@@ -94,14 +94,14 @@
     {
       slug: 'championnat-de-volley-ball',
       name: 'Championnat de volley-ball',
-      meta: 'Affiche - 2021',
+      meta: 'Affiche – 2021',
       cover: 'assets/pf-volley.webp',
       size: [752, 1096],
       bg: '#FFF6F9',
       ink: '#F4818F',
       typo: 'Akzidenz Grotesk Std',
       format: 'A2',
-      desc: "Série d'affiches réalisée pour un championnat de volley-ball opposant diverses équipes dans trois lieux différents.",
+      desc: "Série d’affiches réalisée pour un championnat de volley-ball opposant diverses équipes dans trois lieux différents.",
       boards: [
         'Les trois affiches du championnat : Attack, Defend et Block'
       ]
@@ -109,14 +109,14 @@
     {
       slug: 'film-festival-bienne-biel',
       name: 'Film Festival Bienne/Biel',
-      meta: 'Identité visuelle - 2022',
+      meta: 'Identité visuelle – 2022',
       cover: 'assets/pf-filmfestival.webp',
       size: [1500, 1164],
       bg: '#E6FFE6',
       ink: '#20BA20',
       typo: 'Plantin Std, Helvetica LT Std',
       format: 'A2 et A5',
-      desc: "Identité visuelle pour un festival dédié à la découverte des productions cinématographiques étrangères. L'édition 2022 est consacrée au cinéma asiatique, proposant des films, courts-métrages et documentaires l'ayant pour sujet ou y ayant été produits.",
+      desc: "Identité visuelle pour un festival dédié à la découverte des productions cinématographiques étrangères. L’édition 2022 est consacrée au cinéma asiatique, proposant des films, courts-métrages et documentaires l’ayant pour sujet ou y ayant été produits.",
       boards: [
         'Logo, flyer et affiches du festival',
         'Pages du programme : documentaires, courts-métrages, agenda et films'
@@ -125,14 +125,14 @@
     {
       slug: 'la-nuit-des-musees',
       name: 'La Nuit Des Musées',
-      meta: 'Affiche - 2022',
+      meta: 'Affiche – 2022',
       cover: 'assets/pf-nuitmusees.webp',
       size: [1064, 1443],
       bg: '#FEFFDC',
       ink: '#FFC800',
       typo: 'Avenir Next LT Pro',
       format: 'A3',
-      desc: "Affiche dépliante avec le programme pour l'événement de La Nuit Des Musées 2022.",
+      desc: "Affiche dépliante avec le programme pour l’événement de La Nuit Des Musées 2022.",
       boards: [
         'Affiche dépliante, recto et verso'
       ]
@@ -140,16 +140,16 @@
     {
       slug: 'saeg',
       name: 'SÆG',
-      meta: 'Identité visuelle - 2024',
+      meta: 'Identité visuelle – 2024',
       cover: 'assets/pf-saeg.webp',
       size: [1500, 734],
       bg: '#CDCEC9',
       ink: '#505050',
       typo: 'Sæg, Assistant',
-      desc: "Identité visuelle pour un magasin de mode éco-responsable au style alternatif, axé sur des vêtements pour les jeunes et mettant l'accent sur l'écologie.",
+      desc: "Identité visuelle pour un magasin de mode éco-responsable au style alternatif, axé sur des vêtements pour les jeunes et mettant l’accent sur l’écologie.",
       boards: [
         'Logo, site internet et affiche',
-        "Affiches de la collection Flower Blooming et de l'ouverture du magasin",
+        "Affiches de la collection Flower Blooming et de l’ouverture du magasin",
         'Pages du site internet',
         'Flyer recto verso',
         'Étiquettes de vêtements'
@@ -158,7 +158,7 @@
     {
       slug: 'carre',
       name: 'Carré',
-      meta: 'Édition - 2022',
+      meta: 'Édition – 2022',
       cover: 'assets/pf-carre.webp',
       size: [1320, 1134],
       bg: '#CDF7FF',
@@ -174,29 +174,29 @@
     {
       slug: 'ecole-de-musique-digitale-de-neuchatel',
       name: 'École de musique digitale de Neuchâtel',
-      meta: 'Identité visuelle - 2022',
+      meta: 'Identité visuelle – 2022',
       cover: 'assets/pf-ecolemusique.webp',
       size: [1500, 783],
       bg: '#E7E5FF',
       ink: '#9E98EB',
       typo: 'Avenir Next LT Pro, Gotham',
-      desc: "Conception d'une identité visuelle pour une école de musique électronique, mettant en avant la possibilité d'évoluer dans les formations qu'elle propose.",
+      desc: "Conception d’une identité visuelle pour une école de musique électronique, mettant en avant la possibilité d’évoluer dans les formations qu’elle propose.",
       boards: [
         'Logo et site internet sur ordinateur, tablette et téléphone',
-        "Tote bags aux couleurs de l'école"
+        "Tote bags aux couleurs de l’école"
       ]
     },
     {
       slug: 'texere',
       name: 'Texere',
-      meta: 'Édition - 2022',
+      meta: 'Édition – 2022',
       cover: 'assets/pf-texere.webp',
       size: [1376, 1230],
       bg: '#E4F2D0',
       ink: '#77E600',
       typo: 'BauLF',
       format: 'A4',
-      desc: "Recueil de photographies d'éléments naturels transformés en trames abstraites.",
+      desc: "Recueil de photographies d’éléments naturels transformés en trames abstraites.",
       boards: [
         'Couverture du livre',
         'Doubles pages : photographies et trames abstraites'
@@ -205,18 +205,18 @@
     {
       slug: 'stay-focus',
       name: 'Stay Focus',
-      meta: 'Identité visuelle - 2024',
+      meta: 'Identité visuelle – 2024',
       cover: 'assets/hero-stayfocus.webp',
       size: [1580, 1248],
       bg: '#FFF4DA',
       ink: '#FFB200',
       typo: 'Altivo',
-      desc: "Identité visuelle pour une entreprise de location d'espaces de coworking dédiés aux étudiants, en collaboration avec des établissements scolaires.",
+      desc: "Identité visuelle pour une entreprise de location d’espaces de coworking dédiés aux étudiants, en collaboration avec des établissements scolaires.",
       boards: [
         'Logo, site internet, application et affiche',
         'Pages du site internet',
-        "Icône et écrans de l'application",
-        "Flyers « Impossible d'étudier chez toi ? »",
+        "Icône et écrans de l’application",
+        "Flyers « Impossible d’étudier chez toi ? »",
         'Goodies : gourdes, gobelet, carnet, accroche-portes, porte-clés et clé USB'
       ]
     }
@@ -229,6 +229,7 @@
     about: document.getElementById('view-about'),
     services: document.getElementById('view-services'),
     contact: document.getElementById('view-contact'),
+    legal: document.getElementById('view-legal'),
     portfolio: document.getElementById('view-portfolio'),
     gallery: document.getElementById('gallery'),
     back: document.getElementById('back'),
@@ -240,7 +241,9 @@
     pTypo: document.getElementById('p-typo'),
     pFormat: document.getElementById('p-format'),
     pFormatRow: document.getElementById('p-format-row'),
-    pBoards: document.getElementById('p-boards')
+    pBoards: document.getElementById('p-boards'),
+    pNext: document.getElementById('p-next'),
+    pNextName: document.getElementById('p-next-name')
   };
 
   var activeSlug = null;
@@ -258,7 +261,7 @@
 
   /* Profondeur de chaque vue : sert à savoir si l'on avance ou si l'on
      revient, donc de quel côté la page doit glisser. */
-  var DEPTH = { home: 0, portfolio: 1, about: 1, services: 1, contact: 1, project: 2 };
+  var DEPTH = { home: 0, portfolio: 1, about: 1, services: 1, contact: 1, legal: 1, project: 2 };
   var previousView = null;
 
   /* D'où l'on est arrivé sur une page projet (accueil ou galerie) : c'est
@@ -399,7 +402,7 @@
   function renderProject(project) {
     var fromGallery = indexView === 'portfolio';
     el.back.href = fromGallery ? '#/portfolio' : '#/';
-    el.back.setAttribute('aria-label', fromGallery ? 'Retour au portfolio' : "Retour à l'accueil");
+    el.back.setAttribute('aria-label', fromGallery ? 'Retour au portfolio' : "Retour à l’accueil");
 
     el.pName.textContent = project.name;
     el.pMeta.textContent = project.meta;
@@ -408,17 +411,29 @@
     el.pFormat.textContent = project.format || '';
     el.pFormatRow.hidden = !project.format;
 
+    /* En bas de la fiche : le projet suivant dans la liste, qui boucle. */
+    var next = PROJECTS[(PROJECTS.indexOf(project) + 1) % N];
+    el.pNext.href = '#/projet/' + next.slug;
+    el.pNextName.textContent = next.name;
+
     renderBoards(project);
+  }
+
+  /* Fichier d'une planche, sans son extension : la version 2400 px est
+     « <fichier>.webp », la version 1200 px « <fichier>-1200.webp ». */
+  function boardFile(project, i) {
+    return 'assets/projets/' + project.slug + '-' + (i + 1);
   }
 
   /* Les planches du portfolio, l'une sous l'autre. Le navigateur choisit
      la version 1200 px ou 2400 px selon l'écran ; seule la première est
-     chargée tout de suite. */
+     chargée tout de suite. Chaque planche est un bouton : un clic l'ouvre
+     en grand (voir « Planche agrandie »). */
   function renderBoards(project) {
     var frag = document.createDocumentFragment();
 
     project.boards.forEach(function (alt, i) {
-      var file = 'assets/projets/' + project.slug + '-' + (i + 1);
+      var file = boardFile(project, i);
       var img = document.createElement('img');
       img.className = 'board';
       img.alt = alt;
@@ -429,11 +444,127 @@
       img.sizes = '100vw';
       img.srcset = file + '-1200.webp 1200w, ' + file + '.webp 2400w';
       img.src = file + '.webp';
-      frag.appendChild(img);
+
+      if (!canEnlarge) {
+        frag.appendChild(img);
+        return;
+      }
+
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'board-zoom';
+      button.setAttribute('aria-label', 'Agrandir la planche : ' + alt);
+      button.addEventListener('click', function () { openViewer(project, i); });
+      button.appendChild(img);
+      frag.appendChild(button);
     });
 
     el.pBoards.textContent = '';
     el.pBoards.appendChild(frag);
+  }
+
+  /* ── Planche agrandie ──────────────────────────────────────────────────
+     Un clic sur une planche l'ouvre seule, en plein écran. Sur un écran
+     plus haut que large (téléphone), elle prend toute la hauteur et on la
+     fait glisser de gauche à droite. À la souris, un clic la grossit deux
+     fois et elle suit le pointeur. Le bouton « précédent » du navigateur
+     referme la planche au lieu de quitter la fiche.
+     ───────────────────────────────────────────────────────────────────── */
+
+  var viewer = {
+    dialog: document.getElementById('viewer'),
+    stage: document.getElementById('viewer-stage'),
+    img: document.getElementById('viewer-img'),
+    close: document.getElementById('viewer-close'),
+    bar: document.getElementById('viewer-bar'),
+    prev: document.getElementById('viewer-prev'),
+    next: document.getElementById('viewer-next'),
+    count: document.getElementById('viewer-count'),
+    project: null,
+    index: 0
+  };
+
+  var canEnlarge = typeof viewer.dialog.showModal === 'function';
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var ZOOM = 2;
+
+  function openViewer(project, index) {
+    viewer.project = project;
+    viewer.dialog.showModal();
+    document.body.classList.add('is-viewing');
+    showBoard(index);
+    /* Une entrée d'historique : « précédent » refermera la planche. */
+    window.history.pushState({ viewer: true }, '');
+  }
+
+  function showBoard(index) {
+    var boards = viewer.project.boards;
+    var count = boards.length;
+
+    viewer.index = (index + count) % count;
+    setZoom(false);
+    viewer.img.src = boardFile(viewer.project, viewer.index) + '.webp';
+    viewer.img.alt = boards[viewer.index];
+    viewer.count.textContent = (viewer.index + 1) + ' / ' + count;
+    viewer.bar.hidden = count < 2;
+    viewer.dialog.setAttribute('aria-label',
+      viewer.project.name + ' : planche ' + (viewer.index + 1) + ' sur ' + count);
+    fitStage();
+  }
+
+  /* Planche plus large que l'écran : on l'ouvre sur son milieu. Sinon elle
+     est entière à l'écran, et la souris peut la grossir. */
+  function fitStage() {
+    var extra = viewer.stage.scrollWidth - viewer.stage.clientWidth;
+    viewer.stage.scrollLeft = Math.max(0, extra) / 2;
+    viewer.dialog.classList.toggle('can-zoom', extra <= 1 && finePointer.matches);
+  }
+
+  function closeViewer() {
+    if (viewer.dialog.open) viewer.dialog.close();
+  }
+
+  /* Fermeture, quelle qu'en soit la cause (bouton, Échap, « précédent ») :
+     on rend la page et, si l'entrée d'historique est encore là, on la
+     retire. */
+  function onViewerClose() {
+    document.body.classList.remove('is-viewing');
+    setZoom(false);
+    viewer.img.removeAttribute('src');
+    if (window.history.state && window.history.state.viewer) window.history.back();
+  }
+
+  function setZoom(on, e) {
+    viewer.dialog.classList.toggle('is-zoomed', on);
+    if (on && e) followPointer(e);
+  }
+
+  /* Le point de la planche situé sous le pointeur reste sous le pointeur :
+     en le déplaçant, on parcourt toute la planche. */
+  function followPointer(e) {
+    if (!viewer.dialog.classList.contains('is-zoomed')) return;
+    var box = viewer.stage.getBoundingClientRect();
+    var w = viewer.img.offsetWidth;
+    var h = viewer.img.offsetHeight;
+    var left = box.left + (box.width - w) / 2;
+    var top = box.top + (box.height - h) / 2;
+    var x = Math.max(0, Math.min(1, (e.clientX - left) / w));
+    var y = Math.max(0, Math.min(1, (e.clientY - top) / h));
+    viewer.img.style.transformOrigin = (x * 100).toFixed(2) + '% ' + (y * 100).toFixed(2) + '%';
+  }
+
+  function onStageClick(e) {
+    if (e.target !== viewer.img) { closeViewer(); return; }
+    if (!viewer.dialog.classList.contains('can-zoom')) return;
+    setZoom(!viewer.dialog.classList.contains('is-zoomed'), e);
+  }
+
+  function onViewerKeydown(e) {
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    var direction = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (!direction || viewer.project.boards.length < 2) return;
+    e.preventDefault();
+    showBoard(viewer.index + direction);
   }
 
   /* ── Galerie ───────────────────────────────────────────────────────── */
@@ -551,6 +682,7 @@
     if (hash === 'a-propos') return { view: 'about' };
     if (hash === 'services') return { view: 'services' };
     if (hash === 'contact') return { view: 'contact' };
+    if (hash === 'mentions-legales') return { view: 'legal' };
 
     var match = /^projet\/(.+)$/.exec(hash);
     if (match) {
@@ -565,7 +697,7 @@
      pour un projet, crème sinon. Posé sur <html>, il colore aussi l'en-tête
      et la zone qui apparaît quand on tire la page au-delà de ses bords.
      Sur une page projet, la couleur de ses textes sert aussi au survol. */
-  var WHITE_VIEWS = { portfolio: true, services: true, about: true };
+  var WHITE_VIEWS = { portfolio: true, services: true, about: true, legal: true };
 
   function setPageTheme(background, accent) {
     var root = document.documentElement.style;
@@ -585,6 +717,8 @@
     if (previousView === 'portfolio') galleryScrollY = window.scrollY;
     var backToGallery = view === 'portfolio' && previousView === 'project';
 
+    closeViewer();
+
     if (view === 'home' || view === 'portfolio') indexView = view;
     if (view === 'project') setActive(route.project.slug);
 
@@ -597,6 +731,7 @@
     el.about.hidden = view !== 'about';
     el.services.hidden = view !== 'services';
     el.contact.hidden = view !== 'contact';
+    el.legal.hidden = view !== 'legal';
 
     if (isHome) enterHome();
     if (view === 'portfolio') layoutGallery();
@@ -632,6 +767,7 @@
     if (route.view === 'about') return 'À propos — ' + SITE_NAME;
     if (route.view === 'services') return 'Services & tarifs — ' + SITE_NAME;
     if (route.view === 'contact') return 'Contact — ' + SITE_NAME;
+    if (route.view === 'legal') return 'Mentions légales — ' + SITE_NAME;
     return SITE_NAME + ' — Cyrielle Lüdi, graphiste en Valais';
   }
 
@@ -660,7 +796,8 @@
       project: el.project,
       about: el.about,
       services: el.services,
-      contact: el.contact
+      contact: el.contact,
+      legal: el.legal
     }[view];
   }
 
@@ -1117,6 +1254,23 @@
   });
   document.addEventListener('keydown', onKeydown);
   document.addEventListener('keydown', onMenuKeydown);
+
+  if (canEnlarge) {
+    viewer.dialog.addEventListener('close', onViewerClose);
+    viewer.dialog.addEventListener('keydown', onViewerKeydown);
+    viewer.stage.addEventListener('click', onStageClick);
+    viewer.stage.addEventListener('pointermove', followPointer);
+    viewer.close.addEventListener('click', closeViewer);
+    viewer.prev.addEventListener('click', function () { showBoard(viewer.index - 1); });
+    viewer.next.addEventListener('click', function () { showBoard(viewer.index + 1); });
+    window.addEventListener('popstate', closeViewer);
+    window.addEventListener('resize', function () {
+      if (!viewer.dialog.open) return;
+      setZoom(false);
+      fitStage();
+    });
+  }
+
   window.addEventListener('hashchange', render);
   window.addEventListener('scroll', onWindowScroll, { passive: true });
   window.addEventListener('resize', onResizeOrphans);
@@ -1159,6 +1313,8 @@
       fixOrphans(document);
     });
   }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 
   setActive(DEFAULT_PROJECT);
   render();

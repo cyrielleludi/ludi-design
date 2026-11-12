@@ -10,6 +10,84 @@
                 présenté remplit une case, titres par-dessus le visuel
    ───────────────────────────────────────────────────────────────────── */
 
+/* ── Polices ─────────────────────────────────────────────────────────────
+   Hébergées sur le site (assets/fonts) : rien n'est chargé chez un tiers.
+   Chaque police est découpée en deux fichiers ; le second (latin-ext) ne
+   se charge que si un caractère rare l'exige.
+   ───────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/instrument-serif-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --cream: #FFF3D9;
   --white: #ffffff;
@@ -70,6 +148,15 @@ p, li { text-wrap: pretty; }
   white-space: nowrap;
 }
 
+.noscript {
+  margin: 0;
+  padding: 40px var(--page-pad-x);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.noscript a { text-decoration: underline; }
+
 :focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
@@ -78,7 +165,14 @@ p, li { text-wrap: pretty; }
 
 /* ── Marque ──────────────────────────────────────────────────────────── */
 
-.logo { display: block; user-select: none; }
+.logo { display: block; position: relative; user-select: none; }
+
+/* Le monogramme est étroit : sa zone cliquable déborde un peu. */
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: -4px -10px;
+}
 .logo img { height: var(--logo-h); width: auto; display: block; }
 .logo:hover { opacity: .7; }
 
@@ -235,6 +329,7 @@ p, li { text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 28px;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -312,8 +407,10 @@ p, li { text-wrap: pretty; }
    page lui réserve la place du logo et de la marge au-dessus. */
 .page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--page-bg, var(--cream));
-  padding: calc(var(--header-pad) + var(--logo-h)) var(--page-pad-x) 72px;
+  padding: calc(var(--header-pad) + var(--logo-h)) var(--page-pad-x) 20px;
 }
 
 .page__header {
@@ -431,10 +528,230 @@ p, li { text-wrap: pretty; }
   justify-items: center;
 }
 
+/* Chaque planche est un bouton (clic : planche agrandie). Sans bouton,
+   pour un navigateur trop ancien, l'image garde la même largeur. */
+.board-zoom,
+.boards > .board {
+  width: min(100%, calc((100vh - 96px) * 16 / 9));
+}
+
+.board-zoom {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.board-zoom:focus-visible { outline-offset: -6px; }
+
 .board {
   display: block;
-  width: min(100%, calc((100vh - 96px) * 16 / 9));
+  width: 100%;
   height: auto;
+}
+
+/* Fin de la fiche : retour à la galerie, à gauche ; projet suivant, à
+   droite. Au survol, seule la flèche prend la couleur du projet. */
+.project__end {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  margin-top: 72px;
+}
+
+.project__all {
+  font-size: 14px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.project__next {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.project__all:hover,
+.project__next:hover { color: inherit; }
+
+.project__next-label {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.project__next-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.project__next-go {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  transition: transform .25s var(--ease-out), background-color .2s ease;
+}
+
+.project__next:hover .project__next-go {
+  background: var(--accent, var(--gold));
+  transform: translateX(4px);
+}
+
+/* ── Planche agrandie ────────────────────────────────────────────────────
+   Une planche seule, sur toute la fenêtre, sur le fond de son projet.
+   Entière à l'écran quand la fenêtre est large ; sur un écran plus haut
+   que large, elle prend toute la hauteur et se fait glisser. app.js gère
+   l'ouverture, le grossissement à la souris et la fermeture.
+   ───────────────────────────────────────────────────────────────────── */
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--page-bg, var(--cream));
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.viewer::backdrop { background: transparent; }
+
+.is-viewing { overflow: hidden; }
+
+.viewer__stage {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.viewer__stage::-webkit-scrollbar { display: none; }
+
+/* `margin: auto` centre la planche tant qu'elle tient dans la fenêtre, et
+   la laisse défiler en entier quand elle dépasse. */
+.viewer__img {
+  display: block;
+  flex: none;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  transition: transform .3s var(--ease-out);
+}
+
+@media (orientation: portrait) {
+  .viewer__img {
+    height: 100%;
+    max-width: none;
+  }
+}
+
+.viewer.can-zoom .viewer__img { cursor: zoom-in; }
+
+.viewer.is-zoomed .viewer__stage { overflow: hidden; }
+
+.viewer.is-zoomed .viewer__img {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+
+.viewer__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.viewer__close::before,
+.viewer__close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 1.6px;
+  background: #fff;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.viewer__close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+.viewer__close:hover { background: var(--accent, var(--gold)); }
+
+/* Passage d'une planche à l'autre, en bas au centre. */
+.viewer__bar {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.viewer__step {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+
+.viewer__step:hover { background: rgba(255, 255, 255, 0.16); }
+
+.viewer__count {
+  min-width: 44px;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.viewer :focus-visible { outline-color: #fff; outline-offset: 2px; }
+.viewer__close:focus-visible { box-shadow: 0 0 0 2px var(--ink); }
+
+@media (pointer: coarse) {
+  .viewer__step {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* ── À propos / Contact ──────────────────────────────────────────────── */
@@ -462,7 +779,89 @@ p, li { text-wrap: pretty; }
   font-style: italic;
   font-size: 30px;
   display: inline-block;
+  margin-top: 6px;
+  padding-block: 6px;
+}
+
+.simple .simple__note {
+  margin-top: 40px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.simple .simple__links {
   margin-top: 12px;
+  font-size: 14px;
+}
+
+.simple__links a,
+.legal a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ── Mentions légales ────────────────────────────────────────────────── */
+
+.legal {
+  max-width: 720px;
+  margin-top: 56px;
+}
+
+.legal h1 {
+  font-size: 44px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.legal h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 48px 0 0;
+}
+
+.legal p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+}
+
+/* ── Pied de page ────────────────────────────────────────────────────────
+   En bas de chaque page intérieure, même quand le contenu est court.
+   L'encre éclaircie reste lisible sur tous les fonds de projet.
+   ───────────────────────────────────────────────────────────────────── */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 32px;
+  margin-top: auto;
+  padding-top: 96px;
+  font-size: 12px;
+  color: rgba(29, 29, 27, 0.75);
+}
+
+.footer__copy { margin: 0; }
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+}
+
+.footer__links a {
+  display: inline-block;
+  padding-block: 14px;
+}
+
+.footer__links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ── Services et tarifs ──────────────────────────────────────────────────
@@ -910,7 +1309,8 @@ p, li { text-wrap: pretty; }
   font-style: italic;
   font-size: 30px;
   display: inline-block;
-  margin-top: 16px;
+  margin-top: 12px;
+  padding-block: 4px;
 }
 
 /* ── À propos ────────────────────────────────────────────────────────────
@@ -1441,7 +1841,7 @@ p, li { text-wrap: pretty; }
   }
 
   /* Pages intérieures */
-  .page { padding-bottom: 64px; }
+  .page { padding-bottom: 10px; }
 
   .project { margin-top: 28px; }
   .boards { margin-top: 36px; }
@@ -1461,14 +1861,30 @@ p, li { text-wrap: pretty; }
   .gallery__grid { --cols: 2; --gap: 10px; }
 
   .back {
-    width: 42px;
-    height: 42px;
-    margin-top: 4px;
+    width: 44px;
+    height: 44px;
+    margin-top: 2px;
   }
 
   .detail__name { font-size: 32px; }
   .simple h1,
+  .legal h1,
   .services__head h1 { font-size: 32px; }
+  .legal { margin-top: 28px; }
+
+  /* Fin de fiche : le projet suivant d'abord, sur toute la largeur. */
+  .project__end {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin-top: 48px;
+  }
+
+  .project__next { flex-wrap: wrap; gap: 4px 14px; }
+  .project__next-name { font-size: 26px; }
+  .project__all { padding-block: 12px; }
+
+  .footer { padding-top: 72px; }
+  .viewer__close { top: 14px; right: 14px; }
   .services { margin-top: 28px; }
 
   .service-details {
@@ -1490,6 +1906,36 @@ p, li { text-wrap: pretty; }
   .about__hello { font-size: 32px; }
   .about__quote p { font-size: 22px; }
   .simple { margin-top: 56px; }
+}
+
+/* ── Téléphone tenu à l'horizontale ──────────────────────────────────────
+   Plus assez de hauteur pour empiler le visuel et la bande des titres :
+   ils se placent côte à côte, et la sélection se fait de nouveau au milieu
+   de la liste (--band à zéro, lu par app.js).
+   ───────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 860px) and (orientation: landscape) and (max-height: 520px) {
+  .view--home { --band: 0px; }
+
+  .home__hero {
+    top: 16px;
+    left: 16px;
+    width: calc(50% - 32px);
+    height: calc(100% - 32px);
+  }
+
+  .home__visual::after { display: none; }
+
+  .home__panel { left: 50%; }
+
+  .projects {
+    --fade: linear-gradient(to bottom,
+      transparent 0,
+      #000 30%,
+      #000 70%,
+      transparent 100%);
+    scroll-padding-top: 0;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1519,6 +1965,10 @@ p, li { text-wrap: pretty; }
   .home__hero,
   .home__visual,
   .home__visual::after,
+  .viewer__img,
+  .viewer__close,
+  .viewer__step,
+  .project__next-go,
   .about__portrait,
   .page__header .logo img,
   .menu-toggle__bar,
