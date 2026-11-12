@@ -211,6 +211,10 @@ p, li { text-wrap: pretty; }
   padding-block: calc(50cqh - var(--item-h) / 2);
   -webkit-mask-image: var(--fade);
   mask-image: var(--fade);
+  /* Le masque efface les titres, pas les clics : on retire donc de la zone
+     cliquable ce qui est effacé, ou presque (la dernière demi-entrée), pour
+     qu'un clic dans le vide au-dessus ou en dessous ne change rien. */
+  clip-path: inset(calc(50% - (var(--reach) - 0.5) * var(--item-h)) 0);
 }
 
 .projects::-webkit-scrollbar { display: none; }
@@ -1431,6 +1435,9 @@ p, li { text-wrap: pretty; }
       #000 calc(100% - var(--band) / 2 + var(--item-h)),
       transparent 100%);
     scroll-padding-top: calc(100% - var(--band));
+    /* Ici toute la case reste active : on y fait glisser la liste, et
+       toucher le visuel ouvre le projet. */
+    clip-path: none;
   }
 
   /* Pages intérieures */
