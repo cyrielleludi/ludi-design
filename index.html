@@ -3,9 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ludi Design — Cyrielle Lüdi, graphiste</title>
-<meta name="description" content="Portfolio de Cyrielle Lüdi, graphiste spécialisée en identité visuelle, édition, affiche et packaging. Basée en Suisse.">
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<title>Ludi Design — Cyrielle Lüdi, graphiste en Valais</title>
+<meta name="description" content="Portfolio de Cyrielle Lüdi, graphiste en Valais : identité visuelle, affiches, édition et packaging.">
+<link rel="icon" href="assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Aperçu affiché quand le lien est partagé (WhatsApp, LinkedIn, iMessage…).
+     Ces adresses doivent être complètes : à mettre à jour quand le site
+     passera sur ludi-design.ch. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CH">
+<meta property="og:site_name" content="Ludi Design">
+<meta property="og:title" content="Cyrielle Lüdi, graphiste en Valais">
+<meta property="og:description" content="Identité visuelle, affiches, édition et packaging.">
+<meta property="og:url" content="https://cyrielleludi.github.io/ludi-design/">
+<meta property="og:image" content="https://cyrielleludi.github.io/ludi-design/assets/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cyrielle Lüdi, graphiste en Valais, à côté d'un visuel du projet Stay Focus">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
@@ -19,6 +37,10 @@
     <a class="logo logo--home" href="#/" aria-label="Ludi Design — accueil">
       <img src="assets/logo.svg" alt="" width="47" height="72">
     </a>
+    <h1 class="home__id">
+      <span class="home__id-name">Cyrielle Lüdi</span><span class="visually-hidden">, </span>
+      <span class="home__id-role">Graphiste en Valais</span>
+    </h1>
     <!-- Le visuel du projet actif est inséré par app.js -->
   </div>
 
@@ -33,9 +55,8 @@
       <a class="nav__link" href="#/a-propos">À propos</a>
       <a class="nav__link" href="#/contact">Contact</a>
     </nav>
-    <h1 class="visually-hidden">Portfolio</h1>
     <div class="carousel">
-      <ul class="projects" id="projects"></ul>
+      <ul class="projects" id="projects" aria-label="Projets"></ul>
     </div>
   </div>
 </section>
@@ -446,7 +467,7 @@
   <section class="view simple" id="view-contact" hidden>
     <h1 class="anim" style="--step:0" tabindex="-1">Contact</h1>
     <p class="anim" style="--step:1">Un projet, une collaboration&nbsp;?</p>
-    <a class="mail anim" style="--step:2" href="mailto:bonjour@ludidesign.ch">bonjour@ludidesign.ch</a>
+    <a class="mail anim" style="--step:2" href="mailto:admin@ludi-design.ch">admin@ludi-design.ch</a>
   </section>
 </div>
 

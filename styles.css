@@ -15,8 +15,7 @@
   --white: #ffffff;
   --ink: #1d1d1b;
   --gold: #8a7a4f;
-  --muted: #8f8f8a;
-  --muted-strong: #6f6f6a;
+  --muted: #6f6f6a;  /* textes secondaires : lisible même en 11 px sur le crème */
 
   --sans: 'Instrument Sans', Helvetica, Arial, sans-serif;
   --serif: 'Instrument Serif', Georgia, serif;
@@ -113,16 +112,47 @@ p, li { text-wrap: pretty; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 96px 48px 48px;
+  /* En haut, la place du logo et du nom, avec un peu d'air dessous. */
+  padding: 116px 48px 48px;
 }
 
-.logo--home { position: absolute; top: 28px; left: var(--page-pad-x); }
+.logo--home { position: absolute; top: var(--header-pad); left: var(--page-pad-x); }
+
+/* Nom et métier, à droite du monogramme : la première chose qu'on lit en
+   arrivant. Centrés sur la hauteur du logo (dont la largeur vaut 0,653
+   fois la hauteur). */
+.home__id {
+  position: absolute;
+  top: var(--header-pad);
+  left: calc(var(--page-pad-x) + var(--logo-h) * 0.653 + 18px);
+  height: var(--logo-h);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 400;
+}
+
+.home__id-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.home__id-role {
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 
 /* Jamais plus haut que l'écran : l'accueil tient sans défiler, la molette
    reste libre pour le carrousel. */
 .home__hero {
   width: 100%;
-  height: min(76vh, calc(100vh - 144px));
+  height: min(76vh, calc(100vh - 164px));
   object-fit: contain;
   object-position: center;
   transition: opacity .35s ease;
@@ -317,8 +347,7 @@ p, li { text-wrap: pretty; }
   margin-top: 56px;
   /* Textes secondaires : l'encre éclaircie reste lisible sur tous les
      fonds, du blanc au gris de Fin Haut. */
-  --muted: rgba(29, 29, 27, 0.68);
-  --muted-strong: rgba(29, 29, 27, 0.8);
+  --muted: rgba(29, 29, 27, 0.75);
 }
 
 .project__intro {
@@ -389,7 +418,7 @@ p, li { text-wrap: pretty; }
 
 .detail__specs dd {
   margin: 0;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 .boards {
@@ -458,7 +487,7 @@ p, li { text-wrap: pretty; }
 
 .services__head .services__tip {
   font-size: 14px;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 .services__tip--hover { display: none; }
@@ -551,7 +580,7 @@ p, li { text-wrap: pretty; }
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 /* Le « + » des cases, qui devient une croix quand le détail est ouvert. */
@@ -729,7 +758,7 @@ p, li { text-wrap: pretty; }
 .service-details__desc {
   font-size: 14px;
   line-height: 1.5;
-  color: var(--muted-strong);
+  color: var(--muted);
   margin: 4px 0 0;
 }
 
@@ -781,7 +810,7 @@ p, li { text-wrap: pretty; }
   margin: 24px 0 0;
   font-size: 13px;
   line-height: 1.5;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 /* Packs d'heures : les prix restent visibles, les conditions juste dessous.
@@ -828,7 +857,7 @@ p, li { text-wrap: pretty; }
 .pack__detail {
   font-size: 13px;
   line-height: 1.5;
-  color: var(--muted-strong);
+  color: var(--muted);
   margin: 6px 0 0;
 }
 
@@ -984,7 +1013,7 @@ p, li { text-wrap: pretty; }
   margin: 10px 0 0;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 .about sup {
@@ -1015,7 +1044,7 @@ p, li { text-wrap: pretty; }
 .about__links {
   margin: 12px 0 0;
   font-size: 14px;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 
 .about__links span { margin: 0 6px; }
@@ -1328,6 +1357,16 @@ p, li { text-wrap: pretty; }
     left: var(--page-pad-x);
     z-index: 11;
   }
+
+  .home__id {
+    position: fixed;
+    left: calc(var(--page-pad-x) + var(--logo-h) * 0.653 + 12px);
+    z-index: 11;
+    gap: 4px;
+  }
+
+  .home__id-name { font-size: 19px; }
+  .home__id-role { letter-spacing: 0.16em; }
 
   .home__visual,
   .home__panel {

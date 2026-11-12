@@ -632,7 +632,7 @@
     if (route.view === 'about') return 'À propos — ' + SITE_NAME;
     if (route.view === 'services') return 'Services & tarifs — ' + SITE_NAME;
     if (route.view === 'contact') return 'Contact — ' + SITE_NAME;
-    return SITE_NAME + ' — Cyrielle Lüdi, graphiste';
+    return SITE_NAME + ' — Cyrielle Lüdi, graphiste en Valais';
   }
 
   function markCurrentNav(view) {
