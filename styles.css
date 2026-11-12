@@ -966,7 +966,7 @@ p, li { text-wrap: pretty; }
   font-family: var(--serif);
   font-style: italic;
   font-size: 28px;
-  line-height: 1.25;
+  line-height: 1.3;  /* sur téléphone, la citation court sur cinq lignes */
 }
 
 .about__section { margin-top: 64px; }
