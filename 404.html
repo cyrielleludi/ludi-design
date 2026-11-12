@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — Ludi Design</title>
+<meta name="robots" content="noindex">
+<script>
+/* Cette page peut s’afficher à n’importe quelle adresse du site. On fixe
+   donc d’abord la racine, pour que ses fichiers et ses liens se chargent.
+   Et une adresse tapée sans « # » (ludi-design.ch/contact) est renvoyée
+   vers la bonne page. */
+(function () {
+  var onGitHub = /\.github\.io$/.test(location.hostname);
+  var root = onGitHub ? '/' + location.pathname.split('/')[1] + '/' : '/';
+  var path = location.pathname.slice(root.length).replace(/\/+$/, '').replace(/\.html$/, '');
+
+  if (/^(portfolio|services|a-propos|contact|mentions-legales|projet\/[a-z0-9-]+)$/.test(path)) {
+    location.replace(root + '#/' + path);
+    return;
+  }
+
+  var base = document.createElement('base');
+  base.href = root;
+  document.head.appendChild(base);
+})();
+</script>
+<link rel="icon" href="assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+  <header class="page__header">
+    <a class="logo" href="./" aria-label="Ludi Design — accueil">
+      <img src="assets/logo.svg" alt="" width="47" height="72">
+    </a>
+  </header>
+
+  <section class="view simple">
+    <h1>Page introuvable</h1>
+    <p>Cette page n’existe pas, ou plus.</p>
+    <a class="mail" href="./">Retour à l’accueil</a>
+  </section>
+</div>
+
+</body>
+</html>

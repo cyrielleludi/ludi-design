@@ -790,7 +790,7 @@ p, li { text-wrap: pretty; }
 }
 
 .simple .simple__links {
-  margin-top: 12px;
+  margin-top: 0;
   font-size: 14px;
 }
 
@@ -855,7 +855,7 @@ p, li { text-wrap: pretty; }
 
 .footer__links a {
   display: inline-block;
-  padding-block: 14px;
+  padding-block: 15px;
 }
 
 .footer__links a:hover {
@@ -1446,9 +1446,16 @@ p, li { text-wrap: pretty; }
 }
 
 .about__links {
-  margin: 12px 0 0;
+  margin: 0;
   font-size: 14px;
   color: var(--muted);
+}
+
+/* Liens isolés : assez hauts pour le doigt. */
+.about__links a,
+.simple__links a {
+  display: inline-block;
+  padding-block: 13px;
 }
 
 .about__links span { margin: 0 6px; }
@@ -1634,6 +1641,33 @@ p, li { text-wrap: pretty; }
 
 /* La liste compte douze entrées : décalage plus serré. */
 .projects .anim { animation-delay: calc(var(--step, 0) * 40ms); }
+
+/* ── Très grands écrans ──────────────────────────────────────────────────
+   Au-delà de 1768 px de large, les pages intérieures ne s'étirent plus :
+   leur contenu garde 1680 px et reste centré, en-tête et pied de page
+   compris. Les planches des projets occupent toujours toute la fenêtre.
+   À l'accueil, la liste des projets grandit un peu avec l'écran.
+   ───────────────────────────────────────────────────────────────────── */
+
+@media (min-width: 1769px) {
+  .page { --page-pad-x: calc((100vw - 1680px) / 2); }
+}
+
+@media (min-width: 1920px) and (min-height: 1000px) {
+  :root {
+    --item-h: 64px;
+    --title: 22px;
+    --title-active: 26px;
+  }
+
+  .carousel { max-width: 560px; }
+  .project-link__meta { font-size: 12px; }
+
+  .project-link__go {
+    width: 44px;
+    height: 44px;
+  }
+}
 
 /* ── ≤ 1280px : accueil à parts égales ───────────────────────────────────
    Sur un écran d'ordinateur étroit, la liste gagne de la place pour que
@@ -1879,9 +1913,14 @@ p, li { text-wrap: pretty; }
     margin-top: 48px;
   }
 
-  .project__next { flex-wrap: wrap; gap: 4px 14px; }
+  .project__next {
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    min-height: 44px;
+  }
+
   .project__next-name { font-size: 26px; }
-  .project__all { padding-block: 12px; }
+  .project__all { padding-block: 14px; }
 
   .footer { padding-top: 72px; }
   .viewer__close { top: 14px; right: 14px; }

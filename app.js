@@ -474,7 +474,7 @@
   var viewer = {
     dialog: document.getElementById('viewer'),
     stage: document.getElementById('viewer-stage'),
-    img: document.getElementById('viewer-img'),
+    img: document.createElement('img'),
     close: document.getElementById('viewer-close'),
     bar: document.getElementById('viewer-bar'),
     prev: document.getElementById('viewer-prev'),
@@ -483,6 +483,14 @@
     project: null,
     index: 0
   };
+
+  /* L'image n'existe que dans la planche agrandie : pas de balise vide
+     dans le HTML livré. Ses dimensions donnent tout de suite ses proportions. */
+  viewer.img.className = 'viewer__img';
+  viewer.img.alt = '';
+  viewer.img.width = 2400;
+  viewer.img.height = 1350;
+  viewer.stage.appendChild(viewer.img);
 
   var canEnlarge = typeof viewer.dialog.showModal === 'function';
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
