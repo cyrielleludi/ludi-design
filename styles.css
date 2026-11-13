@@ -228,11 +228,10 @@ p, li { text-wrap: pretty; }
   font-weight: 400;
 }
 
-/* Même caractère que les titres de projets (Instrument Sans), en gras et
-   droit. 22px : la taille du titre sélectionné dans la liste. */
 .home__id-name {
-  font-size: 22px;
-  font-weight: 700;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
   line-height: 1;
 }
 
@@ -1804,7 +1803,7 @@ p, li { text-wrap: pretty; }
     gap: 4px;
   }
 
-  .home__id-name { font-size: 18px; }
+  .home__id-name { font-size: 19px; }
   .home__id-role { letter-spacing: 0.16em; }
 
   .home__visual,
