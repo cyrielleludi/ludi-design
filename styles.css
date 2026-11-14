@@ -1980,6 +1980,10 @@ p, li { text-wrap: pretty; }
 @media (max-width: 520px) {
   .mail { font-size: 25px; }
 
+  /* Liens du pied de page un peu plus serrés : l'e-mail, LinkedIn et les
+     mentions légales tiennent sur une ligne dès 360px de large. */
+  .footer__links { column-gap: 20px; }
+
   .service-details__row {
     flex-direction: column;
     gap: 6px;
