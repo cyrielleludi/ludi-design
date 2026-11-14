@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ludi Design — Cyrielle Lüdi, graphiste en Valais</title>
+<title>Lüdi Design — Cyrielle Lüdi, graphiste en Valais</title>
 <meta name="description" content="Portfolio de Cyrielle Lüdi, graphiste en Valais : identité visuelle, affiches, édition et packaging.">
+<meta name="author" content="Cyrielle Lüdi">
 <link rel="icon" href="assets/favicon-96.png" type="image/png" sizes="96x96">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -14,7 +15,7 @@
      Ces adresses doivent être complètes : ce sont celles du site en ligne. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CH">
-<meta property="og:site_name" content="Ludi Design">
+<meta property="og:site_name" content="Lüdi Design">
 <meta property="og:title" content="Cyrielle Lüdi, graphiste en Valais">
 <meta property="og:description" content="Identité visuelle, affiches, édition et packaging.">
 <meta property="og:url" content="https://ludi-design.ch/">
@@ -23,6 +24,92 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Cyrielle Lüdi, graphiste en Valais, à côté d’un visuel du projet Stay Focus">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- Fiche d'identité pour les robots (Google, assistants IA) : qui est
+     derrière le site, ce qu'elle propose, où et comment la joindre.
+     Ces informations sont répétées dans llms.txt, à la racine du site :
+     si l'e-mail, le nom ou les services changent, corriger les deux. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ludi-design.ch/#site",
+      "url": "https://ludi-design.ch/",
+      "name": "Lüdi Design",
+      "alternateName": ["Ludi Design", "ludi-design.ch"],
+      "description": "Portfolio de Cyrielle Lüdi, graphiste en Valais : identité visuelle, affiches, édition et packaging.",
+      "inLanguage": "fr-CH",
+      "publisher": { "@id": "https://ludi-design.ch/#studio" },
+      "author": { "@id": "https://ludi-design.ch/#cyrielle-ludi" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ludi-design.ch/#cyrielle-ludi",
+      "name": "Cyrielle Lüdi",
+      "givenName": "Cyrielle",
+      "familyName": "Lüdi",
+      "alternateName": "Cyrielle Ludi",
+      "jobTitle": "Graphiste",
+      "description": "Graphiste en Valais : identités visuelles, affiches, livres et emballages.",
+      "url": "https://ludi-design.ch/",
+      "image": "https://ludi-design.ch/assets/cyrielle.jpg",
+      "email": "cyrielle@ludi-design.ch",
+      "worksFor": { "@id": "https://ludi-design.ch/#studio" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Valais",
+        "addressCountry": "CH"
+      },
+      "sameAs": ["https://www.linkedin.com/in/cyrielle-ludi/"],
+      "knowsAbout": ["Identité visuelle", "Logo", "Affiche", "Édition", "Packaging"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "EDHEA, École de design et haute école d’art",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sierre",
+          "addressCountry": "CH"
+        }
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "CFC de graphiste et maturité professionnelle"
+      },
+      "award": [
+        "2e place, logo de la 27e Fête cantonale des musiques valaisannes (2022)",
+        "2e place, logo du Bureau des Échanges Linguistiques (2021)"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://ludi-design.ch/#studio",
+      "name": "Lüdi Design",
+      "alternateName": "Ludi Design",
+      "description": "Graphisme en Valais et dans toute la Suisse romande : identité visuelle, affiches et imprimés, édition, packaging.",
+      "url": "https://ludi-design.ch/",
+      "logo": "https://ludi-design.ch/assets/apple-touch-icon.png",
+      "image": "https://ludi-design.ch/assets/partage.jpg",
+      "email": "cyrielle@ludi-design.ch",
+      "founder": { "@id": "https://ludi-design.ch/#cyrielle-ludi" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Valais",
+        "addressCountry": "CH"
+      },
+      "areaServed": ["Valais", "Suisse romande"],
+      "currenciesAccepted": "CHF",
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identité visuelle", "description": "Logo, couleurs, typographies et charte graphique" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Affiche et imprimés", "description": "Affiches, flyers, cartes de visite et déclinaisons" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Édition", "description": "Brochures, dépliants, livres et catalogues" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Packaging", "description": "Étiquettes de vin, de miel ou du terroir, emballages" } }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
@@ -36,7 +123,7 @@
 <!-- ── Accueil ─────────────────────────────────────────────────────────── -->
 <section class="view view--home" id="view-home" hidden>
   <div class="home__visual">
-    <a class="logo logo--home" href="#/" aria-label="Ludi Design — accueil">
+    <a class="logo logo--home" href="#/" aria-label="Lüdi Design — accueil">
       <img src="assets/logo.svg" alt="" width="47" height="72">
     </a>
     <h1 class="home__id">
@@ -66,7 +153,7 @@
 <!-- ── Pages intérieures ───────────────────────────────────────────────── -->
 <div class="page" id="pages" hidden>
   <header class="page__header">
-    <a class="logo" href="#/" aria-label="Ludi Design — accueil">
+    <a class="logo" href="#/" aria-label="Lüdi Design — accueil">
       <img src="assets/logo.svg" alt="" width="47" height="72">
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-pages" aria-label="Ouvrir le menu">
@@ -129,7 +216,8 @@
     </nav>
   </section>
 
-  <!-- À propos -->
+  <!-- À propos. Le parcours, les distinctions et les outils sont repris
+       dans llms.txt, à la racine du site : y reporter tout changement. -->
   <section class="view about" id="view-about" hidden>
     <div class="about__intro">
       <img class="about__portrait anim" style="--step:0" src="assets/cyrielle.jpg" width="584" height="640" loading="lazy" alt="Portrait de Cyrielle Lüdi">
@@ -215,7 +303,9 @@
     </p>
   </section>
 
-  <!-- Services et tarifs : galerie des offres, tarifs au survol -->
+  <!-- Services et tarifs : galerie des offres, tarifs au survol.
+       Les prestations et les prix sont repris dans llms.txt, à la racine
+       du site : y reporter tout changement. -->
   <section class="view services" id="view-services" hidden>
     <header class="services__head anim" style="--step:0">
       <h1 tabindex="-1">Services &amp; tarifs</h1>
@@ -474,7 +564,9 @@
     <a class="services__cta anim" style="--step:10" href="#/contact">Demander un devis</a>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact. L'adresse e-mail figure aussi dans les mentions légales,
+       le pied de page, le message sans JavaScript, la fiche d'identité
+       pour les robots (en haut de ce fichier) et llms.txt. -->
   <section class="view simple" id="view-contact" hidden>
     <h1 class="anim" style="--step:0" tabindex="-1">Contact</h1>
     <p class="anim" style="--step:1">Un projet, une collaboration&nbsp;?</p>

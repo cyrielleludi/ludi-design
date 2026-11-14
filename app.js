@@ -7,7 +7,7 @@
   /* Projet affiché par défaut à l'accueil. */
   var DEFAULT_PROJECT = 'stay-focus';
 
-  var SITE_NAME = 'Ludi Design';
+  var SITE_NAME = 'Lüdi Design';
 
   /* `cover` : visuel principal (accueil et galerie). `size` : ses dimensions
      en pixels, [largeur, hauteur] — facultatif, mais évite que la galerie
@@ -18,7 +18,9 @@
      sélectionné (accueil, survol dans la galerie). `format` : facultatif.
      `boards` : les planches, dans l'ordre, chacune décrite pour les lecteurs
      d'écran. Leurs fichiers : assets/projets/<slug>-1.webp, -2.webp…
-     (2400 px de large), et la version -1200.webp pour les petits écrans. */
+     (2400 px de large), et la version -1200.webp pour les petits écrans.
+     La liste (nom, type, année, description) est reprise dans llms.txt, à
+     la racine du site : y reporter tout ajout, retrait ou changement. */
   var PROJECTS = [
     {
       slug: 'la-nuit-des-bibliotheques',

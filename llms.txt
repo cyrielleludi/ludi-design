@@ -1,0 +1,66 @@
+# Lüdi Design
+
+> Cyrielle Lüdi est graphiste en Valais (Suisse). Sous le nom Lüdi Design, elle crée des identités visuelles, des affiches, des livres et des emballages pour des entreprises, des associations, des festivals et des projets culturels, en Valais et dans toute la Suisse romande.
+
+Ce fichier résume le site https://ludi-design.ch/ pour les assistants IA et les moteurs de recherche. Le nom s’écrit « Lüdi Design » ; dans l’adresse du site et l’adresse e-mail, il devient « ludi-design », sans tréma.
+
+- Nom : Cyrielle Lüdi
+- Métier : graphiste
+- Lieu : Valais, Suisse
+- Zone d’activité : Valais et toute la Suisse romande
+- Domaines : identité visuelle (logo, charte graphique), affiches et imprimés, édition (brochures, livres, catalogues), packaging (étiquettes, emballages)
+- Contact : cyrielle@ludi-design.ch
+- LinkedIn : https://www.linkedin.com/in/cyrielle-ludi/
+- Devis : détaillé et gratuit, après un premier échange
+- Langue du site : français
+
+Lüdi, comme ludique : ses projets gardent toujours une petite part de jeu, sans perdre le sérieux qu’il faut. Sa méthode : écouter d’abord, dessiner ensuite. Elle cherche à comprendre le projet, son public et ce qui le rend différent, puis elle explore, teste et affine jusqu’au détail.
+
+Formation : CFC de graphiste et maturité professionnelle à l’EDHEA (École de design et haute école d’art), à Sierre, de 2020 à 2024.
+
+Stages de graphiste : CRTO (Centre Régional Travail & Orientation), Monthey, 2026 ; Créambule, Givisiez, 2025 ; spirale.li, Monthey, 2023 ; Did We Do, Lausanne, 2023.
+
+Distinctions : 2e place pour le logo de la 27e Fête cantonale des musiques valaisannes (2022) ; 2e place pour le logo du Bureau des Échanges Linguistiques (2021).
+
+Outils : InDesign, Illustrator, Photoshop, Lightroom, Figma, Claude Code, Glyphs et After Effects ; un plotter de découpe pour le vinyle, sur une vitrine comme en thermocollant sur un t-shirt.
+
+Droits d’auteur : les textes et les créations présentés sur le site sont l’œuvre de Cyrielle Lüdi, sauf mention contraire. Ils ne peuvent pas être reproduits sans son accord.
+
+In English: Cyrielle Lüdi is a graphic designer based in Valais, Switzerland. As Lüdi Design, she creates visual identities, posters, books and packaging for businesses, associations, festivals and cultural projects in Valais and across French-speaking Switzerland. Contact: cyrielle@ludi-design.ch. The website is in French.
+
+Dernière mise à jour : 14 novembre 2026.
+
+## Pages du site
+
+- [Accueil](https://ludi-design.ch/): les projets en un coup d’œil
+- [Portfolio](https://ludi-design.ch/#/portfolio): tous les projets
+- [Services et tarifs](https://ludi-design.ch/#/services): prestations, prix indicatifs et packs d’heures
+- [À propos](https://ludi-design.ch/#/a-propos): présentation, parcours, distinctions et outils
+- [Contact](https://ludi-design.ch/#/contact): adresse e-mail et LinkedIn
+- [Mentions légales](https://ludi-design.ch/#/mentions-legales): éditrice du site, hébergement, droits d’auteur et protection des données
+
+## Services et tarifs
+
+Chaque projet est différent : ces prix donnent un ordre de grandeur, et un devis détaillé et gratuit suit le premier échange. Prix en francs suisses, frais d’impression non compris. Deux séries de corrections sont incluses dans chaque forfait.
+
+- [Identité visuelle](https://ludi-design.ch/#/services): logo, couleurs, typographies et charte graphique. Logo dès CHF 900 : deux pistes créatives, deux séries de corrections, fichiers finaux pour le print et le web. Identité visuelle complète dès CHF 2’400 : logo, couleurs, typographies, charte graphique et premières déclinaisons (papeterie, réseaux sociaux).
+- [Affiche et imprimés](https://ludi-design.ch/#/services): affiche (A3 à F4), prête pour l’impression, dès CHF 550. Flyer recto-verso ou carton d’invitation dès CHF 400. Carte de visite, à partir d’un logo existant, dès CHF 200. Déclinaison d’un visuel à un autre format (flyer, bannière web, publication) dès CHF 150.
+- [Édition](https://ludi-design.ch/#/services): brochure ou dépliant, jusqu’à 8 pages, dès CHF 900. Livre, catalogue ou rapport annuel dès CHF 50 par page.
+- [Packaging](https://ludi-design.ch/#/services): étiquette prête pour l’impression (vin, miel, bière, produits du terroir) dès CHF 650. Emballage complet (boîte, sachet ou gamme de produits), du concept au fichier d’impression, dès CHF 1’800.
+- [Au temps passé](https://ludi-design.ch/#/services): retouches, adaptations, petits travaux et corrections supplémentaires à CHF 90 l’heure, comptés au quart d’heure.
+- [Packs d’heures](https://ludi-design.ch/#/services): 10 heures pour CHF 850 (CHF 85 l’heure), 20 heures pour CHF 1’600 (CHF 80 l’heure), 40 heures pour CHF 3’000 (CHF 75 l’heure). Le pack est payé en une fois, à la commande ; les heures restantes sont valables 3 ans après la première demande.
+
+## Projets
+
+- [La Nuit des Bibliothèques](https://ludi-design.ch/#/projet/la-nuit-des-bibliotheques): identité visuelle, 2024. Identité visuelle pour La Nuit des Bibliothèques, une soirée durant laquelle cinq bibliothèques de Sion ouvrent leurs portes jusqu’à minuit. Chaque lieu a sa forme et sa couleur, déclinées sur l’affiche, le dépliant, le plan, le site internet et les goodies. Projet réalisé pour l’examen final du CFC de graphiste, à l’EDHEA.
+- [Fin Haut](https://ludi-design.ch/#/projet/fin-haut): édition, 2022. Archivage de quatre témoignages sur la disparition du tourisme dans la commune de Finhaut, autrefois populaire auprès des étrangers.
+- [Pot de miel](https://ludi-design.ch/#/projet/pot-de-miel): packaging, 2025. Conception d’étiquette et de packaging pour des pots de miel offerts aux collaborateurs de la Ligue pulmonaire fribourgeoise. Projet réalisé en collaboration avec Créambule.
+- [K-Pop Festival](https://ludi-design.ch/#/projet/k-pop-festival): identité visuelle, 2021. Identité visuelle pour un festival de musique de pop coréenne. Le changement de rythme, une de ses particularités, a servi de base au style graphique de l’événement.
+- [Championnat de volley-ball](https://ludi-design.ch/#/projet/championnat-de-volley-ball): affiche, 2021. Série d’affiches réalisée pour un championnat de volley-ball opposant diverses équipes dans trois lieux différents.
+- [Film Festival Bienne/Biel](https://ludi-design.ch/#/projet/film-festival-bienne-biel): identité visuelle, 2022. Identité visuelle pour un festival dédié à la découverte des productions cinématographiques étrangères. L’édition 2022 est consacrée au cinéma asiatique, proposant des films, courts-métrages et documentaires l’ayant pour sujet ou y ayant été produits.
+- [La Nuit Des Musées](https://ludi-design.ch/#/projet/la-nuit-des-musees): affiche, 2022. Affiche dépliante avec le programme pour l’événement de La Nuit Des Musées 2022.
+- [SÆG](https://ludi-design.ch/#/projet/saeg): identité visuelle, 2024. Identité visuelle pour un magasin de mode éco-responsable au style alternatif, axé sur des vêtements pour les jeunes et mettant l’accent sur l’écologie.
+- [Carré](https://ludi-design.ch/#/projet/carre): édition, 2022. Livre réunissant trois concepts réalisés sur la base de trois mots : limite, chaos et transparence.
+- [École de musique digitale de Neuchâtel](https://ludi-design.ch/#/projet/ecole-de-musique-digitale-de-neuchatel): identité visuelle, 2022. Conception d’une identité visuelle pour une école de musique électronique, mettant en avant la possibilité d’évoluer dans les formations qu’elle propose.
+- [Texere](https://ludi-design.ch/#/projet/texere): édition, 2022. Recueil de photographies d’éléments naturels transformés en trames abstraites.
+- [Stay Focus](https://ludi-design.ch/#/projet/stay-focus): identité visuelle, 2024. Identité visuelle pour une entreprise de location d’espaces de coworking dédiés aux étudiants, en collaboration avec des établissements scolaires.
